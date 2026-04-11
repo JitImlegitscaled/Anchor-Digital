@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anchor Digital — Web Services & Innovation</title>
-  <meta name="description" content="Anchor Digital builds professional websites that help small businesses get found online, rank on Google, and convert visitors into paying customers. Based in Australia." />
+  <meta name="description" content="Anchor Digital builds professional websites that help small businesses get found online, rank on Google, and convert visitors into paying customers. Based in Florida." />
   <!-- Open Graph -->
   <meta property="og:title" content="Anchor Digital — Web Services & Innovation" />
   <meta property="og:description" content="Professional websites that anchor your business online. Custom design, SEO, Google Business Profile, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="brand assets/Logo.png" />
-  <link rel="icon" type="image/svg+xml" href="brand assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="brand assets/favicon.png" />
   <link rel="icon" type="image/png" href="Favicon.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="Favicon.png" />
   <!-- Fonts -->
@@ -40,7 +40,7 @@
       --nav-scrolled-bg:  rgba(255,255,255,0.97);
       --hero-bg:          #e8f4f8;
       --hero-overlay-end: rgba(232,244,248,0.65);
-      --hero-canvas-filter: invert(1) hue-rotate(180deg) saturate(0.55) brightness(1.1);
+      /* hero-canvas-filter removed — using CSS gradient bg instead */
       --toggle-track:     rgba(27,42,74,0.07);
     }
 
@@ -64,7 +64,7 @@
       --nav-scrolled-bg:  rgba(8,14,26,0.88);
       --hero-bg:          #080e1a;
       --hero-overlay-end: rgba(8,14,26,0.70);
-      --hero-canvas-filter: invert(0) hue-rotate(0deg) saturate(1.1) brightness(0.55);
+      /* hero-canvas-filter removed — using CSS gradient bg instead */
       --toggle-track:     rgba(34,211,238,0.07);
     }
 
@@ -155,6 +155,15 @@
       border-color: rgba(255,255,255,0.55);
       color: var(--white);
     }
+    [data-theme="light"] #hero .btn-outline {
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+    [data-theme="light"] #hero .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
 
     /* ─── Fade-in Animation ─────────────────────────────────────── */
     .reveal {
@@ -198,7 +207,7 @@
       transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
     }
     #navbar.scrolled {
-      background: rgba(255,255,255,0.97);
+      background: var(--nav-scrolled-bg);
       backdrop-filter: blur(12px);
       box-shadow: 0 2px 20px rgba(27,42,74,0.08);
       padding: 12px 0;
@@ -298,6 +307,31 @@
       border-bottom: 1px solid rgba(27,42,74,0.08);
     }
     .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 24px; }
+    .mobile-social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .mobile-social-link {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(0,180,216,0.08);
+      border: 1px solid rgba(0,180,216,0.15);
+      color: #00B4D8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s ease, transform 0.18s cubic-bezier(.34,1.56,.64,1);
+    }
+    .mobile-social-link:hover {
+      background: rgba(0,180,216,0.18);
+      transform: translateY(-2px);
+    }
+    .mobile-social-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .mobile-social-link svg { width: 18px; height: 18px; }
 
     /* ─── HERO ──────────────────────────────────────────────────── */
     #hero {
@@ -309,14 +343,50 @@
       padding: 120px 0 80px;
       background: #e8f4f8;
     }
-    /* WebGL shader canvas — CSS invert flips dark→light, hue-rotate keeps teal palette */
-    #hero-canvas {
+    /* Animated gradient background for hero */
+    @keyframes heroGradientShift {
+      0%   { background-position: 0% 50%; }
+      25%  { background-position: 100% 25%; }
+      50%  { background-position: 50% 100%; }
+      75%  { background-position: 0% 75%; }
+      100% { background-position: 0% 50%; }
+    }
+    #hero-bg-gradient {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      touch-action: none;
-      filter: invert(1) hue-rotate(180deg) saturate(0.55) brightness(1.1);
+      background: linear-gradient(135deg, #e8f4f8 0%, #dff0f8 25%, #f0f8ff 50%, #e0eef8 75%, #e8f4f8 100%);
+      background-size: 300% 300%;
+      animation: heroGradientShift 20s ease infinite;
+    }
+    /* Subtle dot grid overlay */
+    #hero-bg-gradient::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.03;
+    }
+    [data-theme="dark"] #hero-bg-gradient {
+      background: linear-gradient(135deg, #080e1a 0%, #0f1928 25%, #111d34 50%, #0a1525 75%, #080e1a 100%);
+      background-size: 300% 300%;
+      animation: heroGradientShift 20s ease infinite;
+    }
+    /* Teal glow spots for dark mode */
+    [data-theme="dark"] #hero-bg-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 40% 50% at 20% 40%, rgba(0,180,216,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 45% at 75% 30%, rgba(0,180,216,0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 50% 80%, rgba(0,180,216,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    [data-theme="dark"] #hero-bg-gradient::after {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.025;
     }
     /* Soft edge vignette */
     #hero-overlay {
@@ -1115,6 +1185,7 @@
     .social-link {
       width: 44px; height: 44px;
       border-radius: 12px;
+      color: #00B4D8;
       background: var(--gray-bg);
       border: 1px solid rgba(27,42,74,0.08);
       display: flex;
@@ -1431,16 +1502,18 @@
     .footer-social-link {
       width: 38px; height: 38px;
       border-radius: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      color: #00B4D8;
+      background: rgba(0,180,216,0.08);
+      border: 1px solid rgba(0,180,216,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.18s ease, transform 0.18s cubic-bezier(.34,1.56,.64,1), border-color 0.18s ease;
     }
     .footer-social-link:hover {
-      background: rgba(0,180,216,0.2);
-      border-color: rgba(0,180,216,0.4);
+      background: rgba(0,180,216,0.25);
+      border-color: rgba(0,180,216,0.5);
+      color: #33d4f0;
       transform: translateY(-2px);
     }
     .footer-social-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
@@ -1939,12 +2012,12 @@
     .resource-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(27,42,74,0.5), rgba(27,42,74,0.05));
+      background: linear-gradient(to top, rgba(27,42,74,0.35), rgba(27,42,74,0.0));
     }
     .resource-img-color {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,180,216,0.35), rgba(0,119,182,0.25));
+      background: linear-gradient(135deg, rgba(0,180,216,0.15), rgba(0,119,182,0.10));
       mix-blend-mode: multiply;
     }
     .resource-cat {
@@ -2043,7 +2116,7 @@
     }
     /* Hero */
     #hero { transition: background 0.35s ease; }
-    #hero-canvas { filter: var(--hero-canvas-filter); transition: filter 0.35s ease; }
+    #hero-bg-gradient { transition: background 0.35s ease; }
     #hero-overlay { transition: background 0.35s ease; }
     [data-theme="dark"] #hero {
       background: radial-gradient(ellipse 70% 60% at 20% 40%, rgba(34,211,238,0.10) 0%, transparent 60%),
@@ -2304,10 +2377,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 16px 40px rgba(0,0,0,0.2);
     }
 
-    /* Hero canvas filter for dark mode */
-    [data-theme="dark"] #hero-canvas {
-      filter: var(--hero-canvas-filter);
-    }
     [data-theme="dark"] #hero {
       background: var(--hero-bg);
     }
@@ -2371,11 +2440,33 @@
       <li><a href="#audit" class="mobile-nav-link">Free Audit</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary mobile-nav-link">Get a Free Quote</a>
+    <div class="mobile-social">
+      <a href="https://www.instagram.com/anchordigitalll/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61587474906272" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@anchordigita1?lang=en" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+    </div>
   </div>
 
   <!-- ══════════ HERO ══════════ -->
   <section id="hero" aria-label="Hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div id="hero-bg-gradient" aria-hidden="true"></div>
     <div id="hero-overlay" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
@@ -2407,7 +2498,7 @@
               <span class="mock-dot mock-dot-r"></span>
               <span class="mock-dot mock-dot-y"></span>
               <span class="mock-dot mock-dot-g"></span>
-              <span class="mock-url">🔒 yourbusiness.com.au</span>
+              <span class="mock-url">🔒 yourbusiness.com</span>
             </div>
             <!-- REPLACE: swap the placeholder below with a real screenshot — recommended size 560×350px or wider -->
             <div class="mock-screenshot-area" aria-hidden="true">
@@ -3033,7 +3124,7 @@
 
         <article class="resource-card reveal reveal-delay-2">
           <div class="resource-img">
-            <img src="Untitled design (2).png" alt="What to Look for When Hiring a Web Designer" loading="lazy" />
+            <img src="Gemini_Generated_Image_pkehtypkehtypkeh.png" alt="What to Look for When Hiring a Web Designer" loading="lazy" />
             <div class="resource-img-overlay"></div>
             <div class="resource-img-color"></div>
             <span class="resource-cat">Business Tips</span>
@@ -3140,15 +3231,6 @@
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Can I update the website myself?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">If you'd like to manage content yourself, we can build your site on a CMS like WordPress that makes editing simple. Alternatively, for most small updates — changing contact details, adding a new service, updating prices — you can just reach out and we'll handle it quickly, often at no extra charge.</div>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -3183,23 +3265,25 @@
             </div>
           </div>
 
-          <div class="contact-detail reveal reveal-delay-3">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.58 4.5 2 2 0 0 1 3.55 2.32h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          <div class="social-links reveal reveal-delay-3">
+            <a href="https://www.instagram.com/anchordigitalll/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
               </svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Phone</div>
-              <div class="contact-detail-value">+1 813-539-7570</div>
-            </div>
-          </div>
-
-          <div class="social-links reveal reveal-delay-4">
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/anchordigitalll/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Anchor Digital on Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#1B2A4A"/>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61587474906272" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@anchordigita1?lang=en" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
               </svg>
             </a>
           </div>
@@ -3370,8 +3454,23 @@
           <p class="footer-tagline">We build professional websites that anchor your business online — helping you get found, build trust, and grow.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/anchordigitalll/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.6)"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61587474906272" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@anchordigita1?lang=en" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
               </svg>
             </a>
           </div>
@@ -3393,8 +3492,10 @@
           <ul class="footer-links">
             <li><a href="#contact">Get a Free Quote</a></li>
             <li><a href="mailto:jitscaling@gmail.com">jitscaling@gmail.com</a></li>
-            <li><a href="tel:+18135397570">+1 813-539-7570</a></li>
-            <li><a href="https://www.instagram.com/anchordigitalll/" target="_blank" rel="noopener noreferrer">@anchordigitalll</a></li>
+            <li><a href="https://www.instagram.com/anchordigitalll/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61587474906272" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.tiktok.com/@anchordigita1?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            <li><a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -3740,187 +3841,6 @@
     });
   </script>
 
-  <!-- ══════════ HERO SHADER ══════════ -->
-  <script>
-    (function() {
-      const canvas = document.getElementById('hero-canvas');
-      if (!canvas) return;
-
-      const gl = canvas.getContext('webgl2');
-      if (!gl) return; // graceful fallback — static CSS bg shows instead
-
-      // ── Shader sources ──────────────────────────────────────────
-      const vertSrc = `#version 300 es
-precision highp float;
-in vec4 position;
-void main(){ gl_Position = position; }`;
-
-      // Original shader by Matthias Hurrle (@atzedent),
-      // colors remapped to Anchor Digital light palette (white/teal/sky).
-      const fragSrc = `#version 300 es
-precision highp float;
-out vec4 O;
-uniform vec2 resolution;
-uniform float time;
-uniform vec2 touch;
-uniform vec2 move;
-uniform int pointerCount;
-#define FC gl_FragCoord.xy
-#define T time
-#define R resolution
-#define MN min(R.x,R.y)
-
-float rnd(vec2 p){
-  p=fract(p*vec2(12.9898,78.233));
-  p+=dot(p,p+34.56);
-  return fract(p.x*p.y);
-}
-float noise(in vec2 p){
-  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
-  float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);
-  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);
-}
-float fbm(vec2 p){
-  float t=.0,a=1.; mat2 m=mat2(1.,-.5,.2,1.2);
-  for(int i=0;i<5;i++){ t+=a*noise(p); p*=2.*m; a*=.5; }
-  return t;
-}
-float clouds(vec2 p){
-  float d=1.,t=.0;
-  for(float i=.0;i<3.;i++){
-    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
-    t=mix(t,d,a); d=a; p*=2./(i+1.);
-  }
-  return t;
-}
-void main(void){
-  vec2 uv=(FC-.5*R)/MN, st=uv*vec2(2,1);
-  vec3 col=vec3(0);
-  float bg=clouds(vec2(st.x+T*.5,-st.y));
-  uv*=1.-.3*(sin(T*.2)*.5+.5);
-
-  for(float i=1.;i<12.;i++){
-    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
-    vec2 p=uv;
-    float d=length(p);
-
-    // Teal/sky cycling colours (bright, not dark)
-    vec3 cyclicCol = cos(sin(i)*vec3(1,2,3))*0.5+0.5;
-    // Push into teal/cyan/sky range: boost G+B, keep R low
-    cyclicCol = vec3(cyclicCol.r*0.3, 0.55+cyclicCol.g*0.45, 0.65+cyclicCol.b*0.35);
-
-    col += .00125/d*(cyclicCol + 1.);
-    float b=noise(i+p+bg*1.731);
-    col += .002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-
-    // Background: blend toward light sky-white instead of dark
-    vec3 skyBg = vec3(0.88+bg*0.12, 0.95+bg*0.05, 0.98);
-    col = mix(col, skyBg, d * 0.55);
-  }
-
-  // Invert: dark navy/teal shader → light sky/white with soft teal tint
-  col = 1.0 - col;
-  // Desaturate slightly and push toward white
-  float lum = dot(col, vec3(0.299, 0.587, 0.114));
-  col = mix(col, vec3(lum), 0.35);
-  col = col * 0.5 + 0.5; // compress range so output is always light (0.5–1.0)
-  col = clamp(col, 0.0, 1.0);
-
-  O = vec4(col, 1.0);
-}`;
-
-      // ── WebGL setup ─────────────────────────────────────────────
-      let program, vs, fs, buf;
-      let uRes, uTime, uTouch, uMove, uPtrCount;
-
-      function compile(shader, src) {
-        gl.shaderSource(shader, src);
-        gl.compileShader(shader);
-      }
-
-      function setup() {
-        vs = gl.createShader(gl.VERTEX_SHADER);
-        fs = gl.createShader(gl.FRAGMENT_SHADER);
-        compile(vs, vertSrc);
-        compile(fs, fragSrc);
-        program = gl.createProgram();
-        gl.attachShader(program, vs);
-        gl.attachShader(program, fs);
-        gl.linkProgram(program);
-
-        buf = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
-
-        const pos = gl.getAttribLocation(program, 'position');
-        gl.enableVertexAttribArray(pos);
-        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-
-        uRes      = gl.getUniformLocation(program, 'resolution');
-        uTime     = gl.getUniformLocation(program, 'time');
-        uTouch    = gl.getUniformLocation(program, 'touch');
-        uMove     = gl.getUniformLocation(program, 'move');
-        uPtrCount = gl.getUniformLocation(program, 'pointerCount');
-      }
-
-      function resize() {
-        const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
-        canvas.width  = canvas.offsetWidth  * dpr;
-        canvas.height = canvas.offsetHeight * dpr;
-        gl.viewport(0, 0, canvas.width, canvas.height);
-      }
-
-      // ── Pointer tracking ────────────────────────────────────────
-      let mouseCoords = [0, 0];
-      let moveDeltas  = [0, 0];
-      let ptrCount    = 0;
-      const pointers  = new Map();
-
-      function mapCoord(x, y) {
-        const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
-        return [x * dpr, canvas.height - y * dpr];
-      }
-
-      canvas.addEventListener('pointerdown', e => {
-        ptrCount++;
-        pointers.set(e.pointerId, mapCoord(e.clientX, e.clientY));
-      });
-      canvas.addEventListener('pointerup', e => {
-        pointers.delete(e.pointerId);
-        ptrCount = Math.max(0, ptrCount - 1);
-      });
-      canvas.addEventListener('pointerleave', e => {
-        pointers.delete(e.pointerId);
-        ptrCount = Math.max(0, ptrCount - 1);
-      });
-      canvas.addEventListener('pointermove', e => {
-        if (!pointers.has(e.pointerId)) return;
-        pointers.set(e.pointerId, mapCoord(e.clientX, e.clientY));
-        moveDeltas = [moveDeltas[0] + e.movementX, moveDeltas[1] + e.movementY];
-        mouseCoords = mapCoord(e.clientX, e.clientY);
-      });
-
-      // ── Render loop ─────────────────────────────────────────────
-      let raf;
-      function loop(now) {
-        gl.clearColor(0, 0, 0, 1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.useProgram(program);
-        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.uniform2f(uRes, canvas.width, canvas.height);
-        gl.uniform1f(uTime, now * 1e-3);
-        gl.uniform2f(uTouch, ...mouseCoords);
-        gl.uniform2f(uMove, ...moveDeltas);
-        gl.uniform1i(uPtrCount, ptrCount);
-        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-        raf = requestAnimationFrame(loop);
-      }
-
-      setup();
-      resize();
-      window.addEventListener('resize', resize, { passive: true });
-      loop(0);
-    })();
-  </script>
+  <!-- Hero background is now pure CSS (animated gradient + dot grid) -->
 </body>
 </html>
