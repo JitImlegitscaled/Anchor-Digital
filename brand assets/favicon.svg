@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48CAE4"/>
+      <stop offset="100%" stop-color="#00B4D8"/>
+    </linearGradient>
+    <clipPath id="squircle-clip">
+      <rect x="0" y="0" width="192" height="192" rx="42" ry="42"/>
+    </clipPath>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect x="0" y="0" width="192" height="192" rx="42" ry="42" fill="#1B2A4A"/>
+
+  <!-- WiFi arc 1 (smallest, top) -->
+  <path d="M96 52 A8 8 0 0 1 104 52" fill="none" stroke="url(#teal)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- WiFi arc 2 (medium) -->
+  <path d="M80 62 A22 22 0 0 1 112 62" fill="none" stroke="url(#teal)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- WiFi arc 3 (largest) -->
+  <path d="M66 74 A36 36 0 0 1 126 74" fill="none" stroke="url(#teal)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Anchor ring at top -->
+  <circle cx="96" cy="84" r="10" fill="none" stroke="white" stroke-width="8"/>
+
+  <!-- Anchor vertical shaft -->
+  <line x1="96" y1="94" x2="96" y2="148" stroke="white" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Anchor crossbar -->
+  <line x1="72" y1="108" x2="120" y2="108" stroke="white" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Anchor left arm -->
+  <path d="M72 108 Q64 130 76 138" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Anchor right arm -->
+  <path d="M120 108 Q128 130 116 138" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Anchor left fluke tip -->
+  <line x1="68" y1="134" x2="82" y2="140" stroke="white" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Anchor right fluke tip -->
+  <line x1="124" y1="134" x2="110" y2="140" stroke="white" stroke-width="8" stroke-linecap="round"/>
+</svg>

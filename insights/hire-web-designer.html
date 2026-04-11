@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Look for When Hiring a Web Designer — Anchor Digital</title>
+  <meta name="description" content="Not all web designers are the same. Before you sign anything, here are the questions to ask and the red flags to watch out for." />
+  <link rel="icon" type="image/png" href="../Favicon.png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    [data-theme="light"] {
+      --navy:      #1B2A4A;
+      --navy-deep: #111d34;
+      --teal:      #00B4D8;
+      --blue:      #0077B6;
+      --teal-lt:   #48CAE4;
+      --white:     #FFFFFF;
+      --gray-bg:   #F0F4F8;
+      --gray-text: #5a6a80;
+      --radius:    12px;
+      --body-bg:          #FFFFFF;
+      --surface:          #FFFFFF;
+      --surface-alt:      #F0F4F8;
+      --border-subtle:    rgba(27,42,74,0.10);
+      --nav-scrolled-bg:  rgba(255,255,255,0.97);
+      --toggle-track:     rgba(27,42,74,0.07);
+    }
+    [data-theme="dark"] {
+      --navy:      #ddeaf7;
+      --navy-deep: #c0d4ee;
+      --teal:      #22d3ee;
+      --blue:      #38bdf8;
+      --teal-lt:   #67e8f9;
+      --white:     #0f1928;
+      --gray-bg:   #111e30;
+      --gray-text: #7799bb;
+      --radius:    12px;
+      --body-bg:          #080e1a;
+      --surface:          #0f1928;
+      --surface-alt:      #111e30;
+      --border-subtle:    rgba(34,211,238,0.11);
+      --nav-scrolled-bg:  rgba(8,14,26,0.88);
+      --toggle-track:     rgba(34,211,238,0.07);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.03em; line-height: 1.2; }
+
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .article-container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 10px 0; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    #navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(27,42,74,0.08); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0; }
+    .nav-logo img { width: 80px; height: 80px; object-fit: contain; border-radius: 10px; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.0625rem; color: var(--navy); letter-spacing: -0.02em; line-height: 1.1; }
+    .nav-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--navy); opacity: 0.75; transition: opacity 0.15s ease, color 0.15s ease; }
+    .nav-links a:hover { opacity: 1; color: var(--teal); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem; padding: 10px 22px; border-radius: 50px; cursor: pointer; border: none; transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%); color: var(--white); box-shadow: 0 6px 24px rgba(0,180,216,0.35); }
+    .btn-primary:hover { box-shadow: 0 10px 32px rgba(0,180,216,0.45); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; background: var(--white); padding: 100px 24px 40px; z-index: 99; box-shadow: 0 8px 40px rgba(27,42,74,0.12); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu li a { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); padding: 16px 0; border-bottom: 1px solid rgba(27,42,74,0.08); }
+    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 24px; }
+
+    .article-hero { padding: 140px 0 60px; background: linear-gradient(160deg, var(--gray-bg) 0%, var(--white) 60%); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -80px; right: -120px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,180,216,0.07) 0%, transparent 70%); pointer-events: none; }
+    .article-cat { display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: linear-gradient(135deg, var(--teal), var(--blue)); padding: 5px 14px; border-radius: 50px; margin-bottom: 20px; }
+    .article-hero h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 800; color: var(--navy); margin-bottom: 20px; max-width: 680px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; font-size: 0.875rem; color: var(--gray-text); margin-bottom: 36px; flex-wrap: wrap; }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+    .article-meta svg { width: 15px; height: 15px; }
+    .article-hero-img { width: 100%; height: 420px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(27,42,74,0.15), 0 4px 16px rgba(0,180,216,0.1); }
+    .article-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .article-hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(27,42,74,0.5)); }
+
+    .article-body { padding: 64px 0 80px; }
+    .article-content p { font-size: 1.0625rem; line-height: 1.8; color: var(--gray-text); margin-bottom: 24px; }
+    .article-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 28px 0 10px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 1.0625rem; line-height: 1.8; color: var(--gray-text); margin-bottom: 10px; }
+    .article-content strong { color: var(--navy); font-weight: 600; }
+
+    .callout { background: linear-gradient(135deg, rgba(0,180,216,0.07) 0%, rgba(0,119,182,0.05) 100%); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 36px 0; }
+    .callout p { color: var(--navy) !important; font-weight: 500; margin-bottom: 0 !important; }
+
+    /* Two-column checklist */
+    .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: var(--gray-bg); border-radius: 10px; }
+    .checklist-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--blue)); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .checklist-icon svg { width: 12px; height: 12px; color: white; }
+    .checklist-item p { font-size: 0.9375rem; color: var(--navy); font-weight: 500; margin: 0; line-height: 1.5; }
+
+    /* Red flag list */
+    .red-flag { display: flex; align-items: flex-start; gap: 14px; padding: 20px 24px; border: 1px solid rgba(220, 38, 38, 0.15); background: rgba(220, 38, 38, 0.03); border-radius: 12px; margin-bottom: 14px; }
+    .red-flag-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: #DC2626; margin-top: 7px; }
+    .red-flag p { font-size: 1rem; color: var(--navy); margin: 0; line-height: 1.6; }
+    .red-flag strong { color: #DC2626; }
+
+    .article-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius: 20px; padding: 48px 40px; margin: 64px 0 0; text-align: center; position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%); }
+    .article-cta h3 { color: var(--white); font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); font-size: 1.0625rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .article-cta .btn { position: relative; z-index: 1; }
+
+    .related { padding: 80px 0; background: var(--gray-bg); }
+    .related-title { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .related-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 12px rgba(27,42,74,0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; display: block; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.12); }
+    .related-card-img { height: 180px; overflow: hidden; }
+    .related-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .related-card-body { padding: 20px; }
+    .related-card-cat { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .related-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+    .related-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.6; margin-bottom: 14px; }
+    .related-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--teal); transition: gap 0.15s ease; }
+    .related-link:hover { gap: 10px; }
+    .related-link svg { width: 14px; height: 14px; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--gray-text); margin-bottom: 28px; transition: color 0.15s ease; }
+    .back-link:hover { color: var(--teal); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); text-align: center; padding: 32px 24px; font-size: 0.875rem; }
+    footer a { color: var(--teal); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .article-hero { padding: 110px 0 40px; }
+      .article-hero-img { height: 240px; }
+      .article-cta { padding: 36px 24px; }
+      .checklist-grid { grid-template-columns: 1fr; }
+    }
+    /* Theme toggle */
+    .theme-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background: var(--toggle-track);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 2px;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .theme-toggle-pill {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      height: calc(100% - 4px);
+      width: 28px;
+      background: var(--surface, #fff);
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 0 0 1px var(--border-subtle);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+      z-index: 0;
+    }
+    [data-toggle-mode="system"] .theme-toggle-pill { transform: translateX(0px); }
+    [data-toggle-mode="light"]  .theme-toggle-pill { transform: translateX(29px); }
+    [data-toggle-mode="dark"]   .theme-toggle-pill { transform: translateX(58px); }
+    .theme-toggle-btn {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-text);
+      transition: color 0.2s ease;
+    }
+    .theme-toggle-btn:hover { color: var(--navy); }
+    .theme-toggle-btn.active { color: var(--navy); }
+    .theme-toggle-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .theme-toggle-btn svg { width: 14px; height: 14px; }
+    .theme-toggle { display: none; }
+    @media (min-width: 901px) { .theme-toggle { display: inline-flex; } }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo" aria-label="Anchor Digital — Home">
+          <img src="../brand assets/Logo.png" alt="Anchor Digital logo" />
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Anchor Digital</span>
+            <span class="nav-logo-sub">Web Services & Innovation</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#portfolio">Work</a></li>
+          <li><a href="../index.html#pricing">Pricing</a></li>
+          <li><a href="../index.html#resources">Insights</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact" class="btn btn-primary">Get a Free Quote</a></li>
+        </ul>
+        <!-- Theme toggle (desktop) -->
+        <div class="theme-toggle" id="theme-toggle" role="radiogroup" aria-label="Select color theme" data-toggle-mode="light">
+          <div class="theme-toggle-pill" aria-hidden="true"></div>
+          <button class="theme-toggle-btn" id="toggle-system" role="radio" aria-checked="false" aria-label="System theme" title="System theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+          <button class="theme-toggle-btn" id="toggle-light" role="radio" aria-checked="true" aria-label="Light theme" title="Light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <button class="theme-toggle-btn" id="toggle-dark" role="radio" aria-checked="false" aria-label="Dark theme" title="Dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+        <button class="hamburger" aria-label="Open menu" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#portfolio">Work</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#resources">Insights</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+    </ul>
+    <a href="../index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+  </div>
+
+  <!-- Article Hero -->
+  <section class="article-hero">
+    <div class="article-container">
+      <a href="../index.html#resources" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to Insights
+      </a>
+      <span class="article-cat">Business Tips</span>
+      <h1>What to Look for When Hiring a Web Designer</h1>
+      <div class="article-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          April 9, 2026
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          8 min read
+        </span>
+        <span>By Anchor Digital Team</span>
+      </div>
+    </div>
+    <div class="article-container">
+      <div class="article-hero-img">
+        <img src="../Untitled design (2).png" alt="Designer reviewing a website mockup" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <section class="article-body">
+    <div class="article-container">
+      <div class="article-content">
+
+        <p>Hiring a web designer is one of the most important decisions a small business owner can make — and one of the most confusing. The market is flooded with options: freelancers on Fiverr charging $200, agencies charging $20,000, everything in between. And the painful truth is that paying more doesn't guarantee a better result.</p>
+
+        <p>Before you sign a contract or hand over a deposit, here's what you should actually be evaluating.</p>
+
+        <h2>Questions to Ask Before You Hire</h2>
+
+        <h3>Can I see examples of websites you've built for businesses like mine?</h3>
+        <p>Any reputable web designer will have a portfolio. Look for examples that are similar in scale, industry, or purpose to what you need. If they've only built portfolio sites for photographers and you're a trade business, that's worth noting. More importantly: visit those live websites. Do they load fast? Do they look good on your phone? Are they still actively maintained or half-broken?</p>
+
+        <h3>Who owns the website once it's built?</h3>
+        <p>This is non-negotiable. You need to own your website outright — the domain, the hosting account, the files, and the content management system login. Some designers build your site inside their own agency account and retain control. If you ever want to leave them, you have nothing. <strong>Always confirm in writing that all assets transfer to you upon final payment.</strong></p>
+
+        <h3>Will my website be optimised for Google?</h3>
+        <p>Design and SEO are different disciplines. Many designers are excellent at aesthetics but have no idea how to structure a page for search. Ask specifically: will they set up page titles and meta descriptions? Will they optimise images? Will they connect the site to Google Search Console and submit a sitemap? If they look blank at these questions, you'll need to handle SEO separately — or find someone who does both.</p>
+
+        <h3>What platform will you build on — and can I update it myself?</h3>
+        <p>Your website needs to be something you can manage day-to-day without calling a developer every time you want to change your hours or add a new service. Confirm the platform (WordPress, Webflow, Squarespace, custom code) and whether training is included. Some designers intentionally build on obscure platforms to keep you dependent on them.</p>
+
+        <h3>What happens after the site launches?</h3>
+        <p>Websites need maintenance: security updates, backups, broken link checks, performance monitoring. Ask whether this is included in the price or whether it's an ongoing retainer — and what happens if you opt out. A good designer will also offer a period of post-launch support to fix things that inevitably need tweaking once the site goes live.</p>
+
+        <h2>What to Look For in Their Work</h2>
+
+        <div class="checklist-grid">
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Websites load in under 3 seconds on mobile</p>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Portfolio shows diverse, real-client work</p>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Clear, itemised proposal with no vague line items</p>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>References or reviews from past clients</p>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>They ask questions about your business goals</p>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Responsive communication before you've even paid</p>
+          </div>
+        </div>
+
+        <h2>Red Flags to Watch Out For</h2>
+
+        <div class="red-flag">
+          <div class="red-flag-dot"></div>
+          <p><strong>No contract or vague scope:</strong> If a designer won't provide a written contract specifying deliverables, timelines, revision rounds, and payment terms — walk away. Verbal agreements protect no one.</p>
+        </div>
+        <div class="red-flag">
+          <div class="red-flag-dot"></div>
+          <p><strong>100% upfront payment required:</strong> A reasonable structure is 50% deposit, 50% on completion. Anyone asking for full payment before work begins has little incentive to deliver on time — or at all.</p>
+        </div>
+        <div class="red-flag">
+          <div class="red-flag-dot"></div>
+          <p><strong>Unrealistically low prices:</strong> A $300 website is almost always a template with your logo dropped in. It will look generic, load slowly, and have no SEO. You'll likely be back in the market within 12 months.</p>
+        </div>
+        <div class="red-flag">
+          <div class="red-flag-dot"></div>
+          <p><strong>They don't ask about your customers:</strong> A good designer will want to understand who visits your site, what they need, and what action you want them to take. If they jump straight to design choices without asking, they're building what they like — not what works for your business.</p>
+        </div>
+        <div class="red-flag">
+          <div class="red-flag-dot"></div>
+          <p><strong>Promises that sound too good:</strong> "Rank #1 on Google in 30 days." "10x your revenue." Any designer making guarantees about results they can't control is either naive or deliberately misleading you.</p>
+        </div>
+
+        <div class="callout">
+          <p>The best indicator of a good web designer is how they communicate before you've paid them. Are they prompt, clear, and asking smart questions about your business? That behaviour doesn't improve after you sign the contract.</p>
+        </div>
+
+        <h2>What a Fair Price Looks Like</h2>
+        <p>For a professionally designed, SEO-ready small business website in Australia, expect to pay somewhere between <strong>$1,500 and $5,000</strong> depending on complexity, number of pages, and whether copywriting is included. This is a general range — some projects are larger, some smaller.</p>
+        <p>Ongoing hosting, maintenance, and SEO work are typically separate from the build cost. Get these quoted clearly upfront so there are no surprises after launch.</p>
+        <p>The goal isn't to find the cheapest option. The goal is to find someone who will build you a website that actually earns its cost back — through leads generated, credibility established, and time saved answering questions your website should be answering automatically.</p>
+
+        <!-- CTA Box -->
+        <div class="article-cta">
+          <h3>Looking for a Web Designer You Can Trust?</h3>
+          <p>We're transparent about pricing, timelines, and what you get. No lock-in contracts, no hidden fees. Just professional websites that work for your business.</p>
+          <a href="../index.html#contact" class="btn btn-primary">
+            Talk to Our Team
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  <section class="related">
+    <div class="container">
+      <h2 class="related-title">More from Insights</h2>
+      <div class="related-grid">
+        <a href="professional-website.html" class="related-card">
+          <div class="related-card-img">
+            <img src="../www.sunstatellc.com_.png" alt="Professional Website" />
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Web Design</div>
+            <h4>Why Your Small Business Needs a Professional Website</h4>
+            <p>Your customers are making decisions before they even walk through your door.</p>
+            <span class="related-link">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="google-rankings.html" class="related-card">
+          <div class="related-card-img">
+            <img src="../google-maps-anchor-digital.png" alt="Google Rankings" />
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">SEO</div>
+            <h4>5 Reasons Your Business Isn't Showing Up on Google</h4>
+            <p>If you can't find your business when you search, your potential customers can't either.</p>
+            <span class="related-link">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Anchor Digital. All rights reserved. | <a href="../index.html">Home</a> | <a href="../index.html#contact">Contact</a></p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ── Theme toggle ──────────────────────────────────────────────
+    (function() {
+      const html       = document.documentElement;
+      const toggleWrap = document.getElementById('theme-toggle');
+      const btnSystem  = document.getElementById('toggle-system');
+      const btnLight   = document.getElementById('toggle-light');
+      const btnDark    = document.getElementById('toggle-dark');
+      const prefersDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      function applyMode(mode) {
+        toggleWrap.dataset.toggleMode = mode;
+        btnSystem.setAttribute('aria-checked', mode === 'system');
+        btnLight.setAttribute('aria-checked',  mode === 'light');
+        btnDark.setAttribute('aria-checked',   mode === 'dark');
+        [btnSystem, btnLight, btnDark].forEach(b => b.classList.remove('active'));
+        if (mode === 'system') btnSystem.classList.add('active');
+        if (mode === 'light')  btnLight.classList.add('active');
+        if (mode === 'dark')   btnDark.classList.add('active');
+        const resolved = mode === 'system' ? (prefersDark() ? 'dark' : 'light') : mode;
+        html.setAttribute('data-theme', resolved);
+        localStorage.setItem('anchor-theme', mode);
+      }
+
+      const saved = localStorage.getItem('anchor-theme') || 'light';
+      applyMode(saved);
+
+      btnSystem.addEventListener('click', () => applyMode('system'));
+      btnLight.addEventListener('click',  () => applyMode('light'));
+      btnDark.addEventListener('click',   () => applyMode('dark'));
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if ((localStorage.getItem('anchor-theme') || 'light') === 'system') applyMode('system');
+      });
+    })();
+  </script>
+</body>
+</html>

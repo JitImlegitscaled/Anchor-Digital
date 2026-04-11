@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Reasons Your Business Isn't Showing Up on Google — Anchor Digital</title>
+  <meta name="description" content="If you can't find your business when you search, your potential customers can't either. We break down the most common reasons and how to fix them." />
+  <link rel="icon" type="image/png" href="../Favicon.png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    [data-theme="light"] {
+      --navy:      #1B2A4A;
+      --navy-deep: #111d34;
+      --teal:      #00B4D8;
+      --blue:      #0077B6;
+      --teal-lt:   #48CAE4;
+      --white:     #FFFFFF;
+      --gray-bg:   #F0F4F8;
+      --gray-text: #5a6a80;
+      --radius:    12px;
+      --body-bg:          #FFFFFF;
+      --surface:          #FFFFFF;
+      --surface-alt:      #F0F4F8;
+      --border-subtle:    rgba(27,42,74,0.10);
+      --nav-scrolled-bg:  rgba(255,255,255,0.97);
+      --toggle-track:     rgba(27,42,74,0.07);
+    }
+    [data-theme="dark"] {
+      --navy:      #ddeaf7;
+      --navy-deep: #c0d4ee;
+      --teal:      #22d3ee;
+      --blue:      #38bdf8;
+      --teal-lt:   #67e8f9;
+      --white:     #0f1928;
+      --gray-bg:   #111e30;
+      --gray-text: #7799bb;
+      --radius:    12px;
+      --body-bg:          #080e1a;
+      --surface:          #0f1928;
+      --surface-alt:      #111e30;
+      --border-subtle:    rgba(34,211,238,0.11);
+      --nav-scrolled-bg:  rgba(8,14,26,0.88);
+      --toggle-track:     rgba(34,211,238,0.07);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.03em; line-height: 1.2; }
+
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .article-container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 10px 0; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    #navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(27,42,74,0.08); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0; }
+    .nav-logo img { width: 80px; height: 80px; object-fit: contain; border-radius: 10px; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.0625rem; color: var(--navy); letter-spacing: -0.02em; line-height: 1.1; }
+    .nav-logo-sub { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--navy); opacity: 0.75; transition: opacity 0.15s ease, color 0.15s ease; }
+    .nav-links a:hover { opacity: 1; color: var(--teal); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem; padding: 10px 22px; border-radius: 50px; cursor: pointer; border: none; transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%); color: var(--white); box-shadow: 0 6px 24px rgba(0,180,216,0.35); }
+    .btn-primary:hover { box-shadow: 0 10px 32px rgba(0,180,216,0.45); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; background: var(--white); padding: 100px 24px 40px; z-index: 99; box-shadow: 0 8px 40px rgba(27,42,74,0.12); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu li a { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); padding: 16px 0; border-bottom: 1px solid rgba(27,42,74,0.08); }
+    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 24px; }
+
+    .article-hero { padding: 140px 0 60px; background: linear-gradient(160deg, var(--gray-bg) 0%, var(--white) 60%); position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; top: -80px; right: -120px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,119,182,0.08) 0%, transparent 70%); pointer-events: none; }
+    .article-cat { display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: linear-gradient(135deg, var(--teal), var(--blue)); padding: 5px 14px; border-radius: 50px; margin-bottom: 20px; }
+    .article-hero h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 800; color: var(--navy); margin-bottom: 20px; max-width: 680px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; font-size: 0.875rem; color: var(--gray-text); margin-bottom: 36px; flex-wrap: wrap; }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+    .article-meta svg { width: 15px; height: 15px; }
+    .article-hero-img { width: 100%; height: 420px; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(27,42,74,0.15), 0 4px 16px rgba(0,180,216,0.1); }
+    .article-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .article-hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(27,42,74,0.5)); }
+
+    .article-body { padding: 64px 0 80px; }
+    .article-content p { font-size: 1.0625rem; line-height: 1.8; color: var(--gray-text); margin-bottom: 24px; }
+    .article-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin: 48px 0 16px; }
+    .article-content h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin: 32px 0 12px; }
+    .article-content ul, .article-content ol { margin: 0 0 24px 24px; }
+    .article-content li { font-size: 1.0625rem; line-height: 1.8; color: var(--gray-text); margin-bottom: 10px; }
+    .article-content strong { color: var(--navy); font-weight: 600; }
+
+    /* Numbered reasons */
+    .reason {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: var(--gray-bg);
+      border-radius: 16px;
+    }
+    .reason-num {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: 1.25rem;
+      color: var(--white);
+    }
+    .reason-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; margin-top: 0; }
+    .reason-body p { color: var(--gray-text); font-size: 1rem; margin-bottom: 0; }
+
+    .callout { background: linear-gradient(135deg, rgba(0,180,216,0.07) 0%, rgba(0,119,182,0.05) 100%); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 36px 0; }
+    .callout p { color: var(--navy) !important; font-weight: 500; margin-bottom: 0 !important; }
+
+    .article-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%); border-radius: 20px; padding: 48px 40px; margin: 64px 0 0; text-align: center; position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%); }
+    .article-cta h3 { color: var(--white); font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); font-size: 1.0625rem; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .article-cta .btn { position: relative; z-index: 1; }
+
+    .related { padding: 80px 0; background: var(--gray-bg); }
+    .related-title { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .related-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 12px rgba(27,42,74,0.07); transition: transform 0.2s ease, box-shadow 0.2s ease; display: block; }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.12); }
+    .related-card-img { height: 180px; overflow: hidden; }
+    .related-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .related-card-body { padding: 20px; }
+    .related-card-cat { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .related-card h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+    .related-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.6; margin-bottom: 14px; }
+    .related-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--teal); transition: gap 0.15s ease; }
+    .related-link:hover { gap: 10px; }
+    .related-link svg { width: 14px; height: 14px; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--gray-text); margin-bottom: 28px; transition: color 0.15s ease; }
+    .back-link:hover { color: var(--teal); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); text-align: center; padding: 32px 24px; font-size: 0.875rem; }
+    footer a { color: var(--teal); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .article-hero { padding: 110px 0 40px; }
+      .article-hero-img { height: 240px; }
+      .article-cta { padding: 36px 24px; }
+      .reason { flex-direction: column; gap: 16px; padding: 24px; }
+    }
+    /* Theme toggle */
+    .theme-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      background: var(--toggle-track);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 2px;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .theme-toggle-pill {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      height: calc(100% - 4px);
+      width: 28px;
+      background: var(--surface, #fff);
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 0 0 1px var(--border-subtle);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+      z-index: 0;
+    }
+    [data-toggle-mode="system"] .theme-toggle-pill { transform: translateX(0px); }
+    [data-toggle-mode="light"]  .theme-toggle-pill { transform: translateX(29px); }
+    [data-toggle-mode="dark"]   .theme-toggle-pill { transform: translateX(58px); }
+    .theme-toggle-btn {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-text);
+      transition: color 0.2s ease;
+    }
+    .theme-toggle-btn:hover { color: var(--navy); }
+    .theme-toggle-btn.active { color: var(--navy); }
+    .theme-toggle-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .theme-toggle-btn svg { width: 14px; height: 14px; }
+    .theme-toggle { display: none; }
+    @media (min-width: 901px) { .theme-toggle { display: inline-flex; } }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo" aria-label="Anchor Digital — Home">
+          <img src="../brand assets/Logo.png" alt="Anchor Digital logo" />
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Anchor Digital</span>
+            <span class="nav-logo-sub">Web Services & Innovation</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#portfolio">Work</a></li>
+          <li><a href="../index.html#pricing">Pricing</a></li>
+          <li><a href="../index.html#resources">Insights</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact" class="btn btn-primary">Get a Free Quote</a></li>
+        </ul>
+        <!-- Theme toggle (desktop) -->
+        <div class="theme-toggle" id="theme-toggle" role="radiogroup" aria-label="Select color theme" data-toggle-mode="light">
+          <div class="theme-toggle-pill" aria-hidden="true"></div>
+          <button class="theme-toggle-btn" id="toggle-system" role="radio" aria-checked="false" aria-label="System theme" title="System theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </button>
+          <button class="theme-toggle-btn" id="toggle-light" role="radio" aria-checked="true" aria-label="Light theme" title="Light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <button class="theme-toggle-btn" id="toggle-dark" role="radio" aria-checked="false" aria-label="Dark theme" title="Dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+        <button class="hamburger" aria-label="Open menu" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#portfolio">Work</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#resources">Insights</a></li>
+      <li><a href="../index.html#faq">FAQ</a></li>
+    </ul>
+    <a href="../index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+  </div>
+
+  <!-- Article Hero -->
+  <section class="article-hero">
+    <div class="article-container">
+      <a href="../index.html#resources" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to Insights
+      </a>
+      <span class="article-cat">SEO</span>
+      <h1>5 Reasons Your Business Isn't Showing Up on Google</h1>
+      <div class="article-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          April 9, 2026
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          7 min read
+        </span>
+        <span>By Anchor Digital Team</span>
+      </div>
+    </div>
+    <div class="article-container">
+      <div class="article-hero-img">
+        <img src="../google-maps-anchor-digital.png" alt="Google search results on a screen" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <section class="article-body">
+    <div class="article-container">
+      <div class="article-content">
+
+        <p>You've built a website. You're proud of it. But when you type your business name or service into Google, nothing comes up — or worse, your competitors appear above you every single time. If this sounds familiar, you're not alone. It's one of the most common frustrations we hear from small business owners across Australia.</p>
+
+        <p>The good news? In most cases, there are specific, fixable reasons why your business isn't showing up. Here are the five we see most often.</p>
+
+        <div class="reason">
+          <div class="reason-num">1</div>
+          <div class="reason-body">
+            <h3>You Don't Have a Google Business Profile</h3>
+            <p>If you want to appear in local search results — especially the map pack that appears at the top of Google when someone searches "plumber near me" or "cafe in [suburb]" — you need a Google Business Profile. It's free, but it needs to be set up correctly: accurate business name, address, phone number, hours, and category. Without it, Google simply doesn't know enough about your business to show it to local searchers.</p>
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">2</div>
+          <div class="reason-body">
+            <h3>Your Website Has No On-Page SEO</h3>
+            <p>Google reads your website to understand what it's about. If your pages don't include the words people actually search for — like "electrician in Brisbane" or "wedding photographer Sydney" — Google won't connect your site to those searches. On-page SEO includes your page titles, headings (H1, H2), meta descriptions, image alt text, and the body copy itself. Most template-built websites are generic by default and skip all of this.</p>
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">3</div>
+          <div class="reason-body">
+            <h3>Your Website Is Too New (Or Not Indexed)</h3>
+            <p>New websites can take weeks to appear in Google search results because Googlebot needs to crawl and index your pages first. If your site launched recently and you haven't submitted a sitemap to Google Search Console, you may simply be waiting in the queue. It's also possible your website has a "noindex" tag accidentally left on from development — a common mistake that tells Google to ignore the entire site.</p>
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">4</div>
+          <div class="reason-body">
+            <h3>You Have No Backlinks or Local Citations</h3>
+            <p>Google uses links from other websites to gauge how trustworthy and authoritative your site is. A brand new website with no backlinks has zero authority — which makes it very hard to rank for competitive terms. For local businesses, "citations" (mentions of your business name, address, and phone number on directories like Yellow Pages, True Local, and industry-specific sites) also play a significant role in local ranking. The more consistent and widespread your citations, the more Google trusts your business is real.</p>
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">5</div>
+          <div class="reason-body">
+            <h3>Your Website Is Slow or Not Mobile-Friendly</h3>
+            <p>Google's algorithm considers page speed and mobile usability as direct ranking factors. A website that loads slowly, looks broken on phones, or scores poorly on Core Web Vitals will be ranked lower — regardless of how good your content is. Google wants to send its users to pages that provide a great experience. If yours doesn't, it won't get recommended.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>Most of these issues can be identified in a single website audit. The fixes vary from simple (claiming your Google Business Profile) to more involved (improving site speed and building backlinks) — but all are achievable.</p>
+        </div>
+
+        <h2>What You Can Do Right Now</h2>
+        <p>Start with the easiest wins:</p>
+        <ul>
+          <li><strong>Claim and complete your Google Business Profile</strong> at business.google.com — fill in every field and add photos</li>
+          <li><strong>Open Google Search Console</strong> (free) and submit your sitemap — this speeds up indexing significantly</li>
+          <li><strong>Search for your business</strong> on the major Australian directories and ensure your NAP (name, address, phone) is consistent across all of them</li>
+          <li><strong>Ask satisfied customers for Google reviews</strong> — reviews are one of the strongest local ranking signals</li>
+        </ul>
+        <p>For the more technical issues — page speed, on-page SEO, structured data, backlink building — these are worth having a professional look at. Getting them wrong can make things worse.</p>
+
+        <h2>How Long Until You See Results?</h2>
+        <p>SEO is a medium-term game. Claiming your Google Business Profile and submitting your sitemap can show results within days to weeks. On-page SEO improvements typically take 1–3 months to show movement in rankings. Building domain authority through backlinks takes longer — but the compounding effect over 6–12 months is significant.</p>
+        <p>The businesses that rank well on Google aren't necessarily the best ones in their industry. They're the ones who invested in getting found. The sooner you start, the sooner you benefit.</p>
+
+        <!-- CTA Box -->
+        <div class="article-cta">
+          <h3>Not Sure Why Your Business Isn't Ranking?</h3>
+          <p>We offer free website audits for Australian small businesses. We'll identify exactly what's holding you back and give you a clear roadmap to fix it.</p>
+          <a href="../index.html#contact" class="btn btn-primary">
+            Get a Free Audit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  <section class="related">
+    <div class="container">
+      <h2 class="related-title">More from Insights</h2>
+      <div class="related-grid">
+        <a href="professional-website.html" class="related-card">
+          <div class="related-card-img">
+            <img src="../www.sunstatellc.com_.png" alt="Professional Website" />
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Web Design</div>
+            <h4>Why Your Small Business Needs a Professional Website</h4>
+            <p>Your customers are making decisions before they even walk through your door.</p>
+            <span class="related-link">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="hire-web-designer.html" class="related-card">
+          <div class="related-card-img">
+            <img src="../Untitled design (2).png" alt="Hire a Web Designer" />
+          </div>
+          <div class="related-card-body">
+            <div class="related-card-cat">Business Tips</div>
+            <h4>What to Look for When Hiring a Web Designer</h4>
+            <p>Not all web designers are the same. Here are the questions to ask and the red flags to watch out for.</p>
+            <span class="related-link">
+              Read More
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Anchor Digital. All rights reserved. | <a href="../index.html">Home</a> | <a href="../index.html#contact">Contact</a></p>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ── Theme toggle ──────────────────────────────────────────────
+    (function() {
+      const html       = document.documentElement;
+      const toggleWrap = document.getElementById('theme-toggle');
+      const btnSystem  = document.getElementById('toggle-system');
+      const btnLight   = document.getElementById('toggle-light');
+      const btnDark    = document.getElementById('toggle-dark');
+      const prefersDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      function applyMode(mode) {
+        toggleWrap.dataset.toggleMode = mode;
+        btnSystem.setAttribute('aria-checked', mode === 'system');
+        btnLight.setAttribute('aria-checked',  mode === 'light');
+        btnDark.setAttribute('aria-checked',   mode === 'dark');
+        [btnSystem, btnLight, btnDark].forEach(b => b.classList.remove('active'));
+        if (mode === 'system') btnSystem.classList.add('active');
+        if (mode === 'light')  btnLight.classList.add('active');
+        if (mode === 'dark')   btnDark.classList.add('active');
+        const resolved = mode === 'system' ? (prefersDark() ? 'dark' : 'light') : mode;
+        html.setAttribute('data-theme', resolved);
+        localStorage.setItem('anchor-theme', mode);
+      }
+
+      const saved = localStorage.getItem('anchor-theme') || 'light';
+      applyMode(saved);
+
+      btnSystem.addEventListener('click', () => applyMode('system'));
+      btnLight.addEventListener('click',  () => applyMode('light'));
+      btnDark.addEventListener('click',   () => applyMode('dark'));
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if ((localStorage.getItem('anchor-theme') || 'light') === 'system') applyMode('system');
+      });
+    })();
+  </script>
+</body>
+</html>
