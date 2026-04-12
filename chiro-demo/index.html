@@ -1,0 +1,790 @@
+<!-- Demo site built by Anchor Digital | anchor-digital.vercel.app -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alignment Health Chiropractic | Tampa FL — Back Pain, Neck Pain & Sports Injury Relief</title>
+<meta name="description" content="Board-certified chiropractic care in Tampa, FL. Relief for back pain, neck pain, sciatica, sports injuries & headaches. Same-week appointments available. Call (813) 555-0284.">
+<meta name="keywords" content="chiropractor Tampa, back pain relief Tampa, neck pain Tampa, sports injury chiropractor, sciatica treatment, headache relief, posture correction, Alignment Health Chiropractic">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Alignment Health Chiropractic | Tampa FL">
+<meta property="og:description" content="Board-certified chiropractic care for back pain, neck pain, and sports injuries. Same-week appointments in Tampa.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://alignmenthealth.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Chiropractor",
+  "name": "Alignment Health Chiropractic",
+  "description": "Board-certified chiropractic care for back pain, neck pain, and sports injuries in Tampa, FL.",
+  "url": "https://alignmenthealth.com",
+  "telephone": "+1-813-555-0284",
+  "email": "hello@alignmenthealth.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4820 W Kennedy Blvd, Suite 110",
+    "addressLocality": "Tampa",
+    "addressRegion": "FL",
+    "postalCode": "33609",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Michael Torres",
+    "jobTitle": "Doctor of Chiropractic"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Tampa"
+  },
+  "priceRange": "$65-$75"
+}
+</script>
+
+<style>
+/* ───────── RESET & FOUNDATION ───────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B3A6B;
+  --navy-dark:#122849;
+  --navy-deep:#0D1F3C;
+  --light-navy:#EEF2F9;
+  --white:#FFFFFF;
+  --cool-gray:#F4F6FA;
+  --text-gray:#5A6A80;
+  --teal:#0099CC;
+  --teal-dark:#007BA3;
+  --gold:#C9A84C;
+  --gold-light:#D4B85E;
+  --shadow-navy:rgba(27,58,107,0.08);
+  --shadow-navy-md:rgba(27,58,107,0.12);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',system-ui,sans-serif;font-weight:400;color:var(--navy);line-height:1.7;background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+h1,h2,h3,h4{font-weight:600;line-height:1.25;letter-spacing:-0.02em}
+p{color:var(--text-gray)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ───────── UTILITY ───────── */
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.section-label{font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.section-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;color:var(--navy);margin-bottom:16px}
+.section-sub{font-size:1.05rem;color:var(--text-gray);max-width:600px;line-height:1.7}
+
+/* ───────── BUTTONS ───────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;font-size:0.95rem;font-weight:600;border-radius:var(--radius-sm);transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out),background 0.25s var(--ease-out),color 0.25s var(--ease-out);letter-spacing:0.01em}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.btn-primary{background:var(--navy);color:var(--white);box-shadow:0 2px 8px rgba(27,58,107,0.2),0 1px 3px rgba(27,58,107,0.15)}
+.btn-primary:hover{background:var(--navy-dark);box-shadow:0 6px 20px rgba(27,58,107,0.25),0 2px 6px rgba(27,58,107,0.18)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:var(--white)}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 2px 8px rgba(201,168,76,0.3),0 1px 3px rgba(201,168,76,0.2)}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 6px 20px rgba(201,168,76,0.35)}
+.btn-nav{padding:10px 22px;font-size:0.88rem}
+
+/* ───────── SCROLL REVEAL ───────── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+.reveal-d4{transition-delay:0.4s}
+.reveal-d5{transition-delay:0.5s}
+
+/* ───────── NAVBAR ───────── */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);transition:background 0.35s var(--ease-out),box-shadow 0.35s var(--ease-out),padding 0.35s var(--ease-out)}
+.navbar.scrolled{background:rgba(255,255,255,0.97);box-shadow:0 1px 12px var(--shadow-navy);padding:10px 0;backdrop-filter:blur(8px)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;flex-direction:column;line-height:1.15}
+.nav-logo-main{font-size:1.2rem;font-weight:600;color:var(--navy);letter-spacing:-0.01em}
+.nav-logo-sub{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--text-gray);transition:color 0.25s var(--ease-out)}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--navy)}
+.nav-links a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.nav-cta{margin-left:8px}
+
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;z-index:1001;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:transform 0.3s var(--ease-out),opacity 0.3s var(--ease-out)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile nav */
+.mobile-nav{display:none;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--white);box-shadow:-4px 0 24px rgba(27,58,107,0.15);padding:80px 32px 32px;z-index:999;transition:right 0.4s var(--ease-out);flex-direction:column;gap:24px}
+.mobile-nav.open{right:0}
+.mobile-nav a{font-size:1.05rem;font-weight:500;color:var(--navy);padding:8px 0;border-bottom:1px solid var(--light-navy)}
+.mobile-nav a:hover{color:var(--teal)}
+.mobile-overlay{display:none;position:fixed;inset:0;background:rgba(13,31,60,0.4);z-index:998;opacity:0;transition:opacity 0.3s var(--ease-out)}
+.mobile-overlay.open{display:block;opacity:1}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-nav{display:flex}
+}
+
+/* ───────── HERO ───────── */
+.hero{padding:140px 0 80px;background:linear-gradient(135deg,var(--cool-gray) 0%,var(--light-navy) 100%);overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-text h1{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--navy);margin-bottom:20px;letter-spacing:-0.03em;line-height:1.15}
+.hero-text h1 em{font-style:italic;color:var(--teal)}
+.hero-text p{font-size:1.1rem;color:var(--text-gray);margin-bottom:32px;line-height:1.7;max-width:500px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap}
+.hero-stat{background:var(--white);padding:14px 20px;border-radius:var(--radius-md);box-shadow:0 2px 12px var(--shadow-navy),0 1px 4px var(--shadow-navy);display:flex;align-items:center;gap:10px;font-size:0.88rem;font-weight:500;color:var(--navy)}
+.hero-stat svg{flex-shrink:0}
+
+/* Hero visual — spine-inspired geometric */
+.hero-visual{position:relative;width:100%;aspect-ratio:4/5;max-height:520px;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 60%,#0F2240 100%);border-radius:var(--radius-lg);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.spine-graphic{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1}
+.vertebra{width:60px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);transition:transform 0.5s var(--ease-out)}
+.vertebra:nth-child(1){width:36px;height:18px}
+.vertebra:nth-child(2){width:46px;height:20px}
+.vertebra:nth-child(3){width:56px;height:23px}
+.vertebra:nth-child(4){width:64px;height:25px}
+.vertebra:nth-child(5){width:68px;height:26px}
+.vertebra:nth-child(6){width:68px;height:26px}
+.vertebra:nth-child(7){width:64px;height:25px}
+.vertebra:nth-child(8){width:58px;height:24px}
+.vertebra:nth-child(9){width:50px;height:22px}
+.vertebra:nth-child(10){width:42px;height:20px}
+.spine-line{position:absolute;top:0;left:50%;width:2px;height:100%;background:linear-gradient(180deg,rgba(0,153,204,0.4),rgba(0,153,204,0.1));transform:translateX(-50%);z-index:0}
+.hero-visual::before{content:'';position:absolute;top:-30%;right:-30%;width:60%;height:60%;background:radial-gradient(circle,rgba(0,153,204,0.15) 0%,transparent 70%);border-radius:50%}
+.hero-visual::after{content:'';position:absolute;bottom:-20%;left:-20%;width:50%;height:50%;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);border-radius:50%}
+
+@media(max-width:768px){
+  .hero .container{grid-template-columns:1fr;text-align:center}
+  .hero-text p{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{max-height:360px;margin:0 auto;max-width:400px}
+}
+
+/* ───────── TRUST BAR ───────── */
+.trust-bar{padding:40px 0;background:var(--white);border-top:1px solid rgba(27,58,107,0.06);border-bottom:1px solid rgba(27,58,107,0.06)}
+.trust-bar .container{text-align:center}
+.trust-bar p{font-size:0.88rem;font-weight:500;color:var(--text-gray);margin-bottom:20px}
+.trust-items{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:500;color:var(--navy)}
+.trust-check{width:22px;height:22px;border-radius:50%;background:var(--light-navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-check svg{width:12px;height:12px}
+
+@media(max-width:600px){
+  .trust-items{flex-direction:column;align-items:center;gap:16px}
+}
+
+/* ───────── CONDITIONS ───────── */
+.conditions{padding:96px 0;background:var(--cool-gray)}
+.conditions-header{text-align:center;margin-bottom:56px}
+.conditions-header .section-sub{margin:0 auto}
+.conditions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.condition-card{background:var(--white);border-radius:var(--radius-md);padding:32px 28px;box-shadow:0 2px 12px var(--shadow-navy),0 1px 3px rgba(27,58,107,0.05);transition:transform 0.35s var(--ease-out),box-shadow 0.35s var(--ease-out)}
+.condition-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px var(--shadow-navy-md),0 2px 8px var(--shadow-navy)}
+.condition-icon{width:52px;height:52px;background:var(--navy);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.condition-icon svg{width:24px;height:24px;color:var(--white)}
+.condition-card h3{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+.condition-card p{font-size:0.92rem;margin-bottom:16px;line-height:1.6}
+.condition-link{font-size:0.88rem;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:4px;transition:gap 0.25s var(--ease-out),color 0.25s var(--ease-out)}
+.condition-link:hover{gap:8px;color:var(--teal-dark)}
+.condition-link:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+
+@media(max-width:900px){.conditions-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.conditions-grid{grid-template-columns:1fr}}
+
+/* ───────── HOW IT WORKS ───────── */
+.how-it-works{padding:96px 0;background:var(--white)}
+.how-header{text-align:center;margin-bottom:64px}
+.how-header .section-sub{margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;position:relative}
+.steps::before{content:'';position:absolute;top:36px;left:calc(16.67% + 24px);right:calc(16.67% + 24px);height:2px;background:linear-gradient(90deg,var(--light-navy),var(--teal),var(--light-navy))}
+.step{text-align:center;position:relative}
+.step-num{width:72px;height:72px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:600;margin:0 auto 24px;position:relative;z-index:1;box-shadow:0 4px 16px rgba(27,58,107,0.2)}
+.step h3{font-size:1.15rem;margin-bottom:12px;color:var(--navy)}
+.step p{font-size:0.93rem;color:var(--text-gray);max-width:280px;margin:0 auto;line-height:1.65}
+
+@media(max-width:700px){
+  .steps{grid-template-columns:1fr;gap:40px}
+  .steps::before{display:none}
+}
+
+/* ───────── ABOUT ───────── */
+.about{padding:96px 0;background:var(--cool-gray)}
+.about .container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-photo{position:relative;aspect-ratio:3/4;max-height:480px;background:linear-gradient(160deg,var(--navy),var(--navy-dark));border-radius:var(--radius-lg);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.about-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(0,153,204,0.12),transparent 70%)}
+.about-initials{font-size:4rem;font-weight:600;color:rgba(255,255,255,0.15);letter-spacing:0.04em;z-index:1}
+.about-text h2{font-size:clamp(1.6rem,3vw,2rem);color:var(--navy);margin-bottom:6px}
+.about-text .doctor-title{font-size:1rem;color:var(--teal);font-weight:600;margin-bottom:20px}
+.about-text .bio{font-size:1rem;color:var(--text-gray);line-height:1.75;margin-bottom:28px}
+.credentials{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.credential{display:flex;align-items:center;gap:10px;font-size:0.88rem;font-weight:500;color:var(--navy);padding:10px 14px;background:var(--white);border-radius:var(--radius-sm);box-shadow:0 1px 6px var(--shadow-navy)}
+.credential svg{flex-shrink:0;color:var(--teal)}
+
+@media(max-width:768px){
+  .about .container{grid-template-columns:1fr}
+  .about-photo{max-height:320px;max-width:340px;margin:0 auto}
+  .credentials{grid-template-columns:1fr}
+}
+
+/* ───────── TESTIMONIALS ───────── */
+.testimonials{padding:96px 0;background:var(--white)}
+.testimonials-header{text-align:center;margin-bottom:56px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:var(--white);border-left:3px solid var(--navy);border-radius:var(--radius-md);padding:32px 28px;box-shadow:0 2px 12px var(--shadow-navy),0 1px 3px rgba(27,58,107,0.05)}
+.testimonial-stars{display:flex;gap:2px;margin-bottom:16px}
+.testimonial-stars svg{width:18px;height:18px;color:var(--gold)}
+.testimonial-card blockquote{font-size:0.95rem;color:var(--text-gray);line-height:1.7;margin-bottom:20px;font-style:italic}
+.testimonial-author{font-size:0.88rem;font-weight:600;color:var(--navy)}
+
+@media(max-width:900px){.testimonials-grid{grid-template-columns:1fr}}
+
+/* ───────── PRICING ───────── */
+.pricing{padding:96px 0;background:var(--cool-gray)}
+.pricing-header{text-align:center;margin-bottom:56px}
+.pricing-header .section-sub{margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pricing-card{background:var(--white);border-radius:var(--radius-md);padding:36px 28px;box-shadow:0 2px 12px var(--shadow-navy),0 1px 3px rgba(27,58,107,0.05);text-align:center;position:relative;transition:transform 0.35s var(--ease-out),box-shadow 0.35s var(--ease-out)}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px var(--shadow-navy-md)}
+.pricing-card.popular{border:2px solid var(--teal);box-shadow:0 4px 20px rgba(0,153,204,0.12),0 2px 8px var(--shadow-navy)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--white);font-size:0.75rem;font-weight:600;padding:5px 16px;border-radius:20px;letter-spacing:0.04em;text-transform:uppercase}
+.pricing-card h3{font-size:1.15rem;color:var(--navy);margin-bottom:12px;margin-top:8px}
+.pricing-amount{font-size:2.5rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+.pricing-card .desc{font-size:0.9rem;color:var(--text-gray);line-height:1.6;margin-bottom:24px}
+.pricing-note{text-align:center;margin-top:32px;font-size:0.92rem;color:var(--text-gray)}
+
+@media(max-width:700px){.pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
+
+/* ───────── CTA BANNER ───────── */
+.cta-banner{padding:80px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 60%,#0D1F3C 100%);text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-50%;right:-20%;width:50%;height:150%;background:radial-gradient(circle,rgba(0,153,204,0.1),transparent 70%);border-radius:50%}
+.cta-banner h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--white);margin-bottom:16px;position:relative;z-index:1}
+.cta-banner p{font-size:1.05rem;color:rgba(255,255,255,0.75);margin-bottom:32px;position:relative;z-index:1}
+.cta-banner .btn{position:relative;z-index:1}
+.cta-phone{margin-top:20px;font-size:0.95rem;color:rgba(255,255,255,0.6);position:relative;z-index:1}
+.cta-phone a{color:rgba(255,255,255,0.8);font-weight:500;transition:color 0.25s}
+.cta-phone a:hover{color:var(--white)}
+.cta-phone a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+
+/* ───────── FOOTER ───────── */
+.footer{padding:64px 0 0;background:var(--navy-deep);color:rgba(255,255,255,0.75)}
+.footer .container{display:grid;grid-template-columns:1.2fr 0.8fr 1fr;gap:48px}
+.footer h4{font-size:0.95rem;font-weight:600;color:var(--white);margin-bottom:16px}
+.footer-brand .nav-logo{margin-bottom:12px}
+.footer-brand .nav-logo-main{color:var(--white)}
+.footer-brand p{font-size:0.88rem;line-height:1.65;color:rgba(255,255,255,0.6);margin-bottom:12px}
+.footer-social{font-size:0.88rem;color:rgba(255,255,255,0.55)}
+.footer-links a{display:block;font-size:0.9rem;padding:4px 0;color:rgba(255,255,255,0.65);transition:color 0.25s}
+.footer-links a:hover{color:var(--white)}
+.footer-links a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.footer-contact p,.footer-contact a{font-size:0.9rem;color:rgba(255,255,255,0.65);display:block;margin-bottom:6px}
+.footer-contact a{transition:color 0.25s}
+.footer-contact a:hover{color:var(--white)}
+.footer-contact a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.footer-bottom{margin-top:48px;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:rgba(255,255,255,0.45)}
+.footer-bottom a{color:rgba(255,255,255,0.55);transition:color 0.25s}
+.footer-bottom a:hover{color:var(--white)}
+.footer-bottom a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+
+@media(max-width:768px){
+  .footer .container{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+
+/* ───────── MODAL ───────── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(13,31,60,0.55);z-index:2000;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s var(--ease-out)}
+.modal-overlay.open{display:flex;opacity:1}
+.modal{background:var(--white);border-radius:var(--radius-lg);padding:48px 40px;max-width:440px;width:90%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(13,31,60,0.25);transform:translateY(20px);transition:transform 0.35s var(--ease-out)}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:var(--cool-gray);display:flex;align-items:center;justify-content:center;transition:background 0.25s}
+.modal-close:hover{background:var(--light-navy)}
+.modal-close:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.modal-close svg{width:16px;height:16px;color:var(--text-gray)}
+.modal h3{font-size:1.5rem;color:var(--navy);margin-bottom:12px}
+.modal p{font-size:0.95rem;color:var(--text-gray);margin-bottom:24px;line-height:1.65}
+.modal-phone{font-size:1.8rem;font-weight:600;color:var(--navy);margin-bottom:24px;display:block}
+.modal-phone a{color:var(--navy);transition:color 0.25s}
+.modal-phone a:hover{color:var(--teal)}
+.modal-phone a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+.modal .hours{font-size:0.85rem;color:var(--text-gray)}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="#" class="nav-logo" aria-label="Alignment Health Chiropractic home">
+      <span class="nav-logo-main">Alignment Health</span>
+      <span class="nav-logo-sub">Chiropractic</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#conditions">Conditions</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <button class="btn btn-primary btn-nav nav-cta" onclick="openModal()" aria-label="Book an appointment">Book Appointment</button>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-overlay" aria-hidden="true"></div>
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#conditions">Conditions</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <button class="btn btn-primary" onclick="openModal()" style="margin-top:8px">Book Appointment</button>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-text">
+      <h1 class="reveal">Relief Starts <em>Here</em></h1>
+      <p class="reveal reveal-d1">Board-certified chiropractic care for back pain, neck pain, and sports injuries. Same-week appointments available in Tampa.</p>
+      <div class="hero-ctas reveal reveal-d2">
+        <button class="btn btn-primary" onclick="openModal()">Book Your First Visit</button>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+      <div class="hero-stats reveal reveal-d3">
+        <div class="hero-stat">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#0099CC" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          10+ Years Experience
+        </div>
+        <div class="hero-stat">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#0099CC" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          2,000+ Patients Helped
+        </div>
+        <div class="hero-stat">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#0099CC" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Same-Week Appointments
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-d2" aria-hidden="true">
+      <div class="spine-line"></div>
+      <div class="spine-graphic">
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+        <div class="vertebra"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST BAR -->
+<section class="trust-bar reveal">
+  <div class="container">
+    <p>Trusted by Tampa families since 2014</p>
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Licensed &amp; Insured
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Medicare Accepted
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        All Ages Welcome
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.5 2.5 4.5-5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Flexible Hours
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS WE TREAT -->
+<section class="conditions" id="conditions" aria-labelledby="conditions-title">
+  <div class="container">
+    <div class="conditions-header">
+      <div class="section-label reveal">Conditions</div>
+      <h2 class="section-title reveal reveal-d1" id="conditions-title">We Treat the Root Cause, Not Just the Symptoms</h2>
+    </div>
+    <div class="conditions-grid" id="services">
+      <!-- Lower Back Pain -->
+      <div class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M12 14v8M8 6h8M9 10h6M9 14h6M8 18h8"/></svg>
+        </div>
+        <h3>Lower Back Pain</h3>
+        <p>The #1 reason patients visit us</p>
+        <a href="#" class="condition-link" aria-label="Learn more about lower back pain treatment">Learn More →</a>
+      </div>
+      <!-- Neck & Shoulder -->
+      <div class="condition-card reveal reveal-d1">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 8v4M8 20l2-8h4l2 8M6 12h12"/></svg>
+        </div>
+        <h3>Neck &amp; Shoulder Pain</h3>
+        <p>Desk job tension and posture issues</p>
+        <a href="#" class="condition-link" aria-label="Learn more about neck and shoulder pain treatment">Learn More →</a>
+      </div>
+      <!-- Sciatica -->
+      <div class="condition-card reveal reveal-d2">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 12c0 4-4 10-4 10M12 12c0 4 4 10 4 10M8 6h8"/></svg>
+        </div>
+        <h3>Sciatica</h3>
+        <p>Radiating leg pain from spinal compression</p>
+        <a href="#" class="condition-link" aria-label="Learn more about sciatica treatment">Learn More →</a>
+      </div>
+      <!-- Sports Injuries -->
+      <div class="condition-card reveal reveal-d1">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Sports Injuries</h3>
+        <p>Fast recovery for active patients</p>
+        <a href="#" class="condition-link" aria-label="Learn more about sports injury treatment">Learn More →</a>
+      </div>
+      <!-- Headaches -->
+      <div class="condition-card reveal reveal-d2">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="7"/><path d="M8 14c1 2 2 3 4 3s3-1 4-3M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3>Headaches &amp; Migraines</h3>
+        <p>Often traced to spinal misalignment</p>
+        <a href="#" class="condition-link" aria-label="Learn more about headache and migraine treatment">Learn More →</a>
+      </div>
+      <!-- Posture -->
+      <div class="condition-card reveal reveal-d3">
+        <div class="condition-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4M4 12h16"/></svg>
+        </div>
+        <h3>Posture Correction</h3>
+        <p>Structural realignment for long-term health</p>
+        <a href="#" class="condition-link" aria-label="Learn more about posture correction">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" aria-labelledby="how-title">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-label reveal">Your First Visit</div>
+      <h2 class="section-title reveal reveal-d1" id="how-title">How It Works</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Consultation</h3>
+        <p>We review your history and identify the root cause of your pain</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-num">2</div>
+        <h3>Adjustment</h3>
+        <p>Precise, gentle spinal adjustments tailored to your body</p>
+      </div>
+      <div class="step reveal reveal-d4">
+        <div class="step-num">3</div>
+        <h3>Recovery Plan</h3>
+        <p>A personalized plan to keep you pain-free long term</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE DOCTOR -->
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-photo reveal" aria-hidden="true">
+      <div class="about-initials">Dr. M</div>
+    </div>
+    <div class="about-text">
+      <div class="section-label reveal">Meet Your Doctor</div>
+      <h2 class="reveal reveal-d1" id="about-title">Dr. Michael Torres, D.C.</h2>
+      <p class="doctor-title reveal reveal-d1">Doctor of Chiropractic</p>
+      <p class="bio reveal reveal-d2">Dr. Torres has been serving the Tampa community for over 10 years. A graduate of Palmer College of Chiropractic, he specializes in sports injuries and chronic pain management using evidence-based techniques. He believes in treating the whole patient — not just the symptom.</p>
+      <div class="credentials reveal reveal-d3">
+        <div class="credential">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Palmer College of Chiropractic
+        </div>
+        <div class="credential">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Florida Licensed D.C.
+        </div>
+        <div class="credential">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          10+ Years in Practice
+        </div>
+        <div class="credential">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#0099CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sports Injury Certified
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label reveal">Reviews</div>
+      <h2 class="section-title reveal reveal-d1" id="reviews-title">What Our Patients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+        </div>
+        <blockquote>"After years of back pain I finally found relief. Dr. Torres identified the problem in the first visit and I've been pain-free for 6 months."</blockquote>
+        <div class="testimonial-author">— Robert H., Tampa</div>
+      </div>
+      <div class="testimonial-card reveal reveal-d1">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+        </div>
+        <blockquote>"I came in for a sports injury and was back training within two weeks. The whole team is professional and genuinely caring."</blockquote>
+        <div class="testimonial-author">— Marcus D., Brandon</div>
+      </div>
+      <div class="testimonial-card reveal reveal-d2">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+          <svg viewBox="0 0 18 18" fill="#C9A84C"><path d="M9 1l2.24 4.54 5.01.73-3.63 3.54.86 4.99L9 12.27 4.52 14.8l.86-4.99L1.75 6.27l5.01-.73z"/></svg>
+        </div>
+        <blockquote>"I was skeptical about chiropractic care but this place changed my mind completely. My migraines are almost gone after 4 sessions."</blockquote>
+        <div class="testimonial-author">— Patricia W., Tampa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-label reveal">Pricing</div>
+      <h2 class="section-title reveal reveal-d1" id="pricing-title">Simple, Transparent Pricing</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <h3>New Patient Exam</h3>
+        <div class="pricing-amount">$75</div>
+        <p class="desc">Includes full consultation, digital X-rays, and treatment plan</p>
+        <button class="btn btn-primary" onclick="openModal()">Book Now</button>
+      </div>
+      <div class="pricing-card popular reveal reveal-d1">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Care Package</h3>
+        <div class="pricing-amount">$550</div>
+        <p class="desc">10 visits — save $100 vs per-visit pricing</p>
+        <button class="btn btn-primary" onclick="openModal()">Book Now</button>
+      </div>
+      <div class="pricing-card reveal reveal-d2">
+        <h3>Single Adjustment</h3>
+        <div class="pricing-amount">$65</div>
+        <p class="desc">Individual session for existing patients</p>
+        <button class="btn btn-primary" onclick="openModal()">Book Now</button>
+      </div>
+    </div>
+    <p class="pricing-note reveal">Most insurance plans accepted. Call to verify your coverage.</p>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 class="reveal" id="cta-title">Ready to Live Pain-Free?</h2>
+    <p class="reveal reveal-d1">Book your new patient exam today — same-week appointments available.</p>
+    <button class="btn btn-gold reveal reveal-d2" onclick="openModal()">Book Your First Visit</button>
+    <p class="cta-phone reveal reveal-d3"><a href="tel:+18135550284">(813) 555-0284</a> — or book online above</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <span class="nav-logo-main">Alignment Health</span>
+        <span class="nav-logo-sub">Chiropractic</span>
+      </div>
+      <p>Move Better. Feel Better. Live Better.</p>
+      <p class="footer-social">Follow us: @alignmenthealthtampa</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#services">Services</a>
+      <a href="#conditions">Conditions</a>
+      <a href="#about">About Dr. Torres</a>
+      <a href="#reviews">Patient Reviews</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>4820 W Kennedy Blvd, Suite 110<br>Tampa, FL 33609</p>
+      <a href="tel:+18135550284">(813) 555-0284</a>
+      <a href="mailto:hello@alignmenthealth.com">hello@alignmenthealth.com</a>
+      <p style="margin-top:12px">Mon–Fri: 8am–6pm<br>Sat: 9am–2pm</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Alignment Health Chiropractic. All rights reserved.</span>
+      <a href="https://anchor-digital.vercel.app" target="_blank" rel="noopener">Website by Anchor Digital</a>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close booking dialog">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+    <h3 id="modal-title">Book Your Appointment</h3>
+    <p>Call us to schedule your visit. Our team will find a time that works for you — most patients are seen within the week.</p>
+    <div class="modal-phone"><a href="tel:+18135550284">(813) 555-0284</a></div>
+    <button class="btn btn-primary" style="width:100%" onclick="window.location.href='tel:+18135550284'">Call Now</button>
+    <p class="hours" style="margin-top:16px">Mon–Fri 8am–6pm &nbsp;|&nbsp; Sat 9am–2pm</p>
+  </div>
+</div>
+
+<script>
+/* ─── Navbar scroll ─── */
+(function(){
+  const nav=document.querySelector('.navbar');
+  let ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){
+        nav.classList.toggle('scrolled',window.scrollY>40);
+        ticking=false;
+      });
+      ticking=true;
+    }
+  });
+})();
+
+/* ─── Hamburger menu ─── */
+(function(){
+  const btn=document.querySelector('.hamburger');
+  const mobileNav=document.querySelector('.mobile-nav');
+  const overlay=document.querySelector('.mobile-overlay');
+  function toggle(){
+    const open=btn.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    overlay.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  }
+  function close(){
+    btn.classList.remove('open');
+    mobileNav.classList.remove('open');
+    overlay.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click',toggle);
+  overlay.addEventListener('click',close);
+  mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+})();
+
+/* ─── Smooth scroll ─── */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+
+/* ─── Scroll reveal ─── */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){observer.observe(el)});
+})();
+
+/* ─── Modal ─── */
+var modalEl=document.getElementById('bookingModal');
+function openModal(){
+  modalEl.classList.add('open');
+  document.body.style.overflow='hidden';
+  modalEl.querySelector('.modal-close').focus();
+}
+function closeModal(){
+  modalEl.classList.remove('open');
+  document.body.style.overflow='';
+}
+modalEl.addEventListener('click',function(e){
+  if(e.target===modalEl)closeModal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&modalEl.classList.contains('open'))closeModal();
+});
+</script>
+</body>
+</html>

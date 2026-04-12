@@ -1,0 +1,1688 @@
+<!-- Demo site built by Anchor Digital | anchor-digital.vercel.app -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Aesthetics | Precision Aesthetics. Effortless Results. | Tampa, FL</title>
+<meta name="description" content="Lumière Aesthetics offers expert Botox, dermal fillers, laser treatments, and advanced skincare in Tampa, FL. Board-certified providers delivering natural, refined results.">
+<meta property="og:title" content="Lumière Aesthetics — Tampa's Premier Med Spa">
+<meta property="og:description" content="Precision Aesthetics. Effortless Results. Expert injectables, laser treatments, and personalized skincare by board-certified specialists in Tampa, FL.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Lumière Aesthetics",
+  "description": "Premium med spa in Tampa, FL offering Botox, dermal fillers, laser resurfacing, microneedling, chemical peels, and IV therapy.",
+  "url": "https://lumiereaesthetics.com",
+  "telephone": "(813) 555-0192",
+  "email": "hello@lumiereaesthetics.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2801 W Bayshore Blvd, Suite 200",
+    "addressLocality": "Tampa",
+    "addressRegion": "FL",
+    "postalCode": "33611",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Sa 09:00-18:00",
+  "priceRange": "$$$",
+  "image": "",
+  "sameAs": []
+}
+</script>
+<style>
+/* ── RESET & BASE ──────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sage: #4A7C6F;
+  --sage-light: #E8F0EE;
+  --cream: #FAF8F5;
+  --charcoal: #2C2C2C;
+  --warm-gray: #6B6B6B;
+  --gold: #C9A84C;
+  --white: #FFFFFF;
+  --sage-dark: #3B6459;
+  --gold-light: rgba(201, 168, 76, 0.15);
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --shadow-sm: 0 1px 3px rgba(44,44,44,0.04), 0 4px 12px rgba(74,124,111,0.06);
+  --shadow-md: 0 2px 8px rgba(44,44,44,0.05), 0 8px 24px rgba(74,124,111,0.08);
+  --shadow-lg: 0 4px 12px rgba(44,44,44,0.06), 0 16px 48px rgba(74,124,111,0.10);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--warm-gray);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── SECTION LABEL ─────────────────────────────── */
+.section-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+/* ── SCROLL REVEAL ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.35s; }
+.reveal-delay-5 { transition-delay: 0.4s; }
+
+/* ── NAVBAR ────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.4s var(--ease-out), padding 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.navbar.scrolled {
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 1px 0 rgba(74,124,111,0.08);
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.logo-main {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+}
+.logo-sub {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-top: 2px;
+  font-variant: small-caps;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  letter-spacing: 0.01em;
+  position: relative;
+  transition: color 0.3s var(--ease-out);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s var(--ease-out);
+}
+.nav-links a:hover { color: var(--sage); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.btn-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  box-shadow: 0 2px 8px rgba(74,124,111,0.2);
+}
+.btn-book:hover {
+  background: var(--sage-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(74,124,111,0.3);
+}
+.btn-book:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.btn-book:active { transform: translateY(0); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile Nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
+  background: var(--cream);
+  z-index: 999;
+  padding: 100px 32px 32px;
+  transition: right 0.4s var(--ease-out);
+  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+}
+.mobile-nav.open { right: 0; }
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44,44,44,0.3);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+.mobile-nav-overlay.open { opacity: 1; }
+.mobile-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.mobile-nav a {
+  display: block;
+  padding: 16px 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  border-bottom: 1px solid rgba(74,124,111,0.1);
+  transition: color 0.3s var(--ease-out);
+}
+.mobile-nav a:hover { color: var(--sage); }
+.mobile-nav .btn-book {
+  margin-top: 24px;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+}
+
+/* ── HERO ──────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-text { z-index: 2; }
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  color: var(--charcoal);
+  margin-bottom: 24px;
+}
+.hero-text h1 em {
+  font-style: italic;
+  color: var(--sage);
+}
+.hero-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--warm-gray);
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--sage);
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  box-shadow: 0 2px 12px rgba(74,124,111,0.25);
+}
+.btn-primary:hover {
+  background: var(--sage-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(74,124,111,0.35);
+}
+.btn-primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--sage);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 100px;
+  border: 1.5px solid var(--sage);
+  letter-spacing: 0.01em;
+  transition: transform 0.3s var(--ease-out), background 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+.btn-outline:hover {
+  background: var(--sage);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.btn-outline:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn-outline:active { transform: translateY(0); }
+
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.stat-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(74,124,111,0.06);
+}
+.stat-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--sage-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stat-icon svg { width: 16px; height: 16px; color: var(--sage); }
+.stat-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+  height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #d5e5df 0%, #a8cfc0 35%, var(--sage) 70%, var(--sage-dark) 100%);
+}
+/* Soft angled rectangle — back layer */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 16px;
+  top: 8%;
+  left: 12%;
+  transform: rotate(-8deg);
+}
+/* Soft angled rectangle — mid layer */
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  top: 14%;
+  left: 22%;
+  transform: rotate(4deg);
+}
+/* Thin gold diagonal line — top */
+.hero-rect-1 {
+  position: absolute;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.5) 30%, rgba(201,168,76,0.5) 70%, transparent 100%);
+  top: 30%;
+  left: -20%;
+  transform: rotate(-12deg);
+}
+/* Thin gold diagonal line — bottom */
+.hero-rect-2 {
+  position: absolute;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.35) 40%, rgba(201,168,76,0.35) 60%, transparent 100%);
+  bottom: 28%;
+  left: -30%;
+  transform: rotate(-12deg);
+}
+/* Small accent rectangle */
+.hero-rect-3 {
+  position: absolute;
+  width: 100px;
+  height: 140px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 8px;
+  bottom: 12%;
+  right: 10%;
+  transform: rotate(6deg);
+}
+/* Editorial text overlay */
+.hero-brand-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 40px;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ── TRUST BAR ─────────────────────────────────── */
+.trust-bar {
+  background: var(--white);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(74,124,111,0.06);
+}
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.trust-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--warm-gray);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+.trust-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  opacity: 0.45;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ── TREATMENTS ────────────────────────────────── */
+.treatments {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.treatments-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.treatments-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: 16px;
+}
+.treatments-header p {
+  font-size: 1.0625rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.treatment-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1px solid rgba(74,124,111,0.06);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.treatment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.treatment-card:hover::before { opacity: 1; }
+
+.treatment-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--sage-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.treatment-icon svg { width: 24px; height: 24px; color: var(--sage); }
+
+.treatment-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.treatment-card p {
+  font-size: 0.9375rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.treatment-price {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--sage);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.treatment-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--sage);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+.treatment-link:hover { gap: 10px; color: var(--sage-dark); }
+.treatment-link:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; border-radius: 2px; }
+.treatment-link svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease-out); }
+.treatment-link:hover svg { transform: translateX(2px); }
+
+/* ── WHY LUMIERE ───────────────────────────────── */
+.why-section {
+  padding: 120px 0;
+  background: var(--white);
+}
+.why-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.why-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.why-card { text-align: center; padding: 20px; }
+.why-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+.why-icon svg { width: 28px; height: 28px; color: var(--gold); }
+.why-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.why-card p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ── RESULTS ───────────────────────────────────── */
+.results-section {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.results-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.results-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: 12px;
+}
+.results-header p {
+  font-size: 1.0625rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 24px;
+}
+.result-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(74,124,111,0.06);
+}
+.result-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 220px;
+}
+.result-before, .result-after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+}
+.result-before {
+  background: linear-gradient(135deg, var(--sage-light) 0%, #d5e5df 100%);
+  color: var(--sage);
+}
+.result-after {
+  background: linear-gradient(135deg, #b5d4c8 0%, var(--sage) 100%);
+  color: var(--white);
+}
+.result-before::after, .result-after::after {
+  content: attr(data-label);
+}
+.result-info {
+  padding: 16px 20px;
+}
+.result-info p {
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+.result-info span {
+  font-size: 0.8125rem;
+  color: var(--warm-gray);
+  font-weight: 400;
+}
+.results-disclaimer {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--warm-gray);
+  font-style: italic;
+  margin-top: 8px;
+}
+.results-note {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--sage);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ── TESTIMONIALS ──────────────────────────────── */
+.testimonials-section {
+  padding: 120px 0;
+  background: var(--white);
+}
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.testimonials-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border-left: 3px solid var(--gold);
+  position: relative;
+}
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+.testimonial-stars svg { width: 16px; height: 16px; color: var(--gold); fill: var(--gold); }
+.testimonial-card blockquote {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.testimonial-author {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--warm-gray);
+}
+
+/* ── PRICING ───────────────────────────────────── */
+.pricing-section {
+  padding: 120px 0;
+  background: var(--cream);
+}
+.pricing-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.pricing-header h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: 12px;
+}
+.pricing-header p {
+  font-size: 1.0625rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 32px;
+}
+.pricing-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  border: 1px solid rgba(74,124,111,0.06);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.pricing-card.popular {
+  border: 2px solid var(--gold);
+}
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.pricing-card h3 {
+  font-size: 1.375rem;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.pricing-card .price {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 4px;
+}
+.pricing-card .price-note {
+  font-size: 0.8125rem;
+  color: var(--warm-gray);
+  margin-bottom: 20px;
+}
+.pricing-card .price-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.pricing-card .btn-primary {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 24px;
+}
+.pricing-note {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--warm-gray);
+}
+.pricing-note strong { color: var(--charcoal); font-weight: 500; }
+
+/* ── CTA BANNER ────────────────────────────────── */
+.cta-banner {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 60%, #2d5a4e 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.cta-banner h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+}
+.cta-banner p {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+.btn-cta-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  background: var(--white);
+  color: var(--sage);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border: 2px solid var(--gold);
+  position: relative;
+}
+.btn-cta-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.btn-cta-main:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
+.btn-cta-main:active { transform: translateY(0); }
+.cta-phone {
+  margin-top: 20px;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.75);
+  position: relative;
+}
+.cta-phone a {
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.3s;
+}
+.cta-phone a:hover { text-decoration-color: var(--white); }
+.cta-phone a:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; border-radius: 2px; }
+
+/* ── FOOTER ────────────────────────────────────── */
+.footer {
+  background: var(--charcoal);
+  padding: 80px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .logo-main { color: var(--white); font-size: 1.5rem; }
+.footer-brand .logo-sub { color: var(--sage); opacity: 0.8; }
+.footer-tagline {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+.footer-social {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 12px;
+}
+.footer-social a {
+  color: var(--sage);
+  transition: color 0.3s;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-social a:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+
+.footer h4 {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-links a {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-links a:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-contact-info p {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.65);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.footer-contact-info svg { width: 16px; height: 16px; color: var(--sage); flex-shrink: 0; margin-top: 3px; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copyright {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-credit {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.35);
+}
+.footer-credit a {
+  color: var(--sage);
+  transition: color 0.3s;
+}
+.footer-credit a:hover { color: var(--gold); }
+.footer-credit a:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+
+/* ── MODAL ─────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,44,44,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.3s var(--ease-out);
+}
+.modal-overlay.open .modal {
+  transform: scale(1) translateY(0);
+}
+.modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.modal p {
+  font-size: 0.9375rem;
+  margin-bottom: 8px;
+}
+.modal .phone-number {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--sage);
+  margin: 16px 0;
+  display: block;
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-gray);
+  transition: background 0.3s, color 0.3s;
+  font-size: 1.25rem;
+}
+.modal-close:hover { background: var(--sage-light); color: var(--charcoal); }
+.modal-close:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+.modal-wrapper { position: relative; }
+.modal-dismiss-btn {
+  margin-top: 20px;
+  padding: 10px 28px;
+  background: var(--sage-light);
+  color: var(--sage);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 100px;
+  transition: background 0.3s;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+.modal-dismiss-btn:hover { background: #d5e5df; }
+.modal-dismiss-btn:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+/* ── RESPONSIVE ────────────────────────────────── */
+@media (max-width: 1024px) {
+  .treatments-grid, .results-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid .testimonial-card:last-child { grid-column: span 2; max-width: 50%; justify-self: center; }
+  .why-grid { gap: 28px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .mobile-nav { display: block; }
+  .mobile-nav-overlay { display: block; }
+  .nav-links { display: none; }
+  .nav-links .btn-book { display: none; }
+  .navbar .btn-book-desktop { display: none; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero-text p { margin-left: auto; margin-right: auto; }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { height: 300px; }
+
+  .trust-bar-inner { gap: 20px; }
+  .trust-logos { gap: 20px; }
+
+  .treatments-grid, .results-grid, .testimonials-grid, .pricing-grid, .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonials-grid .testimonial-card:last-child { grid-column: auto; max-width: 100%; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .hero { padding-top: 70px; }
+  .hero-text h1 { font-size: 2rem; }
+  .hero-stats { flex-direction: column; align-items: center; }
+  .stat-badge { width: 100%; max-width: 280px; }
+  .hero-visual { height: 240px; border-radius: 16px; }
+  .treatments, .why-section, .results-section, .testimonials-section, .pricing-section { padding: 80px 0; }
+  .cta-banner { padding: 64px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ──────────────────────────────────── -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container navbar-inner">
+    <a href="#" class="logo" aria-label="Lumière Aesthetics Home">
+      <span class="logo-main">Lumière</span>
+      <span class="logo-sub">Aesthetics</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="btn-book btn-book-desktop js-book-btn">Book a Consultation</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav-overlay" aria-hidden="true"></div>
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
+  <ul>
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#" class="btn-book js-book-btn">Book a Consultation</a>
+</div>
+
+<!-- ─── HERO ────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1 class="reveal">Your Most Confident <em>Self</em> Awaits</h1>
+      <p class="reveal reveal-delay-1">Expert injectables and laser treatments delivered by board-certified specialists in the heart of Tampa.</p>
+      <div class="hero-ctas reveal reveal-delay-2">
+        <a href="#" class="btn-primary js-book-btn">Book Your Consultation</a>
+        <a href="#treatments" class="btn-outline">View Treatments</a>
+      </div>
+      <div class="hero-stats reveal reveal-delay-3">
+        <div class="stat-badge">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="stat-text">2,400+ Treatments</span>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="stat-text">Board-Certified Providers</span>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="stat-text">5-Star Rated</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2" role="img" aria-label="Decorative hero graphic">
+      <div class="hero-rect-1"></div>
+      <div class="hero-rect-2"></div>
+      <div class="hero-rect-3"></div>
+      <div class="hero-brand-text">Lumière<br>Aesthetics</div>
+      <div class="hero-grain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ──────────────────────────────── -->
+<section class="trust-bar" aria-label="Featured publications">
+  <div class="container trust-bar-inner">
+    <span class="trust-label">As seen in:</span>
+    <div class="trust-logos">
+      <span class="trust-logo">Vogue</span>
+      <span class="trust-logo">Allure</span>
+      <span class="trust-logo">Tampa Bay Magazine</span>
+      <span class="trust-logo">RealSelf</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TREATMENTS ─────────────────────────────── -->
+<section class="treatments" id="treatments">
+  <div class="container">
+    <div class="treatments-header reveal">
+      <div class="section-label">Our Treatments</div>
+      <h2>Tailored to You. Perfected by Experts.</h2>
+    </div>
+    <div class="treatments-grid">
+      <!-- Botox -->
+      <div class="treatment-card reveal reveal-delay-1">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0l-2-2m2 2l2-2"/><rect x="9" y="8" width="6" height="14" rx="2"/><path d="M9 12h6m-6 4h6"/></svg>
+        </div>
+        <h3>Botox &amp; Dysport</h3>
+        <p>Smooth expression lines with precision dosing</p>
+        <div class="treatment-price">Starting from $350</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+      <!-- Fillers -->
+      <div class="treatment-card reveal reveal-delay-2">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3>Dermal Fillers</h3>
+        <p>Restore volume and define your contours</p>
+        <div class="treatment-price">Starting from $650</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+      <!-- Laser -->
+      <div class="treatment-card reveal reveal-delay-3">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4m-11-11h4m14 0h4m-3.64-7.36l-2.83 2.83M6.46 17.54l-2.83 2.83m14.74 0l-2.83-2.83M6.46 6.46L3.63 3.63"/></svg>
+        </div>
+        <h3>Laser Resurfacing</h3>
+        <p>Reveal brighter, smoother skin</p>
+        <div class="treatment-price">Starting from $800</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+      <!-- Microneedling -->
+      <div class="treatment-card reveal reveal-delay-1">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v4m5-4v4m5-4v4"/><rect x="4" y="6" width="16" height="16" rx="2"/><path d="M7 12v4m5-4v4m5-4v4"/></svg>
+        </div>
+        <h3>Microneedling</h3>
+        <p>Stimulate collagen for lasting renewal</p>
+        <div class="treatment-price">Starting from $300</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+      <!-- Peels -->
+      <div class="treatment-card reveal reveal-delay-2">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4.97 0-9 4.03-9 9v1c0 4.97 4.03 8 9 8s9-3.03 9-8v-1c0-4.97-4.03-9-9-9z"/><path d="M12 3c2 3 3 6 3 9s-1 6-3 8"/><path d="M12 3c-2 3-3 6-3 9s1 6 3 8"/><path d="M3 13h18"/></svg>
+        </div>
+        <h3>Chemical Peels</h3>
+        <p>Targeted exfoliation for radiant results</p>
+        <div class="treatment-price">Starting from $175</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+      <!-- IV -->
+      <div class="treatment-card reveal reveal-delay-3">
+        <div class="treatment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M5 10l7 4 7-4"/><path d="M12 14v8"/><circle cx="12" cy="6" r="2"/></svg>
+        </div>
+        <h3>IV Therapy</h3>
+        <p>Replenish, restore, and revitalize from within</p>
+        <div class="treatment-price">Starting from $225</div>
+        <a href="#pricing" class="treatment-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY LUMIERE ─────────────────────────────── -->
+<section class="why-section" id="about">
+  <div class="container">
+    <div class="why-header reveal">
+      <div class="section-label" style="justify-content: center;">Why Lumière</div>
+      <h2>The Lumière Difference</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Board-Certified Providers</h3>
+        <p>Every treatment performed or supervised by licensed medical professionals</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Personalized Protocols</h3>
+        <p>No two clients are the same. Your treatment plan is built around your unique goals</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Subtle, Natural Results</h3>
+        <p>We specialize in enhancements that complement — never overwhelm — your natural beauty</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESULTS ─────────────────────────────────── -->
+<section class="results-section" id="results">
+  <div class="container">
+    <div class="results-header reveal">
+      <div class="section-label" style="justify-content: center;">Before &amp; After</div>
+      <h2>Real Results, Real Clients</h2>
+      <p>Every photo is an unedited result from an actual Lumière client.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card reveal reveal-delay-1">
+        <div class="result-images">
+          <div class="result-before" data-label="Before" role="img" aria-label="Before treatment placeholder"></div>
+          <div class="result-after" data-label="After" role="img" aria-label="After treatment placeholder"></div>
+        </div>
+        <div class="result-info">
+          <p>Botox — <span>2 weeks post-treatment</span></p>
+        </div>
+      </div>
+      <div class="result-card reveal reveal-delay-2">
+        <div class="result-images">
+          <div class="result-before" data-label="Before" role="img" aria-label="Before treatment placeholder"></div>
+          <div class="result-after" data-label="After" role="img" aria-label="After treatment placeholder"></div>
+        </div>
+        <div class="result-info">
+          <p>Dermal Fillers — <span>1 week post-treatment</span></p>
+        </div>
+      </div>
+      <div class="result-card reveal reveal-delay-3">
+        <div class="result-images">
+          <div class="result-before" data-label="Before" role="img" aria-label="Before treatment placeholder"></div>
+          <div class="result-after" data-label="After" role="img" aria-label="After treatment placeholder"></div>
+        </div>
+        <div class="result-info">
+          <p>Laser Resurfacing — <span>4 weeks post-treatment</span></p>
+        </div>
+      </div>
+    </div>
+    <p class="results-disclaimer">Individual results may vary.</p>
+    <p class="results-note">Real client photos will replace these placeholders before launch.</p>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ───────────────────────────── -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label" style="justify-content: center;">Testimonials</div>
+      <h2>What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"I've been coming to Lumière for two years and the results speak for themselves. My friends think I just look 'rested' — exactly what I wanted."</blockquote>
+        <div class="testimonial-author">— Sarah T., Tampa</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"The team here is incredibly knowledgeable. They talked me out of overdoing it and I'm so grateful. Natural and gorgeous."</blockquote>
+        <div class="testimonial-author">— Michelle R., St. Petersburg</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Best Botox I've ever had. I've tried four other places in Tampa and nothing compares. I won't go anywhere else."</blockquote>
+        <div class="testimonial-author">— Jennifer K., Tampa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─────────────────────────────────── -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="section-label" style="justify-content: center;">Pricing</div>
+      <h2>Our Most Requested Treatments</h2>
+      <p>Starting prices for our most popular services. Every treatment includes a complimentary consultation and personalized dosing plan.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal reveal-delay-1">
+        <h3>Botox &amp; Dysport</h3>
+        <div class="price">$350</div>
+        <div class="price-note">Starting from</div>
+        <p class="price-desc">Smooth expression lines with precision dosing by board-certified providers.</p>
+        <a href="#" class="btn-primary js-book-btn">Book Now</a>
+      </div>
+      <div class="pricing-card popular reveal reveal-delay-2">
+        <span class="popular-badge">Most Popular</span>
+        <h3>Dermal Fillers</h3>
+        <div class="price">$650</div>
+        <div class="price-note">Starting from</div>
+        <p class="price-desc">Restore volume and define your contours with natural-looking results.</p>
+        <a href="#" class="btn-primary js-book-btn">Book Now</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-3">
+        <h3>Laser Resurfacing</h3>
+        <div class="price">$800</div>
+        <div class="price-note">Starting from</div>
+        <p class="price-desc">Reveal brighter, smoother skin with advanced laser technology.</p>
+        <a href="#" class="btn-primary js-book-btn">Book Now</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">Complimentary consultations available. Financing options through <strong>CareCredit</strong>.</p>
+  </div>
+</section>
+
+<!-- ─── CTA BANNER ─────────────────────────────── -->
+<section class="cta-banner" id="contact">
+  <div class="container">
+    <h2 class="reveal">Ready to Begin Your Transformation?</h2>
+    <p class="reveal reveal-delay-1">Book a complimentary consultation and let our specialists create your personalized treatment plan.</p>
+    <a href="#" class="btn-cta-main reveal reveal-delay-2 js-book-btn">Book Your Free Consultation</a>
+    <div class="cta-phone reveal reveal-delay-3">or call us at <a href="tel:8135550192">(813) 555-0192</a></div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-main">Lumière</span>
+          <span class="logo-sub">Aesthetics</span>
+        </div>
+        <p class="footer-tagline">Precision Aesthetics. Effortless Results.</p>
+        <p class="footer-social">Follow us: <a href="#" aria-label="Instagram">@lumiereaesthetics</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-contact-info">
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            2801 W Bayshore Blvd, Suite 200<br>Tampa, FL 33611
+          </p>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:8135550192">(813) 555-0192</a>
+          </p>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@lumiereaesthetics.com
+          </p>
+          <p>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon – Sat: 9am – 6pm
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 Lumière Aesthetics. All rights reserved.</span>
+      <span class="footer-credit">Website by <a href="https://anchor-digital.vercel.app" target="_blank" rel="noopener">Anchor Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── BOOKING MODAL ──────────────────────────── -->
+<div class="modal-overlay" id="bookingModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+  <div class="modal-wrapper">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close dialog">&times;</button>
+      <h3 id="modalTitle">Book Your Consultation</h3>
+      <p>Contact us to schedule your complimentary consultation.</p>
+      <a href="tel:8135550192" class="phone-number">(813) 555-0192</a>
+      <p style="font-size: 0.875rem; color: var(--warm-gray);">or email us at<br><strong>hello@lumiereaesthetics.com</strong></p>
+      <button class="modal-dismiss-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Navbar scroll ──────────────────────────── */
+  var navbar = document.querySelector('.navbar');
+  var lastScroll = 0;
+  function onScroll() {
+    var y = window.scrollY;
+    if (y > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScroll = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ── Hamburger menu ─────────────────────────── */
+  var hamburger = document.querySelector('.hamburger');
+  var mobileNav = document.querySelector('.mobile-nav');
+  var overlay = document.querySelector('.mobile-nav-overlay');
+
+  function toggleMobileMenu() {
+    var isOpen = mobileNav.classList.contains('open');
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    overlay.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', !isOpen);
+    mobileNav.setAttribute('aria-hidden', isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+
+  hamburger.addEventListener('click', toggleMobileMenu);
+  overlay.addEventListener('click', toggleMobileMenu);
+
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (mobileNav.classList.contains('open')) toggleMobileMenu();
+    });
+  });
+
+  /* ── Booking modal ──────────────────────────── */
+  var modal = document.getElementById('bookingModal');
+  var bookBtns = document.querySelectorAll('.js-book-btn');
+  var closeBtn = modal.querySelector('.modal-close');
+  var dismissBtn = modal.querySelector('.modal-dismiss-btn');
+
+  function openModal(e) {
+    e.preventDefault();
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  bookBtns.forEach(function(btn) { btn.addEventListener('click', openModal); });
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  /* ── Scroll reveal ──────────────────────────── */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  /* ── Smooth scroll for anchor links ─────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      if (a.classList.contains('js-book-btn')) return;
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

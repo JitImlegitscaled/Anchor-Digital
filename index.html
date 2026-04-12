@@ -9,10 +9,12 @@
   <meta property="og:title" content="Anchor Digital — Web Services & Innovation" />
   <meta property="og:description" content="Professional websites that anchor your business online. Custom design, SEO, Google Business Profile, and more." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="brand assets/Logo.png" />
-  <link rel="icon" type="image/png" href="brand assets/favicon.png" />
-  <link rel="icon" type="image/png" href="Favicon.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="Favicon.png" />
+  <meta property="og:url" content="https://anchordigital.com" />
+  <meta property="og:image" content="brand-assets/Logo.png" />
+  <link rel="icon" type="image/png" href="brand-assets/favicon.png" />
+  <link rel="apple-touch-icon" href="brand-assets/favicon.png" />
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="brand-assets/Logo.png" />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -875,6 +877,12 @@
       font-size: 0.8125rem;
     }
 
+    /* ─── DEMOS / INDUSTRY SHOWCASES ───────────────────────────── */
+    #demos {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
     /* ─── PROCESS ───────────────────────────────────────────────── */
     #process {
       padding: 100px 0;
@@ -993,80 +1001,204 @@
       line-height: 1.65;
     }
 
-    /* ─── SUCCESS STORY CTA (replaces testimonials) ─────────────── */
+    /* ─── GOOGLE REVIEWS SECTION ──────────────────────────────── */
     #testimonials {
       padding: 100px 0;
       background: var(--gray-bg);
     }
-    .success-story-banner {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3560 50%, #0d2240 100%);
-      border-radius: var(--radius-lg);
-      padding: 80px 60px;
+    .reviews-header {
       text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(27,42,74,0.2), 0 4px 16px rgba(0,180,216,0.1);
+      margin-bottom: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .success-story-banner::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 360px; height: 360px;
-      background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 60px;
+      padding: 12px 28px 12px 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(27,42,74,0.05), 0 1px 4px rgba(0,0,0,0.03);
     }
-    .success-story-banner::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: 10%;
-      width: 240px; height: 240px;
-      background: radial-gradient(circle, rgba(0,119,182,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+    .google-logo-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
     }
-    .success-story-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
-    .success-story-icon {
-      width: 64px; height: 64px;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 28px;
-      font-size: 1.75rem;
-      box-shadow: 0 0 0 12px rgba(0,180,216,0.1);
-    }
-    .success-story-title {
+    .google-badge-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    .google-badge-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+    }
+    .google-badge-score {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+    .google-badge-stars {
+      display: flex;
+      gap: 2px;
+    }
+    .google-badge-stars svg {
+      width: 16px;
+      height: 16px;
+    }
+    .google-badge-count {
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      margin-left: 2px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+      box-shadow:
+        0 2px 16px rgba(27,42,74,0.05),
+        0 1px 4px rgba(0,180,216,0.04);
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 40px rgba(27,42,74,0.09),
+        0 4px 16px rgba(0,180,216,0.06);
+    }
+    .review-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 16px;
     }
-    .success-story-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.7;
-      margin-bottom: 36px;
+    .review-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      text-transform: uppercase;
     }
-    .btn-success {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%);
-      color: var(--white);
-      box-shadow:
-        0 0 0 4px rgba(0,180,216,0.18),
-        0 8px 28px rgba(0,180,216,0.45);
-      padding: 16px 40px;
-      font-size: 1rem;
+    .review-avatar-y { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+    .review-avatar-a { background: linear-gradient(135deg, var(--teal), var(--blue)); }
+    .review-author-info {
+      display: flex;
+      flex-direction: column;
     }
-    .btn-success:hover {
-      box-shadow:
-        0 0 0 6px rgba(0,180,216,0.22),
-        0 14px 38px rgba(0,180,216,0.55);
+    .review-author-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--navy);
+      line-height: 1.3;
     }
-    .btn-success:focus-visible { outline: 2px solid var(--teal-lt); outline-offset: 3px; }
-    @media (max-width: 600px) {
-      .success-story-banner { padding: 56px 28px; }
+    .review-author-meta {
+      font-size: 0.78rem;
+      color: var(--gray-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .review-google-icon {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 14px;
+    }
+    .review-stars svg {
+      width: 16px;
+      height: 16px;
+    }
+    .review-text {
+      font-size: 0.9375rem;
+      color: var(--navy);
+      line-height: 1.75;
+      position: relative;
+    }
+    .review-text.truncated {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-read-more {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--teal);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      transition: opacity 0.2s ease;
+    }
+    .review-read-more:hover { opacity: 0.7; }
+    .review-read-more:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 3px; }
+    .review-date {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.78rem;
+      color: var(--gray-text);
+    }
+    .reviews-cta {
+      text-align: center;
+      margin-top: 44px;
+    }
+    .reviews-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--teal);
+      padding: 12px 28px;
+      border-radius: 60px;
+      border: 2px solid var(--teal);
+      background: transparent;
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+    .reviews-cta-link:hover {
+      background: var(--teal);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .reviews-cta-link:focus-visible { outline: 2px solid var(--teal-lt); outline-offset: 3px; }
+    .reviews-cta-link:active { transform: translateY(0); }
+    @media (max-width: 700px) {
+      .reviews-grid { grid-template-columns: 1fr; }
     }
 
     /* ─── TESTIMONIAL CARD (kept for future use) ─────────────────── */
@@ -2393,16 +2525,16 @@
       <div class="nav-inner">
         <a href="#hero" class="nav-logo" aria-label="Anchor Digital — Home">
           <!-- REPLACE: LOGO — swap src with your final logo file if path changes -->
-          <img src="brand assets/Logo.png" alt="Anchor Digital logo" />
+          <img src="brand-assets/Logo.png" alt="Anchor Digital logo" />
           <div class="nav-logo-text">
             <span class="nav-logo-name">Anchor Digital</span>
             <span class="nav-logo-sub">Web Services & Innovation</span>
           </div>
         </a>
         <ul class="nav-links">
-          <li><a href="#hero">Home</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Work</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#google-reviews">Reviews</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#resources">Insights</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -2431,9 +2563,9 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul>
-      <li><a href="#hero" class="mobile-nav-link">Home</a></li>
       <li><a href="#services" class="mobile-nav-link">Services</a></li>
-      <li><a href="#portfolio" class="mobile-nav-link">Work</a></li>
+      <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+      <li><a href="#google-reviews" class="mobile-nav-link">Reviews</a></li>
       <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
       <li><a href="#resources" class="mobile-nav-link">Insights</a></li>
       <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
@@ -2477,10 +2609,10 @@
             Now taking new clients
           </div>
           <h1 class="hero-h1 reveal reveal-delay-1">
-            Websites That<br /><span class="accent">Anchor Your Business</span><br />Online
+            Beautiful Websites That<br /><span class="accent">Get You More Clients</span>
           </h1>
           <p class="hero-sub reveal reveal-delay-2">
-            We build professional websites that help small businesses get found on Google, make a great first impression, and turn visitors into paying customers.
+            We build premium websites for local service businesses — designed to rank on Google, build trust, and turn visitors into paying customers.
           </p>
           <div class="hero-actions reveal reveal-delay-3">
             <a href="#contact" class="btn btn-primary">
@@ -2501,8 +2633,8 @@
               <span class="mock-url">🔒 yourbusiness.com</span>
             </div>
             <!-- REPLACE: swap the placeholder below with a real screenshot — recommended size 560×350px or wider -->
-            <div class="mock-screenshot-area" aria-hidden="true">
-              <img src="www.sunstatellc.com_.png" alt="Client website screenshot" />
+            <div class="mock-screenshot-area" aria-hidden="true" style="background:#000;overflow:hidden;padding:0;">
+              <img src="www.sunstatellc.com_.png" alt="Sunstate Service Group LLC website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" />
             </div>
             <div class="mock-footer">
               <div class="mock-footer-lines">
@@ -2514,17 +2646,17 @@
             </div>
             <!-- Floating badges -->
             <div class="float-badge float-badge-1">
-              <span class="float-badge-icon">📈</span>
+              <span class="float-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
               <div>
-                <div style="color:#00B4D8;font-size:0.9rem;">+143%</div>
-                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">More Visitors</div>
+                <div style="color:#00B4D8;font-size:0.9rem;">7-Day</div>
+                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">Delivery</div>
               </div>
             </div>
             <div class="float-badge float-badge-2">
-              <span class="float-badge-icon">⭐</span>
+              <span class="float-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
               <div>
-                <div style="color:#00B4D8;font-size:0.9rem;">#1 Google</div>
-                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">Local Ranking</div>
+                <div style="color:#00B4D8;font-size:0.9rem;">Local SEO</div>
+                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">Included</div>
               </div>
             </div>
           </div>
@@ -2740,6 +2872,7 @@
               <div class="why-stat-label">100% custom — no templates</div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -2859,15 +2992,14 @@
     <div class="container">
       <div class="portfolio-header">
         <span class="section-label reveal">Our Work</span>
-        <h2 class="section-title reveal reveal-delay-1" id="portfolio-title">Built to Perform, Designed to Impress</h2>
-        <p class="section-sub reveal reveal-delay-2">A sample of the websites we've built for small businesses. Real results, real clients.</p>
+        <h2 class="section-title reveal reveal-delay-1" id="portfolio-title">Built for Real Businesses</h2>
+        <p class="section-sub reveal reveal-delay-2">Real projects for real clients. Every site listed here is live and delivering results.</p>
       </div>
       <div class="portfolio-grid">
 
-        <!-- REPLACE WITH REAL PROJECT — Project 1 (currently live) -->
+        <!-- Project 1 — Sunstate Service Group LLC (live client) -->
         <article class="portfolio-card reveal">
           <div class="portfolio-img">
-            <!-- REPLACE: swap with a real screenshot of this project -->
             <img src="WhatsApp Image 2026-03-28 at 4.50.52 PM.jpeg" alt="Sunstate Service Group LLC — website screenshot" loading="lazy" />
             <div class="portfolio-img-overlay"></div>
             <div class="portfolio-img-color"></div>
@@ -2884,6 +3016,89 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DEMOS / INDUSTRY SHOWCASES ══════════ -->
+  <section id="demos" aria-labelledby="demos-title">
+    <div class="container">
+      <div class="portfolio-header">
+        <span class="section-label reveal">Industry Showcases</span>
+        <h2 class="section-title reveal reveal-delay-1" id="demos-title">Built to Show What's Possible</h2>
+        <p class="section-sub reveal reveal-delay-2">Purpose-built demo sites showing what we can deliver for specific industries. Want one built for yours?</p>
+      </div>
+      <div class="portfolio-grid">
+
+        <!-- Demo — Lumière Aesthetics -->
+        <article class="portfolio-card reveal">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#E8F0EE,#4A7C6F);display:flex;align-items:center;justify-content:center;" role="img" aria-label="Lumière Aesthetics — website screenshot">
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:1.75rem;color:#fff;text-align:center;line-height:1.15;pointer-events:none;">Lumière<br>Aesthetics</span>
+            </div>
+            <div class="portfolio-img-overlay"></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Lumière Aesthetics</h3>
+            <p>A luxury med spa website for a Tampa-based aesthetic clinic. Premium design focused on trust, bookings, and Google visibility — built to convert high-intent clients.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Web Design</span>
+              <span class="tag">Med Spa</span>
+              <span class="tag">Local SEO</span>
+            </div>
+            <a href="medspa-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
+          </div>
+        </article>
+
+        <!-- Demo — Alignment Health Chiropractic -->
+        <article class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;background:linear-gradient(160deg,#1B3A6B,#122849);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;overflow:hidden;" role="img" aria-label="Alignment Health Chiropractic — website screenshot">
+              <div style="position:absolute;top:-20%;right:-20%;width:50%;height:50%;background:radial-gradient(circle,rgba(0,153,204,0.15),transparent 70%);border-radius:50%;"></div>
+              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:1.35rem;color:#fff;text-align:center;line-height:1.15;pointer-events:none;letter-spacing:-0.02em;">Alignment Health</span>
+              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:0.6rem;color:#0099CC;text-transform:uppercase;letter-spacing:0.18em;pointer-events:none;">Chiropractic</span>
+            </div>
+            <div class="portfolio-img-overlay"></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Alignment Health Chiropractic</h3>
+            <p>A clinical, trustworthy website for a Tampa chiropractic clinic. Clean design with booking CTAs, patient testimonials, transparent pricing, and local SEO — built to generate new patient appointments.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Web Design</span>
+              <span class="tag">Chiropractic</span>
+              <span class="tag">Local SEO</span>
+            </div>
+            <a href="chiro-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
+          </div>
+        </article>
+
+        <!-- Demo — Aurum Dental Studio -->
+        <article class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-img">
+            <div style="width:100%;height:100%;background:linear-gradient(165deg,#2A2A2A,#1E1E1E);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden;" role="img" aria-label="Aurum Dental Studio — website screenshot">
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;height:55%;border:1px solid rgba(201,168,76,0.18);border-radius:50%;"></div>
+              <div style="position:absolute;top:30%;right:15%;width:40%;height:25%;border:1px solid rgba(201,168,76,0.12);transform:rotate(12deg);"></div>
+              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.6rem;color:#fff;text-align:center;line-height:1.1;pointer-events:none;position:relative;z-index:1;">Aurum</span>
+              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:500;font-size:0.55rem;color:#C9A84C;text-transform:uppercase;letter-spacing:0.2em;pointer-events:none;position:relative;z-index:1;">Dental Studio</span>
+            </div>
+            <div class="portfolio-img-overlay"></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Aurum Dental Studio</h3>
+            <p>A premium dental studio website designed to feel like a luxury boutique. Veneers, whitening, Invisalign, and implants — with cosmetic pricing, patient testimonials, and consultation CTAs built for high-value conversions.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Web Design</span>
+              <span class="tag">Dental</span>
+              <span class="tag">Local SEO</span>
+            </div>
+            <a href="dental-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
+          </div>
+        </article>
+
+      </div>
+      <div class="reveal" style="text-align:center;margin-top:48px;">
+        <p style="font-size:1rem;color:var(--gray-text);margin-bottom:16px;">Interested in a demo for your industry?</p>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
       </div>
     </div>
   </section>
@@ -2950,7 +3165,7 @@
         <!-- Starter -->
         <div class="pricing-card reveal">
           <div class="pricing-tier">Starter</div>
-          <div class="pricing-price"><span>$</span>600</div>
+          <div class="pricing-price"><span>$</span>1,500</div>
           <p class="pricing-desc">Perfect for businesses that need a clean, professional online presence without the complexity.</p>
           <ul class="pricing-features">
             <li>
@@ -2981,7 +3196,7 @@
         <div class="pricing-card featured reveal reveal-delay-1">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-tier">Professional</div>
-          <div class="pricing-price"><span>$</span>1,800</div>
+          <div class="pricing-price"><span>$</span>2,800</div>
           <p class="pricing-desc">The complete package for businesses serious about getting found online and converting visitors.</p>
           <ul class="pricing-features">
             <li>
@@ -3015,8 +3230,8 @@
         <!-- Premium -->
         <div class="pricing-card reveal reveal-delay-2">
           <div class="pricing-tier">Premium</div>
-          <div class="pricing-price" style="font-size:1.9rem;">$3,000 <span style="font-size:0.9rem;font-weight:600;letter-spacing:0;vertical-align:middle;color:var(--gray-text);">— full service</span></div>
-          <p class="pricing-desc">For established businesses that want to dominate their market with ongoing SEO and expert support.</p>
+          <div class="pricing-price" style="font-size:1.9rem;">$2,800 <span style="font-size:0.9rem;font-weight:600;letter-spacing:0;vertical-align:middle;color:var(--gray-text);">+ $500/mo</span></div>
+          <p class="pricing-desc">For businesses that want consistent growth. Get the full Professional build included when you commit to our monthly growth plan.</p>
           <ul class="pricing-features">
             <li>
               <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -3024,19 +3239,23 @@
             </li>
             <li>
               <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Ongoing monthly SEO
+              2 blog posts or content updates per month
             </li>
             <li>
               <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Monthly website maintenance — $150/mo
+              Monthly Google Business Profile updates
             </li>
             <li>
               <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Regular content updates
+              Monthly SEO rank tracking report
             </li>
             <li>
               <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Priority support
+              6-month minimum commitment
+            </li>
+            <li>
+              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Priority 24hr response support
             </li>
           </ul>
           <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
@@ -3053,23 +3272,90 @@
     </svg>
   </div>
 
-  <!-- ══════════ SUCCESS STORY CTA (testimonials placeholder) ══════════ -->
-  <!-- REPLACE: add real testimonials here once you have them. Use .testimonial-card markup from the original code. -->
-  <section id="testimonials" aria-labelledby="success-story-title">
+  <!-- ══════════ GOOGLE REVIEWS ══════════ -->
+  <section id="google-reviews" aria-labelledby="reviews-title">
     <div class="container">
-      <div class="success-story-banner reveal">
-        <div class="success-story-inner">
-          <div class="success-story-icon">🚀</div>
-          <h2 class="success-story-title" id="success-story-title">Ready to Be Our Next Success Story?</h2>
-          <p class="success-story-sub">We're building something great with businesses just like yours.</p>
-          <a href="#contact" class="btn btn-success">
-            Start Your Project
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <div class="reviews-header reveal">
+        <div class="google-badge">
+          <svg class="google-logo-icon" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          <span class="google-badge-text">Google Reviews</span>
+          <span class="google-badge-rating">
+            <span class="google-badge-score">5.0</span>
+            <span class="google-badge-stars">
+              <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </span>
+            <span class="google-badge-count">(2 reviews)</span>
+          </span>
         </div>
+        <span class="section-label">What Our Clients Say</span>
+        <h2 class="section-title" id="reviews-title">Real Reviews from Real Clients</h2>
+        <p class="section-sub">Don't just take our word for it — hear directly from the businesses we've&nbsp;helped.</p>
+      </div>
+
+      <div class="reviews-grid" id="reviews-grid">
+
+        <!-- Review 1: Yamir Diaz -->
+        <div class="review-card reveal">
+          <div class="review-card-header">
+            <div class="review-avatar review-avatar-y">Y</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Yamir Diaz</span>
+              <span class="review-author-meta">
+                <svg class="review-google-icon" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                1 review
+              </span>
+            </div>
+          </div>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-text truncated" id="review-1-text">I couldn't be more thrilled with the website this team built for Service Group LLC! From our very first consultation, they took the time to truly understand our business, our goals, and our vision. The end result was a polished, professional, and fully functional website that exceeded every expectation we had. The design is clean, modern, and perfectly represents our brand. Navigation is intuitive, load times are fast, and the site looks great on every device. What really set this team apart was their communication throughout the entire process — they were responsive, transparent, and always open to feedback. If you're looking for a web development team that delivers quality work on time and genuinely cares about your success, look no further. Service Group LLC is proud to have such a fantastic website, and we owe it all to this incredible team. Highly recommend — 5 stars without hesitation!</div>
+          <button class="review-read-more" onclick="toggleReview(this, 'review-1-text')" aria-expanded="false">Read more</button>
+          <span class="review-date">April 2025</span>
+        </div>
+
+        <!-- Review 2: Alexandro Labori -->
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-card-header">
+            <div class="review-avatar review-avatar-a">A</div>
+            <div class="review-author-info">
+              <span class="review-author-name">Alexandro Labori</span>
+              <span class="review-author-meta">
+                <svg class="review-google-icon" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                1 review
+              </span>
+            </div>
+          </div>
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-text">This is not just one of many developers, this team is stands out as far as design and security goes. This team takes pride in what they do and they will deliver quick! Very nice and serious people. I definitely recommend these people to make a website for your business.</div>
+          <span class="review-date">April 2025</span>
+        </div>
+
+      </div>
+
+      <div class="reviews-cta reveal">
+        <a href="https://www.google.com/maps/place/Anchor+Digital/@46.423669,-129.9427085,3z/data=!4m6!3m5!1s0x88dc7b90e0eb3577:0x54f3796ea02ca2fc!8m2!3d46.423669!4d-129.9427086!16s%2Fg%2F11zkvp5778" target="_blank" rel="noopener" class="reviews-cta-link">
+          See All Reviews on Google
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
       </div>
     </div>
   </section>
+
 
   <!-- Wave divider testimonials → resources -->
   <div class="wave-divider" style="background:#F0F4F8;" aria-hidden="true">
@@ -3124,7 +3410,7 @@
 
         <article class="resource-card reveal reveal-delay-2">
           <div class="resource-img">
-            <img src="Gemini_Generated_Image_pkehtypkehtypkeh.png" alt="What to Look for When Hiring a Web Designer" loading="lazy" />
+            <img src="2a966676-7cc1-49e9-a5e5-5f1a1099ed74.png" alt="What to Look for When Hiring a Web Designer" loading="lazy" />
             <div class="resource-img-overlay"></div>
             <div class="resource-img-color"></div>
             <span class="resource-cat">Business Tips</span>
@@ -3149,7 +3435,6 @@
       <path d="M0,30 C480,70 960,0 1440,50 L1440,70 L0,70 Z" fill="#ffffff"/>
     </svg>
   </div>
-
 
   <!-- ══════════ FAQ ══════════ -->
   <section id="faq" aria-labelledby="faq-title">
@@ -3177,7 +3462,7 @@
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">Our packages start from $600 for a single-page website and go up depending on your needs. Every project is different, so we always provide a free, no-obligation quote after learning about your business. Check out our Pricing section above for an overview.</div>
+            <div class="faq-answer-inner">Our packages start from $1,500 for a single-page website and go up depending on your needs. Every project is different, so we always provide a free, no-obligation quote after learning about your business. Check out our Pricing section above for an overview.</div>
           </div>
         </div>
 
@@ -3316,26 +3601,26 @@
                 <div class="services-grid" id="packagesGrid" style="margin-bottom:0;">
 
                   <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-starter" name="services" value="Starter Package" data-price="600" data-recurring="0" data-package="true" />
+                    <input type="checkbox" id="pkg-starter" name="services" value="Starter Package" data-price="1500" data-recurring="0" data-package="true" />
                     <label for="pkg-starter">
                       <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Starter Package</span><span class="cb-price">$600 — 1-page site</span></span>
+                      <span class="cb-text"><span class="cb-name">Starter Package</span><span class="cb-price">$1,500 — 1-page site</span></span>
                     </label>
                   </div>
 
                   <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-professional" name="services" value="Professional Package" data-price="1800" data-recurring="0" data-package="true" />
+                    <input type="checkbox" id="pkg-professional" name="services" value="Professional Package" data-price="2800" data-recurring="0" data-package="true" />
                     <label for="pkg-professional">
                       <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Professional Package</span><span class="cb-price">$1,800 — multi-page + SEO</span></span>
+                      <span class="cb-text"><span class="cb-name">Professional Package</span><span class="cb-price">$2,800 — multi-page + SEO</span></span>
                     </label>
                   </div>
 
                   <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-premium" name="services" value="Premium Package" data-price="3000" data-recurring="0" data-package="true" />
+                    <input type="checkbox" id="pkg-premium" name="services" value="Premium Package" data-price="2800" data-recurring="500" data-package="true" />
                     <label for="pkg-premium">
                       <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Premium Package</span><span class="cb-price">$3,000 — full service</span></span>
+                      <span class="cb-text"><span class="cb-name">Premium Package</span><span class="cb-price">$2,800 + $500/mo</span></span>
                     </label>
                   </div>
 
@@ -3348,50 +3633,50 @@
                 <div class="services-grid" id="servicesGrid">
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-website" name="services" value="Custom Website Design (1 page)" data-price="600" data-recurring="0" />
+                  <input type="checkbox" id="svc-website" name="services" value="Custom Website Design (1 page)" data-price="1000" data-recurring="0" />
                   <label for="svc-website">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Custom Website Design</span><span class="cb-price">$600 / page</span></span>
+                    <span class="cb-text"><span class="cb-name">Custom Website Design</span><span class="cb-price">$1,000 / page</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-seo" name="services" value="SEO Setup & Optimization" data-price="400" data-recurring="0" />
+                  <input type="checkbox" id="svc-seo" name="services" value="SEO Setup & Optimization" data-price="700" data-recurring="0" />
                   <label for="svc-seo">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">SEO Setup & Optimization</span><span class="cb-price">$400</span></span>
+                    <span class="cb-text"><span class="cb-name">SEO Setup & Optimization</span><span class="cb-price">$700</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-gbp" name="services" value="Google Business Profile Setup" data-price="250" data-recurring="0" />
+                  <input type="checkbox" id="svc-gbp" name="services" value="Google Business Profile Setup" data-price="300" data-recurring="0" />
                   <label for="svc-gbp">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Google Business Profile</span><span class="cb-price">$250</span></span>
+                    <span class="cb-text"><span class="cb-name">Google Business Profile</span><span class="cb-price">$300</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-booking" name="services" value="Booking/Appointment Integration" data-price="300" data-recurring="0" />
+                  <input type="checkbox" id="svc-booking" name="services" value="Booking/Appointment Integration" data-price="450" data-recurring="0" />
                   <label for="svc-booking">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Booking Integration</span><span class="cb-price">$300</span></span>
+                    <span class="cb-text"><span class="cb-name">Booking Integration</span><span class="cb-price">$450</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-maintenance" name="services" value="Monthly Maintenance & Support" data-price="0" data-recurring="150" />
+                  <input type="checkbox" id="svc-maintenance" name="services" value="Monthly Maintenance & Support" data-price="0" data-recurring="350" />
                   <label for="svc-maintenance">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Monthly Maintenance</span><span class="cb-price">$150/mo</span></span>
+                    <span class="cb-text"><span class="cb-name">Monthly Maintenance</span><span class="cb-price">$350/mo</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-logo" name="services" value="Logo Design" data-price="250" data-recurring="0" />
+                  <input type="checkbox" id="svc-logo" name="services" value="Logo Design" data-price="400" data-recurring="0" />
                   <label for="svc-logo">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Logo Design</span><span class="cb-price">$250</span></span>
+                    <span class="cb-text"><span class="cb-name">Logo Design</span><span class="cb-price">$400</span></span>
                   </label>
                 </div>
 
@@ -3411,9 +3696,10 @@
               </div>
               <div class="estimate-recurring" id="estimateRecurring" style="display:none;">
                 <span class="estimate-recurring-label">+ Monthly Recurring</span>
-                <span class="estimate-recurring-value" id="estimateRecurringValue">$150/mo</span>
+                <span class="estimate-recurring-value" id="estimateRecurringValue">$350/mo</span>
               </div>
               <p class="estimate-note">This is an estimate. Final pricing may vary based on project scope. We'll confirm everything before starting.</p>
+              <p class="estimate-package-hint" id="estimatePackageHint" style="display:none;margin-top:0.5rem;font-size:0.8rem;font-weight:400;color:var(--gray-text);">Buying 3 or more services? <a href="#pricing" style="color:var(--gray-text);text-decoration:underline;text-underline-offset:2px;">A package deal</a> will save you money.</p>
             </div>
 
             <div class="form-group">
@@ -3445,7 +3731,7 @@
         <div class="footer-brand">
           <!-- REPLACE: LOGO — footer logo -->
           <a href="#hero" class="footer-logo" aria-label="Anchor Digital — Back to top">
-            <img src="brand assets/Logo.png" alt="Anchor Digital logo" />
+            <img src="brand-assets/Logo.png" alt="Anchor Digital logo" />
             <div>
               <div class="footer-logo-name">Anchor Digital</div>
               <div class="footer-logo-sub">Web Services & Innovation</div>
@@ -3737,6 +4023,12 @@
       } else {
         recurringRow.style.display = 'none';
       }
+
+      // Package savings hint — show when 3+ individual services selected and no package chosen
+      const svcCount = document.querySelectorAll('#servicesGrid input[type="checkbox"]:checked').length;
+      const pkgSelected = document.querySelector('#packagesGrid input[type="checkbox"]:checked');
+      const hintEl = document.getElementById('estimatePackageHint');
+      if (hintEl) hintEl.style.display = (svcCount >= 3 && !pkgSelected) ? 'block' : 'none';
     }
 
     // Services included in each package (maps pkg checkbox id → service checkbox ids to lock)
@@ -3839,6 +4131,96 @@
           }, 4000);
         });
     });
+  </script>
+
+  <!-- Review toggle + future Google API auto-fetch -->
+  <script>
+    function toggleReview(btn, textId) {
+      var el = document.getElementById(textId);
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        el.classList.add('truncated');
+        btn.textContent = 'Read more';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        el.classList.remove('truncated');
+        btn.textContent = 'Read less';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    /*
+     * Google Places API auto-fetch (activates once your listing is indexed).
+     * Replace PLACE_ID below with your actual Place ID once available.
+     * The API key is already set. When the fetch succeeds, it replaces
+     * the hardcoded reviews with live data from Google.
+     */
+    (function() {
+      // TODO: Restrict this API key in Google Cloud Console → APIs & Services → Credentials
+      // → set "Application restrictions" to HTTP referrers and add your domain(s).
+      var API_KEY = 'AIzaSyC3VYplVhf0KWWbThOWZPZby6uIUnTti0A';
+      var PLACE_ID = ''; // Set your Place ID here once Google indexes your listing
+
+      if (!PLACE_ID) return; // Skip if no Place ID yet
+
+      fetch('https://places.googleapis.com/v1/places/' + PLACE_ID + '?languageCode=en', {
+        headers: {
+          'X-Goog-Api-Key': API_KEY,
+          'X-Goog-FieldMask': 'reviews,rating,userRatingCount'
+        }
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (!data.reviews || !data.reviews.length) return;
+
+        var grid = document.getElementById('reviews-grid');
+        grid.innerHTML = '';
+
+        // Update badge
+        var scoreEl = document.querySelector('.google-badge-score');
+        var countEl = document.querySelector('.google-badge-count');
+        if (scoreEl && data.rating) scoreEl.textContent = data.rating.toFixed(1);
+        if (countEl && data.userRatingCount) countEl.textContent = '(' + data.userRatingCount + ' reviews)';
+
+        var colors = ['#7c3aed','#0077B6','#ea4335','#34a853','#f59e0b','#06b6d4'];
+
+        data.reviews.forEach(function(review, i) {
+          var initial = (review.authorAttribution && review.authorAttribution.displayName)
+            ? review.authorAttribution.displayName.charAt(0).toUpperCase() : '?';
+          var name = review.authorAttribution ? review.authorAttribution.displayName : 'Anonymous';
+          var text = review.text ? review.text.text : '';
+          var rating = review.rating || 5;
+          var time = review.relativePublishTimeDescription || '';
+          var color = colors[i % colors.length];
+          var needsTruncate = text.length > 300;
+
+          var starsHtml = '';
+          for (var s = 0; s < rating; s++) {
+            starsHtml += '<svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+          }
+
+          var card = document.createElement('div');
+          card.className = 'review-card reveal';
+          card.innerHTML =
+            '<div class="review-card-header">' +
+              '<div class="review-avatar" style="background:' + color + '">' + initial + '</div>' +
+              '<div class="review-author-info">' +
+                '<span class="review-author-name">' + name + '</span>' +
+                '<span class="review-author-meta">' +
+                  '<svg class="review-google-icon" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>' +
+                '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="review-stars">' + starsHtml + '</div>' +
+            '<div class="review-text' + (needsTruncate ? ' truncated' : '') + '" id="review-api-' + i + '">' + text + '</div>' +
+            (needsTruncate ? '<button class="review-read-more" onclick="toggleReview(this, \'review-api-' + i + '\')" aria-expanded="false">Read more</button>' : '') +
+            '<span class="review-date">' + time + '</span>';
+
+          grid.appendChild(card);
+        });
+      })
+      .catch(function() { /* Keep hardcoded reviews on error */ });
+    })();
   </script>
 
   <!-- Hero background is now pure CSS (animated gradient + dot grid) -->
