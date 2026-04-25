@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,11 +18,12 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Async font load: load non-blocking, swap to real fonts once ready -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <style>
     /* ─── CSS Variables ─────────────────────────────────────────── */
-    :root,
-    [data-theme="light"] {
+    :root {
       --navy:      #1B2A4A;
       --navy-deep: #111d34;
       --teal:      #00B4D8;
@@ -43,31 +44,6 @@
       --hero-bg:          #e8f4f8;
       --hero-overlay-end: rgba(232,244,248,0.65);
       /* hero-canvas-filter removed — using CSS gradient bg instead */
-      --toggle-track:     rgba(27,42,74,0.07);
-    }
-
-    [data-theme="dark"] {
-      --navy:      #ddeaf7;
-      --navy-deep: #c0d4ee;
-      --teal:      #22d3ee;
-      --blue:      #38bdf8;
-      --teal-lt:   #67e8f9;
-      --ocean:     #a5f3fc;
-      --white:     #0f1928;
-      --gray-bg:   #111e30;
-      --gray-text: #7799bb;
-      --radius:    12px;
-      --radius-lg: 20px;
-      /* theme-specific */
-      --body-bg:          #080e1a;
-      --surface:          #0f1928;
-      --surface-alt:      #111e30;
-      --border-subtle:    rgba(34,211,238,0.11);
-      --nav-scrolled-bg:  rgba(8,14,26,0.88);
-      --hero-bg:          #080e1a;
-      --hero-overlay-end: rgba(8,14,26,0.70);
-      /* hero-canvas-filter removed — using CSS gradient bg instead */
-      --toggle-track:     rgba(34,211,238,0.07);
     }
 
     /* ─── Reset & Base ──────────────────────────────────────────── */
@@ -157,23 +133,15 @@
       border-color: rgba(255,255,255,0.55);
       color: var(--white);
     }
-    [data-theme="light"] #hero .btn-outline {
-      color: var(--navy);
-      border-color: var(--navy);
-    }
-    [data-theme="light"] #hero .btn-outline:hover {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-    }
 
     /* ─── Fade-in Animation ─────────────────────────────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.65s ease, transform 0.65s cubic-bezier(.25,.8,.25,1);
+      will-change: transform, opacity;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -190,11 +158,13 @@
         opacity 1.5s cubic-bezier(0.34, 1.56, 0.64, 1),
         filter  1.5s cubic-bezier(0.34, 1.56, 0.64, 1),
         transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform, opacity, filter;
     }
     #hero .reveal.visible {
       opacity: 1;
       filter: blur(0px);
       transform: translateY(0);
+      will-change: auto;
     }
     #hero .reveal-delay-1 { transition-delay: 0.08s; }
     #hero .reveal-delay-2 { transition-delay: 0.16s; }
@@ -238,10 +208,11 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 1.0625rem;
-      color: var(--navy);
+      color: #ffffff;
       letter-spacing: -0.02em;
       line-height: 1.1;
     }
+    #navbar.scrolled .nav-logo-name { color: var(--navy); }
     .nav-logo-sub {
       font-size: 0.65rem;
       font-weight: 500;
@@ -259,11 +230,13 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--navy);
-      opacity: 0.75;
-      transition: opacity 0.15s ease, color 0.15s ease;
+      color: #ffffff;
+      opacity: 1;
+      transition: color 0.15s ease;
     }
-    .nav-links a:hover { opacity: 1; color: var(--teal); }
+    .nav-links a:hover { color: var(--teal); }
+    #navbar.scrolled .nav-links a { color: var(--navy-deep); }
+    #navbar.scrolled .nav-links a:hover { color: var(--teal); }
     .nav-cta { margin-left: 8px; padding: 10px 22px; font-size: 0.875rem; }
 
     /* Mobile hamburger */
@@ -280,13 +253,14 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--navy);
+      background: #ffffff;
       border-radius: 2px;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #navbar.scrolled .hamburger span { background: var(--navy); }
 
     .mobile-menu {
       display: none;
@@ -336,6 +310,23 @@
     .mobile-social-link svg { width: 18px; height: 18px; }
 
     /* ─── HERO ──────────────────────────────────────────────────── */
+    @keyframes hero-mesh-1 {
+      0%   { transform: translate(0%, 0%) scale(1); }
+      33%  { transform: translate(6%, -8%) scale(1.12); }
+      66%  { transform: translate(-5%, 6%) scale(0.95); }
+      100% { transform: translate(0%, 0%) scale(1); }
+    }
+    @keyframes hero-mesh-2 {
+      0%   { transform: translate(0%, 0%) scale(1); }
+      33%  { transform: translate(-8%, 5%) scale(1.08); }
+      66%  { transform: translate(7%, -4%) scale(1.15); }
+      100% { transform: translate(0%, 0%) scale(1); }
+    }
+    @keyframes hero-mesh-3 {
+      0%   { transform: translate(0%, 0%) scale(1.1); }
+      50%  { transform: translate(5%, 8%) scale(0.95); }
+      100% { transform: translate(0%, 0%) scale(1.1); }
+    }
     #hero {
       min-height: 100vh;
       display: flex;
@@ -343,64 +334,44 @@
       position: relative;
       overflow: hidden;
       padding: 120px 0 80px;
-      background: #e8f4f8;
+      background: #080e1a;
     }
-    /* Animated gradient background for hero */
-    @keyframes heroGradientShift {
-      0%   { background-position: 0% 50%; }
-      25%  { background-position: 100% 25%; }
-      50%  { background-position: 50% 100%; }
-      75%  { background-position: 0% 75%; }
-      100% { background-position: 0% 50%; }
+    /* ── Hero full-bleed video background ── */
+    #hero-bg-img,
+    #hero-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: opacity 0.7s ease;
     }
+    #hero-bg-video { opacity: 0; }
+    #hero-bg-video.playing { opacity: 1; }
+    #hero-bg-img.hidden { opacity: 0; }
+    /* teal color treatment over the video */
     #hero-bg-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #e8f4f8 0%, #dff0f8 25%, #f0f8ff 50%, #e0eef8 75%, #e8f4f8 100%);
-      background-size: 300% 300%;
-      animation: heroGradientShift 20s ease infinite;
-    }
-    /* Subtle dot grid overlay */
-    #hero-bg-gradient::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: 0.03;
-    }
-    [data-theme="dark"] #hero-bg-gradient {
-      background: linear-gradient(135deg, #080e1a 0%, #0f1928 25%, #111d34 50%, #0a1525 75%, #080e1a 100%);
-      background-size: 300% 300%;
-      animation: heroGradientShift 20s ease infinite;
-    }
-    /* Teal glow spots for dark mode */
-    [data-theme="dark"] #hero-bg-gradient::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 40% 50% at 20% 40%, rgba(0,180,216,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 35% 45% at 75% 30%, rgba(0,180,216,0.06) 0%, transparent 65%),
-        radial-gradient(ellipse 30% 40% at 50% 80%, rgba(0,180,216,0.05) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(0,180,216,0.18), rgba(0,119,182,0.14));
+      mix-blend-mode: multiply;
+      z-index: 0;
       pointer-events: none;
     }
-    [data-theme="dark"] #hero-bg-gradient::after {
-      background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: 0.025;
-    }
-    /* Soft edge vignette */
+    #hero-mesh-accent { display: none; }
     #hero-overlay {
+      display: block;
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 140% 100% at 50% 110%, rgba(232,244,248,0) 30%, rgba(232,244,248,0.65) 100%);
-      pointer-events: none;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
     }
+
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
@@ -428,6 +399,7 @@
       background: var(--teal);
       border-radius: 50%;
       animation: pulse-dot 2s ease-in-out infinite;
+      will-change: transform, opacity;
     }
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
@@ -436,7 +408,7 @@
     .hero-h1 {
       font-size: clamp(2.5rem, 5vw, 3.75rem);
       font-weight: 800;
-      color: var(--navy);
+      color: #ffffff;
       margin-bottom: 22px;
       line-height: 1.1;
     }
@@ -448,7 +420,7 @@
     }
     .hero-sub {
       font-size: 1.0625rem;
-      color: var(--gray-text);
+      color: rgba(255,255,255,0.75);
       line-height: 1.75;
       margin-bottom: 36px;
       max-width: 480px;
@@ -504,6 +476,7 @@
       position: relative;
       overflow: visible;
       animation: float-card 6s ease-in-out infinite;
+      will-change: transform;
     }
     @keyframes float-card {
       0%, 100% { transform: translateY(0px); }
@@ -532,6 +505,109 @@
     .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
     .mock-dot-r { background: #ff5f57; }
     .mock-dot-y { background: #febc2e; }
+
+    /* ─── HERO VIDEO PANEL ──────────────────────────────────────── */
+    .hero-video-panel {
+      position: relative;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      box-shadow:
+        0 4px 6px rgba(27,42,74,0.06),
+        0 28px 80px rgba(27,42,74,0.22),
+        0 2px 4px rgba(0,180,216,0.12);
+      animation: float-card 6s ease-in-out infinite;
+      will-change: transform;
+    }
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+    }
+    .hero-video-bg.hidden { opacity: 0; pointer-events: none; }
+    .hero-video-el {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+    .hero-video-el.visible { opacity: 1; }
+    /* gradient overlay on video panel */
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,22,48,0.55) 0%, rgba(11,22,48,0.15) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    /* teal color treatment layer */
+    .hero-video-color {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,180,216,0.25), rgba(0,119,182,0.2));
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .hero-video-play-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255,255,255,0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .hero-video-play-btn:hover {
+      background: rgba(0,180,216,0.35);
+      border-color: rgba(0,180,216,0.6);
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(0,180,216,0.4);
+    }
+    .hero-video-play-btn:active { transform: scale(0.96); }
+    .hero-video-play-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+    .hero-video-play-btn svg { color: #fff; }
+    /* video label badge in top-left */
+    .hero-video-label {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 50px;
+      padding: 5px 14px 5px 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero-video-label-dot {
+      width: 7px; height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
     .mock-dot-g { background: #28c840; }
     .mock-url {
       flex: 1;
@@ -633,10 +709,12 @@
     .float-badge-1 {
       top: -16px; right: -20px;
       animation: float-badge-1 5s ease-in-out infinite;
+      will-change: transform;
     }
     .float-badge-2 {
       bottom: 20px; left: -24px;
       animation: float-badge-2 6.5s ease-in-out infinite;
+      will-change: transform;
     }
     @keyframes float-badge-1 {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -900,6 +978,7 @@
       border-radius: 50%;
       animation: processWaveTravelTop 6s ease-in-out infinite;
       z-index: 2;
+      will-change: transform;
     }
     #process::before {
       top: -40px;
@@ -927,27 +1006,6 @@
     }
     .process-wave-top,
     .process-wave-bottom { display: none; }
-    .process-wave-svg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      animation: processWaveScroll 8s linear infinite;
-    }
-    .process-wave-svg2 {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      animation: processWaveScroll 12s linear infinite reverse;
-      opacity: 0.5;
-    }
-    @keyframes processWaveScroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
     .process-header { text-align: center; margin-bottom: 70px; position: relative; z-index: 2; }
     .process-header .section-title { color: var(--white); }
     .process-header .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto; }
@@ -1127,70 +1185,6 @@
       .client-quote-footer { flex-wrap: wrap; }
     }
 
-    /* ─── TESTIMONIAL CARD (kept for future use) ─────────────────── */
-    .testimonial-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: 0 2px 16px rgba(27,42,74,0.06);
-      border: 1px solid rgba(27,42,74,0.06);
-      position: relative;
-      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
-    }
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 36px rgba(27,42,74,0.1);
-    }
-    .quote-mark {
-      position: absolute;
-      top: 20px; right: 24px;
-      font-size: 4rem;
-      line-height: 1;
-      color: var(--ocean);
-      font-family: Georgia, serif;
-      opacity: 0.5;
-    }
-    .stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 16px;
-    }
-    .star { color: #f59e0b; font-size: 0.9rem; }
-    .testimonial-quote {
-      font-size: 0.9375rem;
-      color: var(--navy);
-      line-height: 1.75;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .author-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: white;
-      flex-shrink: 0;
-    }
-    .author-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.9375rem;
-      color: var(--navy);
-    }
-    .author-role {
-      font-size: 0.8rem;
-      color: var(--gray-text);
-    }
 
     /* ─── CONTACT ───────────────────────────────────────────────── */
     #contact {
@@ -1811,22 +1805,49 @@
       margin-bottom: 28px;
     }
     .trust-bar-logos {
+      overflow: hidden;
+      position: relative;
+      /* Fade edges via CSS mask */
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 12%,
+        black 88%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 12%,
+        black 88%,
+        transparent 100%
+      );
+    }
+    .trust-bar-track {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
+      width: max-content;
+      animation: marquee-scroll 32s linear infinite;
+      will-change: transform;
+    }
+    .trust-bar-track:hover { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .trust-bar-track { animation: none; }
+    }
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .trust-tool {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 28px;
+      padding: 12px 36px;
       border-right: 1px solid rgba(27,42,74,0.1);
       opacity: 0.55;
+      flex-shrink: 0;
       transition: opacity 0.18s ease;
     }
-    .trust-tool:last-child { border-right: none; }
     .trust-tool:hover { opacity: 0.85; }
     .trust-tool-icon {
       width: 24px; height: 24px;
@@ -2133,7 +2154,7 @@
     @media (max-width: 900px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero-content { grid-template-columns: 1fr; gap: 32px; }
       .hero-visual { max-width: 480px; margin: 0 auto; width: 100%; }
       .hero-card-mock { max-width: 100%; }
       .float-badge-1 { top: -10px; right: -10px; }
@@ -2149,298 +2170,174 @@
       .audit-banner { grid-template-columns: 1fr; text-align: center; padding: 48px 32px; }
       .audit-sub { margin: 0 auto; }
     }
+
+    /* ─── MOBILE OPTIMIZATIONS (≤ 600px) ────────────────────────── */
     @media (max-width: 600px) {
-      .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; gap: 32px; }
-      .why-stat-cards { grid-template-columns: 1fr 1fr; }
+      /* Base container */
+      .container { padding: 0 18px; }
+
+      /* Typography scale */
+      .section-title { font-size: 1.75rem; line-height: 1.2; }
+      .section-sub { font-size: 0.9375rem; }
+
+      /* ── Navbar ── */
+      #navbar { padding: 6px 0; }
+      .nav-logo img { width: 52px; height: 52px; }
+      .nav-logo-name { font-size: 0.9375rem; }
+      .nav-logo-sub { font-size: 0.6rem; }
+
+      /* ── Hero — kill min-height so it doesn't force a huge blank area ── */
+      #hero { padding: 88px 0 52px; min-height: 0 !important; }
+      .hero-h1 { font-size: clamp(1.875rem, 8vw, 2.25rem); line-height: 1.12; margin-bottom: 14px; }
+      .hero-sub { font-size: 0.9375rem; line-height: 1.7; margin-bottom: 26px; max-width: 100%; }
+      .hero-badge { font-size: 0.75rem; padding: 5px 13px; margin-bottom: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero-actions .btn { width: 100%; justify-content: center; padding: 15px 24px; font-size: 0.9375rem; }
+      .hero-trust { margin-top: 24px; flex-wrap: wrap; gap: 8px; font-size: 0.75rem; }
+      .hero-trust-avatars span { width: 28px; height: 28px; font-size: 0.6rem; }
+      /* Hide the floating hero visual on mobile — copy is the focus */
+      .hero-visual { display: none; }
+
+      /* ── Trust bar ── */
+      #trust-bar { padding: 14px 0; }
+      .trust-tool { padding: 8px 18px; gap: 6px; }
+      .trust-tool-name { font-size: 0.775rem; }
+      .trust-tool-icon { width: 18px; height: 18px; }
+
+      /* ── Audit CTA banner (appears early in layout, keep near top) ── */
+      #audit { padding: 40px 0 0; }
+      .audit-banner {
+        padding: 36px 22px 32px;
+        border-radius: var(--radius);
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .audit-title { font-size: 1.5rem; line-height: 1.2; }
+      .audit-sub { font-size: 0.875rem; margin: 0 auto; }
+      .btn-audit { width: 100%; justify-content: center; padding: 15px 24px; font-size: 1rem; margin-top: 4px; }
+
+      /* ── Services ── */
+      #services { padding: 52px 0 48px; }
+      .services-header { margin-bottom: 28px; }
+      /* Override the auto-fit minmax which can still produce 2-col on some phones */
+      .services-grid { grid-template-columns: 1fr !important; gap: 14px; }
+      .service-card { padding: 22px 18px; border-radius: var(--radius); }
+      .service-icon { width: 44px; height: 44px; border-radius: 12px; margin-bottom: 14px; }
+      .service-card h3 { font-size: 1rem; margin-bottom: 8px; }
+      .service-card p { font-size: 0.875rem; }
+
+      /* ── Why Anchor ── */
+      #why { padding: 52px 0; }
+      .why-grid { margin-top: 28px; gap: 28px; }
+      .why-props { gap: 18px; }
+      .why-prop { gap: 14px; }
+      .why-num { width: 40px; height: 40px; font-size: 0.9375rem; border-radius: 10px; flex-shrink: 0; }
+      .why-prop-text h3 { font-size: 1rem; margin-bottom: 4px; }
+      .why-prop-text p { font-size: 0.875rem; }
+      .why-stat-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .why-stat { padding: 18px 14px; border-radius: var(--radius); }
       .why-stat-num { font-size: 1.75rem; }
-      .why-stat-label { font-size: 0.75rem; }
-      .footer-top { grid-template-columns: 1fr; }
+      .why-stat-label { font-size: 0.72rem; margin-top: 4px; }
+
+      /* ── Process ── */
+      #process { padding: 52px 0; overflow: hidden; }
+      #process::before, #process::after { display: none; }
+      .process-header { margin-bottom: 36px; }
+      .process-steps { grid-template-columns: 1fr; gap: 24px; }
+      .process-step { padding: 0 4px; }
+      .process-num { width: 48px; height: 48px; font-size: 1rem; margin-bottom: 12px; box-shadow: 0 0 0 6px rgba(0,180,216,0.1), 0 4px 14px rgba(0,180,216,0.2); }
+      .process-step-title { font-size: 0.9375rem; margin-bottom: 5px; }
+      .process-step-desc { font-size: 0.85rem; }
+
+      /* ── Portfolio ── */
+      #portfolio { padding: 52px 0; }
+      .portfolio-header { margin-bottom: 28px; }
+      /* Force 1-col on all portfolio grids (uses auto-fit minmax like services) */
+      .portfolio-grid { grid-template-columns: 1fr !important; gap: 18px; }
+      .portfolio-img { height: 200px; }
+      .portfolio-info { padding: 18px; }
+      .portfolio-info h3 { font-size: 1rem; margin-bottom: 6px; }
+      .portfolio-info p { font-size: 0.85rem; margin-bottom: 14px; }
+      .portfolio-tags { gap: 6px; margin-bottom: 14px; }
+      .tag { font-size: 0.65rem; padding: 3px 9px; }
+
+      /* ── Demos ── */
+      #demos { padding: 52px 0; }
+
+      /* ── Pricing ── */
+      #pricing { padding: 52px 0 44px; }
+      .pricing-header { margin-bottom: 36px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; gap: 16px; }
+      .pricing-card { padding: 28px 20px; }
+      .pricing-card.featured { transform: none; }
+
+      /* ── Testimonial ── */
+      #testimonial { padding: 40px 0 52px; }
+      .testimonial-header { margin-bottom: 28px; }
+      .client-quote-card { padding: 24px 18px 20px; }
+      .client-quote-text { font-size: 0.9375rem; line-height: 1.72; }
+      .client-quote-footer { flex-wrap: wrap; gap: 10px; }
+      .client-quote-mark { font-size: 3rem; top: 12px; left: 16px; }
+      .client-quote-cta { margin-top: 18px; padding-top: 16px; }
+
+      /* ── Resources ── */
+      #resources { padding: 40px 0 52px; }
+      .resources-header { margin-bottom: 28px; }
+      .resources-grid { grid-template-columns: 1fr; gap: 14px; }
+      .resource-img { height: 150px; }
+      .resource-body { padding: 16px; }
+
+      /* ── FAQ ── */
+      #faq { padding: 52px 0 40px; }
+      .faq-header { margin-bottom: 28px; }
+
+      /* ── Contact ── */
+      #contact { padding: 40px 0 52px; }
+      .contact-grid { gap: 28px; }
+      .contact-form { padding: 20px 16px; border-radius: var(--radius); }
       .form-row { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: flex-start; }
-      .contact-form { padding: 28px 20px; }
-      .section-title { font-size: 1.65rem; }
-      .trust-tool { padding: 10px 16px; }
-      .trust-tool-name { font-size: 0.8rem; }
-      .modal-box { padding: 32px 24px; }
-      .hero-visual { display: block; }
+      .form-group { margin-bottom: 14px; }
+      .form-submit { padding: 15px; font-size: 0.9375rem; }
+      /* Service picker — force single col */
+      .services-grid { grid-template-columns: 1fr !important; }
+      /* Qty controls full width */
+      .qty-control { width: 100%; }
+
+      /* ── Audit ── */
+      #audit { padding: 36px 0 0; }
+
+      /* ── Footer ── */
+      #footer { padding: 44px 0 22px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; }
+      .footer-brand { grid-column: auto; }
+      .footer-logo { margin-bottom: 14px; }
+      .footer-logo img { width: 52px; height: 52px; }
+      .footer-logo-name { font-size: 0.9375rem; }
+      .footer-tagline { font-size: 0.85rem; max-width: 100%; }
+      .footer-col-title { margin-bottom: 12px; }
+      .footer-links { gap: 10px; }
+      .footer-links a { font-size: 0.875rem; }
+      .footer-bottom { padding-top: 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-copy { font-size: 0.775rem; }
+
+      /* ── Modal ── */
+      .modal-overlay { padding: 12px; align-items: flex-end; }
+      .modal-box { padding: 28px 18px 24px; border-radius: 20px 20px var(--radius) var(--radius); max-width: 100%; }
+      .modal-title { font-size: 1.25rem; }
+      .modal-sub { font-size: 0.85rem; margin-bottom: 20px; }
+
+      /* ── Misc buttons ── */
+      .btn { padding: 13px 22px; font-size: 0.9rem; }
+      .btn-sm { padding: 9px 16px; font-size: 0.8rem; }
+
+      /* ── Leave a review button ── */
+      .btn-leave-review { font-size: 0.85rem; padding: 10px 20px; }
+
+      /* ── Wave dividers — shrink on mobile to reduce vertical whitespace ── */
+      .wave-divider svg { height: 36px; }
     }
 
-    /* ─── Theme: body / base surfaces ──────────────────────────── */
-    body { transition: background 0.35s ease, color 0.35s ease; }
-    [data-theme="dark"] #navbar.scrolled {
-      background: var(--nav-scrolled-bg);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
-    }
-    /* Hero */
-    #hero { transition: background 0.35s ease; }
-    #hero-bg-gradient { transition: background 0.35s ease; }
-    #hero-overlay { transition: background 0.35s ease; }
-    [data-theme="dark"] #hero {
-      background: radial-gradient(ellipse 70% 60% at 20% 40%, rgba(34,211,238,0.10) 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 50% at 80% 20%, rgba(56,189,248,0.08) 0%, transparent 55%),
-                  var(--hero-bg);
-    }
-    [data-theme="dark"] #hero-overlay {
-      background: radial-gradient(ellipse 140% 100% at 50% 110%, transparent 30%, var(--hero-overlay-end) 100%);
-    }
-    [data-theme="dark"] .mobile-menu { background: var(--white); }
-    [data-theme="dark"] .mobile-menu li a { border-color: var(--border-subtle); }
 
-    /* ─── Theme Toggle ──────────────────────────────────────────── */
-    .theme-toggle {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      background: var(--toggle-track);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 2px;
-      gap: 1px;
-      flex-shrink: 0;
-    }
-    .theme-toggle-pill {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      height: calc(100% - 4px);
-      width: 28px;
-      background: var(--surface, #fff);
-      border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 0 0 1px var(--border-subtle);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      pointer-events: none;
-      z-index: 0;
-    }
-    [data-toggle-mode="system"] .theme-toggle-pill { transform: translateX(0px); }
-    [data-toggle-mode="light"]  .theme-toggle-pill { transform: translateX(29px); }
-    [data-toggle-mode="dark"]   .theme-toggle-pill { transform: translateX(58px); }
-    .theme-toggle-btn {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--gray-text);
-      transition: color 0.2s ease;
-    }
-    .theme-toggle-btn:hover { color: var(--navy); }
-    .theme-toggle-btn.active { color: var(--navy); }
-    .theme-toggle-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-    .theme-toggle-btn svg { width: 14px; height: 14px; }
-    /* Hide on mobile (hamburger menu takes over), show on desktop */
-    .theme-toggle { display: none; }
-    @media (min-width: 901px) { .theme-toggle { display: inline-flex; } }
-
-    /* ─── DARK MODE OVERRIDES ──────────────────────────────────── */
-    [data-theme="dark"] #navbar.scrolled {
-      background: var(--nav-scrolled-bg);
-    }
-
-    /* Footer — must stay dark in both themes */
-    [data-theme="dark"] #footer {
-      background: #0b1120;
-    }
-    [data-theme="dark"] .footer-logo-name {
-      color: #ddeaf7;
-    }
-    [data-theme="dark"] .footer-tagline {
-      color: rgba(255,255,255,0.45);
-    }
-    [data-theme="dark"] .footer-col-title {
-      color: rgba(255,255,255,0.35);
-    }
-    [data-theme="dark"] .footer-links a {
-      color: rgba(255,255,255,0.55);
-    }
-    [data-theme="dark"] .footer-copy {
-      color: rgba(255,255,255,0.3);
-    }
-    [data-theme="dark"] .footer-social-link {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.7);
-    }
-    [data-theme="dark"] .footer-social-link svg {
-      color: rgba(255,255,255,0.7);
-    }
-    [data-theme="dark"] .footer-top {
-      border-bottom-color: rgba(255,255,255,0.07);
-    }
-    [data-theme="dark"] .back-to-top {
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* Process section — must stay dark in both themes */
-    [data-theme="dark"] #process {
-      background: #0b1120;
-    }
-    [data-theme="dark"] #process::before {
-      background: var(--surface-alt);
-    }
-    [data-theme="dark"] #process::after {
-      background: var(--surface);
-    }
-    [data-theme="dark"] .process-header .section-title {
-      color: #ddeaf7;
-    }
-
-    /* Wave dividers */
-    [data-theme="dark"] .wave-divider {
-      background: var(--surface) !important;
-    }
-    [data-theme="dark"] .wave-divider svg path {
-      fill: var(--surface);
-    }
-
-    /* Trust bar */
-    [data-theme="dark"] #trust-bar {
-      background: var(--surface-alt);
-      border-top-color: var(--border-subtle);
-      border-bottom-color: var(--border-subtle);
-    }
-
-    /* Service cards */
-    [data-theme="dark"] .service-card {
-      border-color: var(--border-subtle);
-    }
-
-    /* Portfolio cards */
-    [data-theme="dark"] .portfolio-card {
-      border-color: var(--border-subtle);
-    }
-
-    /* Pricing cards & borders */
-    [data-theme="dark"] .pricing-desc {
-      border-bottom-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .btn-pricing-outline {
-      border-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .pricing-badge {
-      color: #0f1928;
-    }
-
-    /* Contact form */
-    [data-theme="dark"] .contact-form {
-      border-color: var(--border-subtle);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-    }
-    [data-theme="dark"] .form-group input,
-    [data-theme="dark"] .form-group textarea,
-    [data-theme="dark"] .form-group select {
-      border-color: var(--border-subtle);
-      background: var(--surface-alt);
-      color: var(--navy);
-    }
-    [data-theme="dark"] .service-checkbox-item label {
-      border-color: var(--border-subtle);
-      background: var(--surface-alt);
-    }
-    [data-theme="dark"] .social-link {
-      background: var(--surface-alt);
-      border-color: var(--border-subtle);
-    }
-
-    /* FAQ */
-    [data-theme="dark"] .faq-item {
-      border-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .faq-question {
-      border-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .faq-icon svg {
-      stroke: var(--navy);
-    }
-    [data-theme="dark"] .faq-item.open .faq-icon svg {
-      stroke: white;
-    }
-    [data-theme="dark"] .faq-answer-inner {
-      color: var(--gray-text);
-    }
-
-    /* Resource cards */
-    [data-theme="dark"] .resource-card {
-      border-color: var(--border-subtle);
-    }
-
-    /* CTA / Audit banners — keep dark gradients */
-    [data-theme="dark"] .audit-banner {
-      background: linear-gradient(135deg, #0b1120 0%, #0f1d35 50%, #081428 100%);
-    }
-    [data-theme="dark"] .audit-title {
-      color: #ddeaf7;
-    }
-    [data-theme="dark"] .audit-sub {
-      color: rgba(255,255,255,0.6);
-    }
-    [data-theme="dark"] .audit-label {
-      color: var(--teal);
-    }
-    /* Success story / CTA banners — keep dark in both themes */
-    [data-theme="dark"] .success-story-banner {
-      background: linear-gradient(135deg, #0b1120 0%, #0f1d35 50%, #081428 100%);
-    }
-    [data-theme="dark"] .success-story-title {
-      color: #ddeaf7;
-    }
-    [data-theme="dark"] .success-story-sub {
-      color: rgba(255,255,255,0.6);
-    }
-    [data-theme="dark"] .btn-success {
-      color: #0f1928;
-    }
-
-    /* Pricing outline buttons — brighter text */
-    [data-theme="dark"] .btn-pricing-outline {
-      color: var(--navy);
-      border-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .btn-pricing-outline:hover {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: #0f1928;
-    }
-
-    /* Hero mock card in dark mode */
-    [data-theme="dark"] .mock-bar {
-      background: var(--surface-alt);
-      border-bottom-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .mock-url {
-      background: var(--surface);
-    }
-    [data-theme="dark"] .mock-footer {
-      background: var(--surface-alt);
-      border-top-color: var(--border-subtle);
-    }
-    [data-theme="dark"] .mock-text-line {
-      background: var(--surface);
-    }
-
-    /* Why section stat cards */
-    [data-theme="dark"] .why-stat-card {
-      border-color: var(--border-subtle);
-    }
-
-    /* Floating badges on hero card */
-    [data-theme="dark"] .float-badge {
-      background: var(--surface-alt);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 16px 40px rgba(0,0,0,0.2);
-    }
-
-    [data-theme="dark"] #hero {
-      background: var(--hero-bg);
-    }
-    [data-theme="dark"] #hero-overlay {
-      background: radial-gradient(ellipse 140% 100% at 50% 110%, rgba(8,14,26,0) 30%, var(--hero-overlay-end) 100%);
-    }
   </style>
 </head>
 <body>
@@ -2451,7 +2348,7 @@
       <div class="nav-inner">
         <a href="#hero" class="nav-logo" aria-label="Anchor Digital — Home">
           <!-- REPLACE: LOGO — swap src with your final logo file if path changes -->
-          <img src="brand-assets/Logo.png" alt="Anchor Digital logo" />
+          <img src="brand-assets/Logo.png" alt="Anchor Digital logo" fetchpriority="high" />
           <div class="nav-logo-text">
             <span class="nav-logo-name">Anchor Digital</span>
             <span class="nav-logo-sub">Web Services & Innovation</span>
@@ -2466,19 +2363,6 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact" class="btn btn-primary nav-cta">Get a Free Quote</a></li>
         </ul>
-        <!-- Theme toggle (desktop) -->
-        <div class="theme-toggle" id="theme-toggle" role="radiogroup" aria-label="Select color theme" data-toggle-mode="light">
-          <div class="theme-toggle-pill" aria-hidden="true"></div>
-          <button class="theme-toggle-btn" id="toggle-system" role="radio" aria-checked="false" aria-label="System theme" title="System theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </button>
-          <button class="theme-toggle-btn" id="toggle-light" role="radio" aria-checked="true" aria-label="Light theme" title="Light theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          </button>
-          <button class="theme-toggle-btn" id="toggle-dark" role="radio" aria-checked="false" aria-label="Dark theme" title="Dark theme">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
           <span></span><span></span><span></span>
         </button>
@@ -2499,7 +2383,7 @@
     </ul>
     <a href="#contact" class="btn btn-primary mobile-nav-link">Get a Free Quote</a>
     <div class="mobile-social">
-      <a href="https://www.instagram.com/anchordigitalll/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a href="https://www.instagram.com/anchordigitafl/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
         </svg>
@@ -2524,18 +2408,31 @@
 
   <!-- ══════════ HERO ══════════ -->
   <section id="hero" aria-label="Hero">
+    <!-- Full-bleed background: image fades to video on play -->
+    <img
+      id="hero-bg-img"
+      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+    />
+    <video
+      id="hero-bg-video"
+      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+      playsinline
+      muted
+      preload="none"
+      aria-hidden="true"
+    ></video>
     <div id="hero-bg-gradient" aria-hidden="true"></div>
+    <div id="hero-mesh-accent" aria-hidden="true"></div>
     <div id="hero-overlay" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <!-- Left -->
         <div class="hero-text">
-          <div class="hero-badge reveal">
-            <span class="hero-badge-dot"></span>
-            Now taking new clients
-          </div>
           <h1 class="hero-h1 reveal reveal-delay-1">
-            Beautiful Websites That<br /><span class="accent">Get You More Clients</span>
+            We Build Websites That Rank, Convert, and<br /><span class="accent">Book Clients 24/7</span>
           </h1>
           <p class="hero-sub reveal reveal-delay-2">
             We build premium websites for local service businesses — designed to rank on Google, build trust, and turn visitors into paying customers.
@@ -2548,9 +2445,8 @@
             <a href="#portfolio" class="btn btn-outline">See Our Work</a>
           </div>
         </div>
-        <!-- Right: browser mock -->
+        <!-- Right: browser mockup -->
         <div class="hero-visual">
-          <!-- REPLACE: HERO BROWSER MOCKUP — drop a real screenshot inside .mock-screenshot-area below -->
           <div class="hero-card-mock reveal reveal-delay-2">
             <div class="mock-bar">
               <span class="mock-dot mock-dot-r"></span>
@@ -2558,9 +2454,8 @@
               <span class="mock-dot mock-dot-g"></span>
               <span class="mock-url">🔒 yourbusiness.com</span>
             </div>
-            <!-- REPLACE: swap the placeholder below with a real screenshot — recommended size 560×350px or wider -->
             <div class="mock-screenshot-area" aria-hidden="true" style="background:#000;overflow:hidden;padding:0;">
-              <img src="www.sunstatellc.com_ (1).png" alt="Sunstate Service Group LLC website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" />
+              <img src="www.sunstatellc.com_ (1).png" alt="Sunstate Service Group LLC website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" fetchpriority="high" />
             </div>
             <div class="mock-footer">
               <div class="mock-footer-lines">
@@ -2815,95 +2710,184 @@
   <section id="trust-bar" aria-label="Tools and platforms we use">
     <div class="container">
       <p class="trust-bar-label">Built with industry-leading tools</p>
-      <div class="trust-bar-logos">
-        <!-- Google -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
+    </div>
+    <div class="trust-bar-logos" aria-hidden="true">
+        <div class="trust-bar-track" id="marquee-track">
+          <!-- Google -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Google</span>
           </div>
-          <span class="trust-tool-name">Google</span>
-        </div>
-        <!-- HTML5 -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#E44D26"/>
-              <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#F16529"/>
-              <path d="M8 8h4v2H8v2h3.8l-.2 2L8 14.6V17l4 1.2 4-1.2-.4-4H10v-2h5.6l.4-4H8V8z" fill="#fff"/>
-            </svg>
+          <!-- HTML5 -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#E44D26"/>
+                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#F16529"/>
+                <path d="M8 8h4v2H8v2h3.8l-.2 2L8 14.6V17l4 1.2 4-1.2-.4-4H10v-2h5.6l.4-4H8V8z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">HTML5</span>
           </div>
-          <span class="trust-tool-name">HTML5</span>
-        </div>
-        <!-- CSS3 -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#264de4"/>
-              <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#2965f1"/>
-              <path d="M8 8h8l-.2 2H9.6l.2 2H15.6l-.6 4.4L12 17.2l-3-0.8-.2-2.2h2l.1 1 1.1.3 1.1-.3.1-1.6H7.8L7 8z" fill="#fff"/>
-            </svg>
+          <!-- CSS3 -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#264de4"/>
+                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#2965f1"/>
+                <path d="M8 8h8l-.2 2H9.6l.2 2H15.6l-.6 4.4L12 17.2l-3-0.8-.2-2.2h2l.1 1 1.1.3 1.1-.3.1-1.6H7.8L7 8z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">CSS3</span>
           </div>
-          <span class="trust-tool-name">CSS3</span>
-        </div>
-        <!-- JavaScript -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
-              <path d="M6 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.4V12H12v5.4c0 2.3-1.4 3.4-3.4 3.4-1.8 0-2.9-.9-3.4-2L6 17.5zm6.9.2c.5.8 1.2 1.4 2.5 1.4 1.2 0 2-.6 2-1.5 0-1-.8-1.4-2-1.9l-.7-.3c-2-.8-3.2-1.9-3.2-4 0-2 1.6-3.5 3.9-3.5 1.7 0 2.9.6 3.8 2l-2 1.3c-.4-.8-1-1.1-1.8-1.1-.8 0-1.3.5-1.3 1.1 0 .8.5 1.1 1.7 1.6l.7.3c2.3 1 3.5 2.1 3.5 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-4-1.2-4.7-2.7l2-.8z" fill="#000"/>
-            </svg>
+          <!-- JavaScript -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
+                <path d="M6 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.4V12H12v5.4c0 2.3-1.4 3.4-3.4 3.4-1.8 0-2.9-.9-3.4-2L6 17.5zm6.9.2c.5.8 1.2 1.4 2.5 1.4 1.2 0 2-.6 2-1.5 0-1-.8-1.4-2-1.9l-.7-.3c-2-.8-3.2-1.9-3.2-4 0-2 1.6-3.5 3.9-3.5 1.7 0 2.9.6 3.8 2l-2 1.3c-.4-.8-1-1.1-1.8-1.1-.8 0-1.3.5-1.3 1.1 0 .8.5 1.1 1.7 1.6l.7.3c2.3 1 3.5 2.1 3.5 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-4-1.2-4.7-2.7l2-.8z" fill="#000"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">JavaScript</span>
           </div>
-          <span class="trust-tool-name">JavaScript</span>
-        </div>
-        <!-- Node.js -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" fill="#339933"/>
-              <path d="M12 4.5L5 8.5v7l7 4 7-4v-7L12 4.5z" fill="#fff" opacity="0.1"/>
-              <text x="7" y="15" font-size="7" font-weight="bold" fill="#fff" font-family="sans-serif">js</text>
-            </svg>
+          <!-- Node.js -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" fill="#339933"/>
+                <path d="M12 4.5L5 8.5v7l7 4 7-4v-7L12 4.5z" fill="#fff" opacity="0.1"/>
+                <text x="7" y="15" font-size="7" font-weight="bold" fill="#fff" font-family="sans-serif">js</text>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Node.js</span>
           </div>
-          <span class="trust-tool-name">Node.js</span>
-        </div>
-        <!-- Calendly -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="4" width="20" height="18" rx="3" fill="#006BFF"/>
-              <path d="M7 2v4M17 2v4M2 10h20" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="12" cy="15" r="2.5" fill="#fff"/>
-            </svg>
+          <!-- Calendly -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="20" height="18" rx="3" fill="#006BFF"/>
+                <path d="M7 2v4M17 2v4M2 10h20" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="12" cy="15" r="2.5" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Calendly</span>
           </div>
-          <span class="trust-tool-name">Calendly</span>
-        </div>
-        <!-- EmailJS -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="5" width="20" height="14" rx="3" fill="#0077B6"/>
-              <path d="M2 8l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <!-- EmailJS -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="5" width="20" height="14" rx="3" fill="#0077B6"/>
+                <path d="M2 8l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">EmailJS</span>
           </div>
-          <span class="trust-tool-name">EmailJS</span>
-        </div>
-        <!-- Express -->
-        <div class="trust-tool">
-          <div class="trust-tool-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <rect width="24" height="24" rx="4" fill="#000"/>
-              <text x="3" y="16" font-size="8" font-weight="bold" fill="#fff" font-family="sans-serif">ex</text>
-            </svg>
+          <!-- Express -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="4" fill="#000"/>
+                <text x="3" y="16" font-size="8" font-weight="bold" fill="#fff" font-family="sans-serif">ex</text>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Express</span>
           </div>
-          <span class="trust-tool-name">Express</span>
+          <!-- === Duplicate set for seamless loop === -->
+          <!-- Google -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Google</span>
+          </div>
+          <!-- HTML5 -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#E44D26"/>
+                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#F16529"/>
+                <path d="M8 8h4v2H8v2h3.8l-.2 2L8 14.6V17l4 1.2 4-1.2-.4-4H10v-2h5.6l.4-4H8V8z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">HTML5</span>
+          </div>
+          <!-- CSS3 -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#264de4"/>
+                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#2965f1"/>
+                <path d="M8 8h8l-.2 2H9.6l.2 2H15.6l-.6 4.4L12 17.2l-3-0.8-.2-2.2h2l.1 1 1.1.3 1.1-.3.1-1.6H7.8L7 8z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">CSS3</span>
+          </div>
+          <!-- JavaScript -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
+                <path d="M6 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.4V12H12v5.4c0 2.3-1.4 3.4-3.4 3.4-1.8 0-2.9-.9-3.4-2L6 17.5zm6.9.2c.5.8 1.2 1.4 2.5 1.4 1.2 0 2-.6 2-1.5 0-1-.8-1.4-2-1.9l-.7-.3c-2-.8-3.2-1.9-3.2-4 0-2 1.6-3.5 3.9-3.5 1.7 0 2.9.6 3.8 2l-2 1.3c-.4-.8-1-1.1-1.8-1.1-.8 0-1.3.5-1.3 1.1 0 .8.5 1.1 1.7 1.6l.7.3c2.3 1 3.5 2.1 3.5 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-4-1.2-4.7-2.7l2-.8z" fill="#000"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">JavaScript</span>
+          </div>
+          <!-- Node.js -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" fill="#339933"/>
+                <path d="M12 4.5L5 8.5v7l7 4 7-4v-7L12 4.5z" fill="#fff" opacity="0.1"/>
+                <text x="7" y="15" font-size="7" font-weight="bold" fill="#fff" font-family="sans-serif">js</text>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Node.js</span>
+          </div>
+          <!-- Calendly -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="20" height="18" rx="3" fill="#006BFF"/>
+                <path d="M7 2v4M17 2v4M2 10h20" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="12" cy="15" r="2.5" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Calendly</span>
+          </div>
+          <!-- EmailJS -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="5" width="20" height="14" rx="3" fill="#0077B6"/>
+                <path d="M2 8l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="trust-tool-name">EmailJS</span>
+          </div>
+          <!-- Express -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="4" fill="#000"/>
+                <text x="3" y="16" font-size="8" font-weight="bold" fill="#fff" font-family="sans-serif">ex</text>
+              </svg>
+            </div>
+            <span class="trust-tool-name">Express</span>
+          </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- Wave divider trust bar → portfolio -->
@@ -3428,7 +3412,7 @@
           </div>
 
           <div class="social-links reveal reveal-delay-3">
-            <a href="https://www.instagram.com/anchordigitalll/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/anchordigitafl/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
               </svg>
@@ -3608,7 +3592,7 @@
         <div class="footer-brand">
           <!-- REPLACE: LOGO — footer logo -->
           <a href="#hero" class="footer-logo" aria-label="Anchor Digital — Back to top">
-            <img src="brand-assets/Logo.png" alt="Anchor Digital logo" />
+            <img src="brand-assets/Logo.png" alt="Anchor Digital logo" loading="lazy" />
             <div>
               <div class="footer-logo-name">Anchor Digital</div>
               <div class="footer-logo-sub">Web Services & Innovation</div>
@@ -3616,7 +3600,7 @@
           </a>
           <p class="footer-tagline">We build professional websites that anchor your business online — helping you get found, build trust, and grow.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/anchordigitalll/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/anchordigitafl/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
               </svg>
@@ -3655,7 +3639,7 @@
           <ul class="footer-links">
             <li><a href="#contact">Get a Free Quote</a></li>
             <li><a href="mailto:jitscaling@gmail.com">jitscaling@gmail.com</a></li>
-            <li><a href="https://www.instagram.com/anchordigitalll/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.instagram.com/anchordigitafl/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61587474906272" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.tiktok.com/@anchordigita1?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a></li>
             <li><a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -3673,13 +3657,25 @@
   </footer>
 
   <!-- ══════════ EMAILJS ══════════ -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Lazy-loaded on first form interaction — not needed on initial page render -->
   <script>
     // ── EmailJS config — replace with your actual values ──────────
     const EMAILJS_PUBLIC_KEY  = 'XtA8t8AIp5PK4yIcK';
     const EMAILJS_SERVICE_ID  = 'service_7twka1o';
     const EMAILJS_TEMPLATE_ID = 'template_9capas4';
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    let emailjsLoaded = false;
+    function loadEmailJS(callback) {
+      if (emailjsLoaded) { callback(); return; }
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+      s.onload = function() {
+        emailjsLoaded = true;
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        callback();
+      };
+      document.head.appendChild(s);
+    }
   </script>
 
   <!-- ══════════ JAVASCRIPT ══════════ -->
@@ -3710,39 +3706,6 @@
       });
     });
 
-    // ── Theme toggle ──────────────────────────────────────────────
-    (function() {
-      const html       = document.documentElement;
-      const toggleWrap = document.getElementById('theme-toggle');
-      const btnSystem  = document.getElementById('toggle-system');
-      const btnLight   = document.getElementById('toggle-light');
-      const btnDark    = document.getElementById('toggle-dark');
-      const prefersDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      function applyMode(mode) {
-        toggleWrap.dataset.toggleMode = mode;
-        btnSystem.setAttribute('aria-checked', mode === 'system');
-        btnLight.setAttribute('aria-checked',  mode === 'light');
-        btnDark.setAttribute('aria-checked',   mode === 'dark');
-        [btnSystem, btnLight, btnDark].forEach(b => b.classList.remove('active'));
-        if (mode === 'system') btnSystem.classList.add('active');
-        if (mode === 'light')  btnLight.classList.add('active');
-        if (mode === 'dark')   btnDark.classList.add('active');
-        const resolved = mode === 'system' ? (prefersDark() ? 'dark' : 'light') : mode;
-        html.setAttribute('data-theme', resolved);
-        localStorage.setItem('anchor-theme', mode);
-      }
-
-      const saved = localStorage.getItem('anchor-theme') || 'light';
-      applyMode(saved);
-
-      btnSystem.addEventListener('click', () => applyMode('system'));
-      btnLight.addEventListener('click',  () => applyMode('light'));
-      btnDark.addEventListener('click',   () => applyMode('dark'));
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-        if ((localStorage.getItem('anchor-theme') || 'light') === 'system') applyMode('system');
-      });
-    })();
 
     // ── Scroll reveal ─────────────────────────────────────────────
     const revealObserver = new IntersectionObserver((entries) => {
@@ -3760,6 +3723,7 @@
     document.querySelectorAll('#hero .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), 750 + i * 80);
     });
+
 
     // ── Audit Modal ───────────────────────────────────────────────
     const auditModal   = document.getElementById('auditModal');
@@ -3802,22 +3766,24 @@
         message: 'Email: ' + form.querySelector('#audit-email').value.trim() + '\nWebsite: ' + (auditWebsite || 'Not provided') + '\nRequest: Free Website Audit',
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, 'template_9e5splw', params)
-        .then(() => {
-          document.getElementById('auditFormWrap').style.display = 'none';
-          document.getElementById('auditSuccess').style.display  = 'block';
-          form.reset();
-        })
-        .catch(() => {
-          btn.innerHTML = '✗ Failed — try again';
-          btn.style.opacity = '1';
-          btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.innerHTML = 'Send My Audit Request <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-            btn.style.background = '';
-          }, 4000);
-        });
+      loadEmailJS(function() {
+        emailjs.send(EMAILJS_SERVICE_ID, 'template_9e5splw', params)
+          .then(() => {
+            document.getElementById('auditFormWrap').style.display = 'none';
+            document.getElementById('auditSuccess').style.display  = 'block';
+            form.reset();
+          })
+          .catch(() => {
+            btn.innerHTML = '✗ Failed — try again';
+            btn.style.opacity = '1';
+            btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
+            btn.disabled = false;
+            setTimeout(() => {
+              btn.innerHTML = 'Send My Audit Request <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+              btn.style.background = '';
+            }, 4000);
+          });
+      });
     });
 
 
@@ -3983,38 +3949,36 @@
         reply_to:        form.querySelector('#email').value.trim(),
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-        .then(() => {
-          btn.innerHTML = '✓ Message Sent!';
-          btn.style.opacity = '1';
-          btn.style.background = 'linear-gradient(135deg, #1a9e4a, #147a38)';
-          form.reset();
-          updateEstimate();
-          setTimeout(() => {
-            btn.innerHTML = 'Send Message ' + SEND_ICON;
-            btn.style.background = '';
+      loadEmailJS(function() {
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+          .then(() => {
+            btn.innerHTML = '✓ Message Sent!';
+            btn.style.opacity = '1';
+            btn.style.background = 'linear-gradient(135deg, #1a9e4a, #147a38)';
+            form.reset();
+            updateEstimate();
+            setTimeout(() => {
+              btn.innerHTML = 'Send Message ' + SEND_ICON;
+              btn.style.background = '';
+              btn.disabled = false;
+            }, 4000);
+          })
+          .catch((err) => {
+            console.error('EmailJS error:', err);
+            btn.innerHTML = '✗ Failed — try again';
+            btn.style.opacity = '1';
+            btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
             btn.disabled = false;
-          }, 4000);
-        })
-        .catch((err) => {
-          console.error('EmailJS error:', err);
-          btn.innerHTML = '✗ Failed — try again';
-          btn.style.opacity = '1';
-          btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.innerHTML = 'Send Message ' + SEND_ICON;
-            btn.style.background = '';
-          }, 4000);
-        });
+            setTimeout(() => {
+              btn.innerHTML = 'Send Message ' + SEND_ICON;
+              btn.style.background = '';
+            }, 4000);
+          });
+      });
     });
   </script>
 
-  <!-- Review toggle + future Google API auto-fetch -->
-  <script>
 
-  </script>
 
-  <!-- Hero background is now pure CSS (animated gradient + dot grid) -->
 </body>
 </html>
