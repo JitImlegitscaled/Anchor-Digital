@@ -24,9 +24,17 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  let urlPath = decodeURIComponent(req.url);
+  let urlPath = decodeURIComponent(req.url).split('?')[0];
   if (urlPath.endsWith('/')) urlPath += 'index.html';
-  let filePath = path.join(__dirname, urlPath);
+  const filePath = path.join(__dirname, urlPath);
+
+  // Block path traversal — resolved path must stay inside project root
+  if (!filePath.startsWith(__dirname + path.sep) && filePath !== __dirname) {
+    res.writeHead(403);
+    res.end('Forbidden');
+    return;
+  }
+
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
@@ -36,7 +44,10 @@ const server = http.createServer((req, res) => {
       res.end('Not found');
       return;
     }
-    res.writeHead(200, { 'Content-Type': contentType });
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'X-Content-Type-Options': 'nosniff',
+    });
     res.end(data);
   });
 });
