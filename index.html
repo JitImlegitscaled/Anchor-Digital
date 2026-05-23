@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anchor Digital — Web Services & Innovation</title>
-  <meta name="description" content="Anchor Digital builds professional websites that help small businesses get found online, rank on Google, and convert visitors into paying customers. Based in Florida." />
+  <title>Anchor Digital — AI Automation & Web Design for Service Businesses</title>
+  <meta name="description" content="Anchor Digital builds AI automation systems and websites for service businesses across the US. Stop losing leads — automate follow-up, booking, and outreach." />
   <!-- Open Graph -->
-  <meta property="og:title" content="Anchor Digital — Web Services & Innovation" />
-  <meta property="og:description" content="Professional websites that anchor your business online. Custom design, SEO, Google Business Profile, and more." />
+  <meta property="og:title" content="Anchor Digital — AI Automation for Service Businesses" />
+  <meta property="og:description" content="AI automation systems and high-converting websites for service businesses across the US." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://anchordigital.com" />
   <meta property="og:image" content="brand-assets/Logo.png" />
@@ -188,6 +188,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 40px;
+      gap: 32px;
     }
     .nav-logo {
       display: flex;
@@ -223,21 +225,24 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      justify-content: space-evenly;
+      flex: 1;
+      gap: 24px;
       list-style: none;
     }
     .nav-links a {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: #ffffff;
       opacity: 1;
+      white-space: nowrap;
       transition: color 0.15s ease;
     }
     .nav-links a:hover { color: var(--teal); }
     #navbar.scrolled .nav-links a { color: var(--navy-deep); }
     #navbar.scrolled .nav-links a:hover { color: var(--teal); }
-    .nav-cta { margin-left: 8px; padding: 10px 22px; font-size: 0.875rem; }
+    .nav-cta { margin-left: 8px; padding: 10px 18px; font-size: 0.85rem; }
 
     /* Mobile hamburger */
     .hamburger {
@@ -373,9 +378,12 @@
       position: relative;
       z-index: 3;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       align-items: center;
       gap: 60px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
     }
     .hero-logo-wrap {
       display: none; /* shown in hero text on desktop */
@@ -424,11 +432,13 @@
       line-height: 1.75;
       margin-bottom: 36px;
       max-width: 480px;
+      margin: 0 auto 36px;
     }
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .hero-trust {
       margin-top: 40px;
@@ -438,6 +448,7 @@
       font-size: 0.8125rem;
       color: var(--gray-text);
       font-weight: 500;
+      justify-content: center;
     }
     .hero-trust-avatars {
       display: flex;
@@ -1522,7 +1533,7 @@
     .footer-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 4px;
       margin-bottom: 18px;
     }
     .footer-logo img { width: 100px; height: 100px; object-fit: contain; border-radius: 10px; }
@@ -1986,26 +1997,32 @@
     /* ─── FAQ ────────────────────────────────────────────────── */
     #faq {
       padding: 100px 0;
-      background: var(--white);
+      background: #0A1628;
+      position: relative;
+      overflow: hidden;
     }
-    .faq-header { text-align: center; margin-bottom: 60px; }
-    .faq-header .section-sub { margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
+    .faq-header .section-title { color: #ffffff; }
     .faq-list {
       max-width: 760px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 0;
+      position: relative;
+      z-index: 1;
     }
     .faq-item {
-      border: 1.5px solid rgba(27,42,74,0.1);
-      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
       overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 12px;
+      transition: border-color 0.25s ease, background 0.25s ease;
     }
     .faq-item.open {
-      border-color: rgba(0,180,216,0.35);
-      box-shadow: 0 4px 20px rgba(0,180,216,0.08);
+      border-color: rgba(0,180,216,0.3);
+      background: rgba(255,255,255,0.05);
     }
     .faq-question {
       width: 100%;
@@ -2015,42 +2032,96 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 20px 24px;
+      padding: 24px 28px;
       cursor: pointer;
       text-align: left;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--navy);
+      color: #F1F5F9;
       transition: background 0.15s ease;
     }
     .faq-question:hover { background: rgba(0,180,216,0.04); }
-    .faq-question:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+    .faq-question:focus-visible { outline: 2px solid #00B4D8; outline-offset: -2px; }
+    .faq-question:active { background: rgba(0,180,216,0.07); }
     .faq-icon {
       flex-shrink: 0;
       width: 28px; height: 28px;
       border-radius: 50%;
-      background: var(--gray-bg);
+      border: 1.5px solid rgba(255,255,255,0.2);
       display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s ease, transform 0.3s cubic-bezier(.34,1.56,.64,1);
+      position: relative;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.3s cubic-bezier(.34,1.56,.64,1);
     }
     .faq-item.open .faq-icon {
-      background: linear-gradient(135deg, var(--teal), var(--blue));
+      border-color: #00B4D8;
+      background: rgba(0,180,216,0.1);
       transform: rotate(45deg);
     }
-    .faq-icon svg { width: 14px; height: 14px; transition: stroke 0.2s ease; }
-    .faq-item.open .faq-icon svg { stroke: white; }
+    .faq-icon-plus,
+    .faq-icon-minus {
+      position: absolute;
+      width: 12px; height: 1.5px;
+      background: #00B4D8;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+    }
+    .faq-icon-plus  { transform: rotate(0deg); }
+    .faq-icon-minus { transform: rotate(90deg); }
+    .faq-item.open .faq-icon-plus,
+    .faq-item.open .faq-icon-minus { background: #00B4D8; }
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .faq-answer-inner {
-      padding: 0 24px 20px;
-      font-size: 0.9rem;
-      color: var(--gray-text);
-      line-height: 1.75;
+      padding: 0 28px 22px 28px;
+      font-size: 0.925rem;
+      color: #94A3B8;
+      line-height: 1.7;
     }
+    .faq-cta-strip {
+      text-align: center;
+      margin-top: 64px;
+      position: relative;
+      z-index: 1;
+    }
+    .faq-cta-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .faq-cta-sub {
+      font-size: 0.9375rem;
+      color: #94A3B8;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .faq-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: #ffffff;
+      background: #00B4D8;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,180,216,0.3), 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.2s ease, transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s ease;
+    }
+    .faq-cta-btn:hover {
+      background: #0090B0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,180,216,0.35), 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .faq-cta-btn:active { transform: translateY(0); }
+    .faq-cta-btn:focus-visible { outline: 2px solid #00B4D8; outline-offset: 3px; }
 
     /* ─── BLOG / RESOURCES ───────────────────────────────────── */
     #resources {
@@ -2290,6 +2361,9 @@
       /* ── FAQ ── */
       #faq { padding: 52px 0 40px; }
       .faq-header { margin-bottom: 28px; }
+      .faq-question { font-size: 0.875rem; padding: 18px 20px; }
+      .faq-answer-inner { padding: 0 20px 18px 20px; }
+      .faq-cta-sub { padding: 0 16px; }
 
       /* ── Contact ── */
       #contact { padding: 40px 0 52px; }
@@ -2337,6 +2411,195 @@
       .wave-divider svg { height: 36px; }
     }
 
+/* ─── PROBLEM / SOLUTION ───────────────────────────────── */
+#problem-solution {
+  padding: 100px 0;
+  background: var(--white);
+}
+.ps-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.ps-header .section-sub { margin: 0 auto; }
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.ps-col {
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+}
+.ps-problem {
+  background: #fff5f5;
+  border: 1.5px solid rgba(229,83,83,0.15);
+}
+.ps-solution {
+  background: #f0fbff;
+  border: 1.5px solid rgba(0,180,216,0.2);
+}
+.ps-col-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 28px;
+}
+.ps-label-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-label-dot--red { background: #e55353; }
+.ps-label-dot--green { background: #00B4D8; }
+.ps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.ps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9375rem;
+  color: var(--navy);
+  line-height: 1.55;
+}
+.ps-list li svg { flex-shrink: 0; margin-top: 2px; }
+@media (max-width: 768px) {
+  .ps-grid { grid-template-columns: 1fr; }
+  .ps-col { padding: 28px 22px; }
+}
+
+/* ─── WEB DESIGN SECTION ───────────────────────────────── */
+#web-design {
+  padding: 100px 0;
+  background: var(--gray-bg);
+}
+.wd-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.wd-header .section-sub { margin: 0 auto; }
+.wd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+.wd-feature {
+  background: var(--white);
+  border: 1px solid rgba(27,42,74,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+}
+.wd-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(27,42,74,0.08);
+}
+.wd-feature h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.wd-feature p {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  line-height: 1.7;
+}
+.wd-cta {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .wd-grid { grid-template-columns: 1fr; }
+}
+
+.pricing-row-label {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ─── PRICING BLOCKS ───────────────────────────────────── */
+.pricing-block {
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  margin-bottom: 0;
+}
+.pricing-block--automation {
+  background: #f0fbff;
+  border: 1.5px solid rgba(0,180,216,0.2);
+}
+.pricing-block--webdesign {
+  background: var(--gray-bg);
+  border: 1.5px solid rgba(27,42,74,0.08);
+}
+.pricing-block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.pricing-block-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(27,42,74,0.08);
+}
+.pricing-block-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.pricing-block-sub {
+  font-size: 0.875rem;
+  color: var(--gray-text);
+  line-height: 1.6;
+  max-width: 520px;
+}
+.pricing-divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 48px 0;
+}
+.pricing-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(27,42,74,0.1);
+}
+.pricing-divider-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .pricing-block { padding: 28px 18px; }
+  .pricing-block-header { flex-direction: column; gap: 12px; }
+}
 
   </style>
 </head>
@@ -2351,14 +2614,13 @@
           <img src="brand-assets/Logo.png" alt="Anchor Digital logo" fetchpriority="high" />
           <div class="nav-logo-text">
             <span class="nav-logo-name">Anchor Digital</span>
-            <span class="nav-logo-sub">Web Services & Innovation</span>
+            <span class="nav-logo-sub">AI Automation & Web Design</span>
           </div>
         </a>
         <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonial">Testimonial</a></li>
           <li><a href="#resources">Insights</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact" class="btn btn-primary nav-cta">Get a Free Quote</a></li>
@@ -2376,7 +2638,6 @@
       <li><a href="#services" class="mobile-nav-link">Services</a></li>
       <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
       <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
-      <li><a href="#testimonial" class="mobile-nav-link">Testimonial</a></li>
       <li><a href="#resources" class="mobile-nav-link">Insights</a></li>
       <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
       <li><a href="#audit" class="mobile-nav-link">Free Audit</a></li>
@@ -2432,54 +2693,17 @@
         <!-- Left -->
         <div class="hero-text">
           <h1 class="hero-h1 reveal reveal-delay-1">
-            We Build Websites That Rank, Convert, and<br /><span class="accent">Book Clients 24/7</span>
+            Your Business Runs. <span class="accent">Even When You Don't.</span>
           </h1>
           <p class="hero-sub reveal reveal-delay-2">
-            We build premium websites for local service businesses — designed to rank on Google, build trust, and turn visitors into paying customers.
+            We build AI automation systems that capture every lead, follow up within 60 seconds, and book appointments automatically. Done for you. Built on Make.com and powered by AI.
           </p>
           <div class="hero-actions reveal reveal-delay-3">
             <a href="#contact" class="btn btn-primary">
-              Get a Free Quote
+              Get a Free Audit
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#portfolio" class="btn btn-outline">See Our Work</a>
-          </div>
-        </div>
-        <!-- Right: browser mockup -->
-        <div class="hero-visual">
-          <div class="hero-card-mock reveal reveal-delay-2">
-            <div class="mock-bar">
-              <span class="mock-dot mock-dot-r"></span>
-              <span class="mock-dot mock-dot-y"></span>
-              <span class="mock-dot mock-dot-g"></span>
-              <span class="mock-url">🔒 yourbusiness.com</span>
-            </div>
-            <div class="mock-screenshot-area" aria-hidden="true" style="background:#000;overflow:hidden;padding:0;">
-              <img src="www.sunstatellc.com_ (1).png" alt="Sunstate Service Group LLC website" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" fetchpriority="high" />
-            </div>
-            <div class="mock-footer">
-              <div class="mock-footer-lines">
-                <div class="mock-text-line wide"></div>
-                <div class="mock-text-line med"></div>
-                <div class="mock-text-line short"></div>
-              </div>
-              <div class="mock-btn-preview"></div>
-            </div>
-            <!-- Floating badges -->
-            <div class="float-badge float-badge-1">
-              <span class="float-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-              <div>
-                <div style="color:#00B4D8;font-size:0.9rem;">7-Day</div>
-                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">Delivery</div>
-              </div>
-            </div>
-            <div class="float-badge float-badge-2">
-              <span class="float-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-              <div>
-                <div style="color:#00B4D8;font-size:0.9rem;">Local SEO</div>
-                <div style="color:#5a6a80;font-size:0.65rem;font-weight:500;">Included</div>
-              </div>
-            </div>
+            <a href="#process" class="btn btn-outline">See How It Works</a>
           </div>
         </div>
       </div>
@@ -2501,8 +2725,8 @@
           <div class="audit-label">
             <span>🔍</span> Free — No Obligation
           </div>
-          <h2 class="audit-title" id="audit-title">Get a Free Website Audit</h2>
-          <p class="audit-sub">We'll review your current website and online presence, then show you exactly what's holding you back from getting more customers.</p>
+          <h2 class="audit-title" id="audit-title">Get a Free Automation Audit</h2>
+          <p class="audit-sub">We'll map out exactly where your business is losing leads, missing follow-ups, and leaving money on the table — then show you how to fix it automatically.</p>
         </div>
         <button class="btn btn-audit" id="openAuditModal" aria-haspopup="dialog">
           Get My Free Audit
@@ -2552,9 +2776,9 @@
   <section id="services" aria-labelledby="services-title">
     <div class="container">
       <div class="services-header">
-        <span class="section-label reveal">What We Do</span>
-        <h2 class="section-title reveal reveal-delay-1" id="services-title">Everything Your Business Needs Online</h2>
-        <p class="section-sub reveal reveal-delay-2">From your first website to a full digital presence — we handle it all so you can focus on running your business.</p>
+        <span class="section-label reveal">What We Build</span>
+        <h2 class="section-title reveal reveal-delay-1" id="services-title">AI Systems That Do the Work For You</h2>
+        <p class="section-sub reveal reveal-delay-2">From automated lead follow-up to high-converting websites — we build the infrastructure service businesses need to grow without adding staff.</p>
       </div>
       <div class="services-grid">
 
@@ -2565,8 +2789,8 @@
               <rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
             </svg>
           </div>
-          <h3>Custom Website Design</h3>
-          <p>A unique, professional website built around your brand and business goals — not a cookie-cutter template. Every pixel is designed to make an impression.</p>
+          <h3>AI Lead Follow-Up</h3>
+          <p>Every inbound lead gets a personalized AI response within 60 seconds — even at 2am. No more lost leads from slow reply times.</p>
         </div>
 
         <!-- Card 2 -->
@@ -2576,8 +2800,8 @@
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
           </div>
-          <h3>SEO & Google Visibility</h3>
-          <p>Get found when customers search for your services. We optimize your site's structure, speed, and content so Google ranks you above the competition.</p>
+          <h3>Appointment Booking Automation</h3>
+          <p>We connect your lead capture, AI response, and calendar into one system. Leads book themselves. You show up.</p>
         </div>
 
         <!-- Card 3 -->
@@ -2587,8 +2811,8 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
           </div>
-          <h3>Google Business Profile</h3>
-          <p>Set up and optimize your Google Business Profile so you appear in local map results, collect reviews, and give customers the info they need instantly.</p>
+          <h3>CRM Integration</h3>
+          <p>Every lead, every conversation, every status — organized automatically in your CRM. No manual data entry.</p>
         </div>
 
         <!-- Card 4 -->
@@ -2598,8 +2822,8 @@
               <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
           </div>
-          <h3>Booking & Appointment Integration</h3>
-          <p>Let customers book directly through your website 24/7. Reduce back-and-forth messages and fill your calendar automatically.</p>
+          <h3>Cold Outreach Systems</h3>
+          <p>AI-personalized outreach sequences built on Apollo.io and Instantly.ai. Identify prospects, send personalized emails at scale, and book calls automatically.</p>
         </div>
 
         <!-- Card 5 -->
@@ -2609,8 +2833,8 @@
               <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
             </svg>
           </div>
-          <h3>Mobile-First Responsive Design</h3>
-          <p>Over 60% of web traffic is mobile. Your site will look and work flawlessly on every screen size — phone, tablet, and desktop.</p>
+          <h3>High-Converting Websites</h3>
+          <p>Clean, fast websites designed to turn visitors into booked appointments. Built for service businesses that need to look credible and convert.</p>
         </div>
 
         <!-- Card 6 -->
@@ -2620,77 +2844,121 @@
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
           </div>
-          <h3>Ongoing Support & Maintenance</h3>
-          <p>Your website is a living tool. We keep it updated, secure, and performing at its best — so you never have to worry about the technical side.</p>
+          <h3>Ongoing Automation Support</h3>
+          <p>We monitor, maintain, and improve your systems monthly — so your automations keep running and your pipeline stays full.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Wave divider services → why -->
+  <!-- Wave divider services → web-design -->
   <div class="wave-divider" style="background:#fff;" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none">
       <path d="M0,0 C360,70 1080,0 1440,50 L1440,70 L0,70 Z" fill="#F0F4F8"/>
     </svg>
   </div>
 
+  <!-- ══════════ WEB DESIGN ══════════ -->
+  <section id="web-design" aria-labelledby="wd-title">
+    <div class="container">
+      <div class="wd-header">
+        <span class="section-label reveal">Web Design</span>
+        <h2 class="section-title reveal reveal-delay-1" id="wd-title">Need a Website Too? We've Got You.</h2>
+        <p class="section-sub reveal reveal-delay-2">Every automation system we build can be paired with a high-converting website. Or we can build the site on its own — designed specifically for service businesses across the US.</p>
+      </div>
+      <div class="wd-grid">
+        <div class="wd-feature reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Custom Design — No Templates</h3>
+          <p>Every site is built from scratch around your brand, your services, and your market. Clean, fast, and built to convert visitors into booked appointments.</p>
+        </div>
+        <div class="wd-feature reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3>SEO Foundations Built In</h3>
+          <p>Page structure, meta tags, speed optimization, and local SEO baked in from day one — so Google can find you without a separate agency.</p>
+        </div>
+        <div class="wd-feature reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3>Mobile-First, Always</h3>
+          <p>Over 60% of your visitors are on mobile. Every site we build looks and works flawlessly on every screen size.</p>
+        </div>
+        <div class="wd-feature reveal reveal-delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <h3>Booking Integration Ready</h3>
+          <p>We connect your site directly to your booking system so visitors can schedule appointments without leaving the page.</p>
+        </div>
+      </div>
+      <div class="wd-cta reveal">
+        <a href="#pricing" class="btn btn-primary">See Web Design Pricing</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ WHY ANCHOR ══════════ -->
   <section id="why" aria-labelledby="why-title">
     <div class="container">
       <div>
-        <span class="section-label reveal">Why Choose Us</span>
-        <h2 class="section-title reveal reveal-delay-1" id="why-title">Results You Can Actually Measure</h2>
-        <p class="section-sub reveal reveal-delay-2">We don't just build websites — we build business tools. Every decision we make is focused on one thing: more customers for you.</p>
+        <span class="section-label reveal">Why Anchor Digital FL</span>
+        <h2 class="section-title reveal reveal-delay-1" id="why-title">Built for Businesses That Are Done Doing Everything Manually</h2>
+        <p class="section-sub reveal reveal-delay-2">We don't just set up tools — we build complete systems that connect your leads, AI, and calendar so nothing falls through the cracks.</p>
       </div>
       <div class="why-grid">
         <div class="why-props">
           <div class="why-prop reveal">
             <div class="why-num">1</div>
             <div class="why-prop-text">
-              <h3>More Clients, Less Effort</h3>
-              <p>Your website works for you 24/7 — attracting, educating, and converting visitors while you focus on delivering your service.</p>
+              <h3>Never Miss a Lead Again</h3>
+              <p>Our systems respond to every inbound inquiry in under 60 seconds — automatically. No manual checking, no delayed follow-up.</p>
             </div>
           </div>
           <div class="why-prop reveal reveal-delay-1">
             <div class="why-num">2</div>
             <div class="why-prop-text">
-              <h3>Higher Google Rankings</h3>
-              <p>We build with SEO fundamentals baked in from day one — clean code, fast load times, and proper structure that Google rewards.</p>
+              <h3>Your Calendar Fills Itself</h3>
+              <p>Lead capture, AI qualification, and booking are connected end-to-end. Clients go from inquiry to appointment without you touching anything.</p>
             </div>
           </div>
           <div class="why-prop reveal reveal-delay-2">
             <div class="why-num">3</div>
             <div class="why-prop-text">
-              <h3>A Professional Online Presence</h3>
-              <p>First impressions happen online. A polished, trustworthy website means customers choose you over competitors before they even make contact.</p>
+              <h3>Looks Like a Real Agency</h3>
+              <p>Professional website + automation backend = a business that operates like it has a full team, even if it's just you.</p>
             </div>
           </div>
           <div class="why-prop reveal reveal-delay-3">
             <div class="why-num">4</div>
             <div class="why-prop-text">
-              <h3>Fast Turnaround, Ongoing Partnership</h3>
-              <p>We move quickly without cutting corners. And once your site is live, we're here for the long haul — ready to grow with your business.</p>
+              <h3>Done-For-You Setup</h3>
+              <p>We build everything, test everything, and hand it off running. No tech skills required on your end.</p>
             </div>
           </div>
         </div>
         <div class="why-visual reveal reveal-delay-2">
           <div class="why-stat-cards">
             <div class="why-stat">
-              <div class="why-stat-num">3x</div>
-              <div class="why-stat-label">Up to 3x more visibility</div>
-            </div>
-            <div class="why-stat">
-              <div class="why-stat-num">97%</div>
-              <div class="why-stat-label">97% mobile-friendly score</div>
-            </div>
-            <div class="why-stat">
-              <div class="why-stat-num">7 days</div>
-              <div class="why-stat-label">As fast as 7-day delivery</div>
+              <div class="why-stat-num">60 sec</div>
+              <div class="why-stat-label">Average lead response time</div>
             </div>
             <div class="why-stat">
               <div class="why-stat-num">100%</div>
-              <div class="why-stat-label">100% custom — no templates</div>
+              <div class="why-stat-label">Done-for-you setup</div>
+            </div>
+            <div class="why-stat">
+              <div class="why-stat-num">24/7</div>
+              <div class="why-stat-label">Automations run around the clock</div>
+            </div>
+            <div class="why-stat">
+              <div class="why-stat-num">$0</div>
+              <div class="why-stat-label">Extra staff needed</div>
             </div>
           </div>
 
@@ -2709,182 +2977,122 @@
   <!-- ══════════ TRUST BAR ══════════ -->
   <section id="trust-bar" aria-label="Tools and platforms we use">
     <div class="container">
-      <p class="trust-bar-label">Built with industry-leading tools</p>
+      <p class="trust-bar-label">Powered by best-in-class automation tools</p>
     </div>
     <div class="trust-bar-logos" aria-hidden="true">
         <div class="trust-bar-track" id="marquee-track">
-          <!-- Google -->
+          <!-- Make.com -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/make/6D00CC" alt="Make.com" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">Google</span>
+            <span class="trust-tool-name">Make.com</span>
           </div>
-          <!-- HTML5 -->
+          <!-- Claude AI -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#E44D26"/>
-                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#F16529"/>
-                <path d="M8 8h4v2H8v2h3.8l-.2 2L8 14.6V17l4 1.2 4-1.2-.4-4H10v-2h5.6l.4-4H8V8z" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude AI" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">HTML5</span>
+            <span class="trust-tool-name">Claude AI</span>
           </div>
-          <!-- CSS3 -->
+          <!-- Apollo.io -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#264de4"/>
-                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#2965f1"/>
-                <path d="M8 8h8l-.2 2H9.6l.2 2H15.6l-.6 4.4L12 17.2l-3-0.8-.2-2.2h2l.1 1 1.1.3 1.1-.3.1-1.6H7.8L7 8z" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/openai/3B5998" alt="Apollo.io" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">CSS3</span>
+            <span class="trust-tool-name">Apollo.io</span>
           </div>
-          <!-- JavaScript -->
+          <!-- Instantly.ai → Mailchimp -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
-                <path d="M6 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.4V12H12v5.4c0 2.3-1.4 3.4-3.4 3.4-1.8 0-2.9-.9-3.4-2L6 17.5zm6.9.2c.5.8 1.2 1.4 2.5 1.4 1.2 0 2-.6 2-1.5 0-1-.8-1.4-2-1.9l-.7-.3c-2-.8-3.2-1.9-3.2-4 0-2 1.6-3.5 3.9-3.5 1.7 0 2.9.6 3.8 2l-2 1.3c-.4-.8-1-1.1-1.8-1.1-.8 0-1.3.5-1.3 1.1 0 .8.5 1.1 1.7 1.6l.7.3c2.3 1 3.5 2.1 3.5 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-4-1.2-4.7-2.7l2-.8z" fill="#000"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Instantly.ai" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">JavaScript</span>
+            <span class="trust-tool-name">Instantly.ai</span>
           </div>
-          <!-- Node.js -->
+          <!-- Clay → Airtable -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" fill="#339933"/>
-                <path d="M12 4.5L5 8.5v7l7 4 7-4v-7L12 4.5z" fill="#fff" opacity="0.1"/>
-                <text x="7" y="15" font-size="7" font-weight="bold" fill="#fff" font-family="sans-serif">js</text>
-              </svg>
+              <img src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Clay" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">Node.js</span>
+            <span class="trust-tool-name">Clay</span>
+          </div>
+          <!-- Vercel -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" width="24" height="24" />
+            </div>
+            <span class="trust-tool-name">Vercel</span>
+          </div>
+          <!-- EmailJS → Gmail -->
+          <div class="trust-tool">
+            <div class="trust-tool-icon">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="EmailJS" width="24" height="24" />
+            </div>
+            <span class="trust-tool-name">EmailJS</span>
           </div>
           <!-- Calendly -->
           <div class="trust-tool">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="4" width="20" height="18" rx="3" fill="#006BFF"/>
-                <path d="M7 2v4M17 2v4M2 10h20" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="12" cy="15" r="2.5" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/calendly/006BFF" alt="Calendly" width="24" height="24" />
             </div>
             <span class="trust-tool-name">Calendly</span>
-          </div>
-          <!-- EmailJS -->
-          <div class="trust-tool">
-            <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="5" width="20" height="14" rx="3" fill="#0077B6"/>
-                <path d="M2 8l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <span class="trust-tool-name">EmailJS</span>
-          </div>
-          <!-- Express -->
-          <div class="trust-tool">
-            <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#000"/>
-                <text x="3" y="16" font-size="8" font-weight="bold" fill="#fff" font-family="sans-serif">ex</text>
-              </svg>
-            </div>
-            <span class="trust-tool-name">Express</span>
           </div>
           <!-- === Duplicate set for seamless loop === -->
-          <!-- Google -->
+          <!-- Make.com -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/make/6D00CC" alt="Make.com" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">Google</span>
+            <span class="trust-tool-name">Make.com</span>
           </div>
-          <!-- HTML5 -->
+          <!-- Claude AI -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#E44D26"/>
-                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#F16529"/>
-                <path d="M8 8h4v2H8v2h3.8l-.2 2L8 14.6V17l4 1.2 4-1.2-.4-4H10v-2h5.6l.4-4H8V8z" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude AI" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">HTML5</span>
+            <span class="trust-tool-name">Claude AI</span>
           </div>
-          <!-- CSS3 -->
+          <!-- Apollo.io -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 2l1.6 18L12 22l6.4-2L20 2H4z" fill="#264de4"/>
-                <path d="M12 20.4V3.6H4.8L6.2 18.8L12 20.4z" fill="#2965f1"/>
-                <path d="M8 8h8l-.2 2H9.6l.2 2H15.6l-.6 4.4L12 17.2l-3-0.8-.2-2.2h2l.1 1 1.1.3 1.1-.3.1-1.6H7.8L7 8z" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/openai/3B5998" alt="Apollo.io" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">CSS3</span>
+            <span class="trust-tool-name">Apollo.io</span>
           </div>
-          <!-- JavaScript -->
+          <!-- Instantly.ai → Mailchimp -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
-                <path d="M6 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.4V12H12v5.4c0 2.3-1.4 3.4-3.4 3.4-1.8 0-2.9-.9-3.4-2L6 17.5zm6.9.2c.5.8 1.2 1.4 2.5 1.4 1.2 0 2-.6 2-1.5 0-1-.8-1.4-2-1.9l-.7-.3c-2-.8-3.2-1.9-3.2-4 0-2 1.6-3.5 3.9-3.5 1.7 0 2.9.6 3.8 2l-2 1.3c-.4-.8-1-1.1-1.8-1.1-.8 0-1.3.5-1.3 1.1 0 .8.5 1.1 1.7 1.6l.7.3c2.3 1 3.5 2.1 3.5 4.1 0 2.4-1.9 3.7-4.4 3.7-2.4 0-4-1.2-4.7-2.7l2-.8z" fill="#000"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Instantly.ai" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">JavaScript</span>
+            <span class="trust-tool-name">Instantly.ai</span>
           </div>
-          <!-- Node.js -->
+          <!-- Clay → Airtable -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" fill="#339933"/>
-                <path d="M12 4.5L5 8.5v7l7 4 7-4v-7L12 4.5z" fill="#fff" opacity="0.1"/>
-                <text x="7" y="15" font-size="7" font-weight="bold" fill="#fff" font-family="sans-serif">js</text>
-              </svg>
+              <img src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Clay" width="24" height="24" />
             </div>
-            <span class="trust-tool-name">Node.js</span>
+            <span class="trust-tool-name">Clay</span>
+          </div>
+          <!-- Vercel -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <img src="https://cdn.simpleicons.org/vercel/000000" alt="Vercel" width="24" height="24" />
+            </div>
+            <span class="trust-tool-name">Vercel</span>
+          </div>
+          <!-- EmailJS → Gmail -->
+          <div class="trust-tool" aria-hidden="true">
+            <div class="trust-tool-icon">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="EmailJS" width="24" height="24" />
+            </div>
+            <span class="trust-tool-name">EmailJS</span>
           </div>
           <!-- Calendly -->
           <div class="trust-tool" aria-hidden="true">
             <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="4" width="20" height="18" rx="3" fill="#006BFF"/>
-                <path d="M7 2v4M17 2v4M2 10h20" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="12" cy="15" r="2.5" fill="#fff"/>
-              </svg>
+              <img src="https://cdn.simpleicons.org/calendly/006BFF" alt="Calendly" width="24" height="24" />
             </div>
             <span class="trust-tool-name">Calendly</span>
-          </div>
-          <!-- EmailJS -->
-          <div class="trust-tool" aria-hidden="true">
-            <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="5" width="20" height="14" rx="3" fill="#0077B6"/>
-                <path d="M2 8l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <span class="trust-tool-name">EmailJS</span>
-          </div>
-          <!-- Express -->
-          <div class="trust-tool" aria-hidden="true">
-            <div class="trust-tool-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#000"/>
-                <text x="3" y="16" font-size="8" font-weight="bold" fill="#fff" font-family="sans-serif">ex</text>
-              </svg>
-            </div>
-            <span class="trust-tool-name">Express</span>
           </div>
         </div>
       </div>
@@ -2910,7 +3118,7 @@
         <!-- Project 1 — Sunstate Service Group LLC (live client) -->
         <article class="portfolio-card reveal">
           <div class="portfolio-img">
-            <img src="www.sunstatellc.com_ (1).png" alt="Sunstate Service Group LLC — website screenshot" loading="lazy" />
+            <img src="Portfolio_screenshots/www.sunstatellc.com_ (1).png" alt="Sunstate Service Group LLC — website screenshot" loading="lazy" />
             <div class="portfolio-img-overlay"></div>
             <div class="portfolio-img-color"></div>
           </div>
@@ -2926,92 +3134,99 @@
           </div>
         </article>
 
+        <!-- Project 2 — Jimenez Tire & Brake (live client) -->
+        <article class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-img">
+            <img src="Portfolio_screenshots/jimeneztireandbrake.com_.png" alt="Jimenez Tire & Brake — website screenshot" loading="lazy" />
+            <div class="portfolio-img-overlay"></div>
+            <div class="portfolio-img-color"></div>
+          </div>
+          <div class="portfolio-info">
+            <h3>Jimenez Tire &amp; Brake</h3>
+            <p>A modern, bilingual website for a Tampa Bay mobile tire and brake service. Features online appointment booking, service area map, and direct WhatsApp/phone CTAs built to convert on mobile.</p>
+            <div class="portfolio-tags">
+              <span class="tag">Web Design</span>
+              <span class="tag">Online Booking</span>
+              <span class="tag">Bilingual</span>
+            </div>
+            <a href="https://jimeneztireandbrake.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Project</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
   <!-- ══════════ DEMOS / INDUSTRY SHOWCASES ══════════ -->
-  <section id="demos" aria-labelledby="demos-title">
-    <div class="container">
-      <div class="portfolio-header">
-        <span class="section-label reveal">Industry Showcases</span>
-        <h2 class="section-title reveal reveal-delay-1" id="demos-title">Built to Show What's Possible</h2>
-        <p class="section-sub reveal reveal-delay-2">Purpose-built demo sites showing what we can deliver for specific industries. Want one built for yours?</p>
+  <section id="problem-solution" aria-labelledby="ps-title">
+  <div class="container">
+    <div class="ps-header">
+      <span class="section-label">The Problem We Solve</span>
+      <h2 class="section-title" id="ps-title">Most Service Businesses Are Losing Leads Right Now</h2>
+      <p class="section-sub">Not because they're bad at their job — because no one built them a system.</p>
+    </div>
+    <div class="ps-grid">
+      <!-- Problem side -->
+      <div class="ps-col ps-problem">
+        <div class="ps-col-label">
+          <span class="ps-label-dot ps-label-dot--red"></span>
+          Without Anchor Digital
+        </div>
+        <ul class="ps-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e55353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Leads come in and sit for hours — or get missed entirely
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e55353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            You're manually following up, copying data, and chasing appointments
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e55353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Your calendar has gaps because no one booked the slot
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e55353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            You close the day exhausted from admin work, not just the actual job
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e55353" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Growth means hiring more people — not building better systems
+          </li>
+        </ul>
       </div>
-      <div class="portfolio-grid">
-
-        <!-- Demo — Lumière Aesthetics -->
-        <article class="portfolio-card reveal">
-          <div class="portfolio-img">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#E8F0EE,#4A7C6F);display:flex;align-items:center;justify-content:center;" role="img" aria-label="Lumière Aesthetics — website screenshot">
-              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-style:italic;font-size:1.75rem;color:#fff;text-align:center;line-height:1.15;pointer-events:none;">Lumière<br>Aesthetics</span>
-            </div>
-            <div class="portfolio-img-overlay"></div>
-          </div>
-          <div class="portfolio-info">
-            <h3>Lumière Aesthetics</h3>
-            <p>A luxury med spa website for a Tampa-based aesthetic clinic. Premium design focused on trust, bookings, and Google visibility — built to convert high-intent clients.</p>
-            <div class="portfolio-tags">
-              <span class="tag">Web Design</span>
-              <span class="tag">Med Spa</span>
-              <span class="tag">Local SEO</span>
-            </div>
-            <a href="medspa-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
-          </div>
-        </article>
-
-        <!-- Demo — Alignment Health Chiropractic -->
-        <article class="portfolio-card reveal reveal-delay-1">
-          <div class="portfolio-img">
-            <div style="width:100%;height:100%;background:linear-gradient(160deg,#1B3A6B,#122849);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;overflow:hidden;" role="img" aria-label="Alignment Health Chiropractic — website screenshot">
-              <div style="position:absolute;top:-20%;right:-20%;width:50%;height:50%;background:radial-gradient(circle,rgba(0,153,204,0.15),transparent 70%);border-radius:50%;"></div>
-              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:1.35rem;color:#fff;text-align:center;line-height:1.15;pointer-events:none;letter-spacing:-0.02em;">Alignment Health</span>
-              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:0.6rem;color:#0099CC;text-transform:uppercase;letter-spacing:0.18em;pointer-events:none;">Chiropractic</span>
-            </div>
-            <div class="portfolio-img-overlay"></div>
-          </div>
-          <div class="portfolio-info">
-            <h3>Alignment Health Chiropractic</h3>
-            <p>A clinical, trustworthy website for a Tampa chiropractic clinic. Clean design with booking CTAs, patient testimonials, transparent pricing, and local SEO — built to generate new patient appointments.</p>
-            <div class="portfolio-tags">
-              <span class="tag">Web Design</span>
-              <span class="tag">Chiropractic</span>
-              <span class="tag">Local SEO</span>
-            </div>
-            <a href="chiro-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
-          </div>
-        </article>
-
-        <!-- Demo — Aurum Dental Studio -->
-        <article class="portfolio-card reveal reveal-delay-2">
-          <div class="portfolio-img">
-            <div style="width:100%;height:100%;background:linear-gradient(165deg,#2A2A2A,#1E1E1E);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden;" role="img" aria-label="Aurum Dental Studio — website screenshot">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:55%;height:55%;border:1px solid rgba(201,168,76,0.18);border-radius:50%;"></div>
-              <div style="position:absolute;top:30%;right:15%;width:40%;height:25%;border:1px solid rgba(201,168,76,0.12);transform:rotate(12deg);"></div>
-              <span style="font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.6rem;color:#fff;text-align:center;line-height:1.1;pointer-events:none;position:relative;z-index:1;">Aurum</span>
-              <span style="font-family:'Inter',system-ui,sans-serif;font-weight:500;font-size:0.55rem;color:#C9A84C;text-transform:uppercase;letter-spacing:0.2em;pointer-events:none;position:relative;z-index:1;">Dental Studio</span>
-            </div>
-            <div class="portfolio-img-overlay"></div>
-          </div>
-          <div class="portfolio-info">
-            <h3>Aurum Dental Studio</h3>
-            <p>A premium dental studio website designed to feel like a luxury boutique. Veneers, whitening, Invisalign, and implants — with cosmetic pricing, patient testimonials, and consultation CTAs built for high-value conversions.</p>
-            <div class="portfolio-tags">
-              <span class="tag">Web Design</span>
-              <span class="tag">Dental</span>
-              <span class="tag">Local SEO</span>
-            </div>
-            <a href="dental-demo/index.html" target="_blank" class="btn btn-outline btn-sm">View Project</a>
-          </div>
-        </article>
-
-      </div>
-      <div class="reveal" style="text-align:center;margin-top:48px;">
-        <p style="font-size:1rem;color:var(--gray-text);margin-bottom:16px;">Interested in a demo for your industry?</p>
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <!-- Solution side -->
+      <div class="ps-col ps-solution">
+        <div class="ps-col-label">
+          <span class="ps-label-dot ps-label-dot--green"></span>
+          With Anchor Digital FL
+        </div>
+        <ul class="ps-list">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Every lead gets a personalized AI response in under 60 seconds
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Follow-up sequences run automatically until the lead books or opts out
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Appointments land on your calendar without you lifting a finger
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Every lead, status, and conversation is tracked automatically in your CRM
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            You scale by improving systems — not by hiring more headcount
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ══════════ PROCESS ══════════ -->
   <section id="process" aria-labelledby="process-title">
@@ -3066,107 +3281,187 @@
   <section id="pricing" aria-labelledby="pricing-title">
     <div class="container">
       <div class="pricing-header">
-        <span class="section-label reveal">Transparent Pricing</span>
-        <h2 class="section-title reveal reveal-delay-1" id="pricing-title">Simple, Honest Packages</h2>
-        <p class="section-sub reveal reveal-delay-2">No hidden fees. No confusing jargon. Pick the package that fits your business and let's get started.</p>
+        <span class="section-label reveal">Pricing</span>
+        <h2 class="section-title reveal reveal-delay-1" id="pricing-title">Two Ways to Work With Us</h2>
+        <p class="section-sub reveal reveal-delay-2">AI automation systems and websites — priced separately so you only pay for what you need.</p>
       </div>
-      <div class="pricing-grid">
-
-        <!-- Starter -->
-        <div class="pricing-card reveal">
-          <div class="pricing-tier">Starter</div>
-          <div class="pricing-price"><span>$</span>500</div>
-          <p class="pricing-desc">Perfect for businesses that need a clean, professional online presence without the complexity.</p>
-          <ul class="pricing-features">
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Custom one-page website
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Fully mobile responsive
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Basic SEO setup
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Contact form integration
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Delivered in 7 days
-            </li>
-          </ul>
-          <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+      <div class="pricing-block pricing-block--automation reveal">
+        <div class="pricing-block-header">
+          <div class="pricing-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="pricing-block-label">AI Automation</div>
+            <div class="pricing-block-sub">Done-for-you systems that capture leads, follow up, and book appointments automatically.</div>
+          </div>
         </div>
+        <div class="pricing-grid">
 
-        <!-- Professional (Featured) -->
-        <div class="pricing-card featured reveal reveal-delay-1">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-tier">Professional</div>
-          <div class="pricing-price"><span>$</span>1,200</div>
-          <p class="pricing-desc">The complete package for businesses serious about getting found online and converting visitors.</p>
-          <ul class="pricing-features">
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Multi-page website
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Advanced SEO optimization
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Google Business Profile setup
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Booking/appointment integration
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              30 days of post-launch support
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Everything in Starter
-            </li>
-          </ul>
-          <a href="#contact" class="btn btn-primary btn-pricing">Get Started</a>
+          <!-- Starter -->
+          <div class="pricing-card reveal">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price"><span>$</span>1,000</div>
+            <p class="pricing-desc">For service businesses ready to stop missing leads. A simple automation system that responds to every inquiry instantly.</p>
+            <ul class="pricing-features">
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                AI lead response automation (Make.com)
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Instant follow-up within 60 seconds
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Contact form + CRM connection
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Email notification system
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                1 round of revisions
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+          </div>
+
+          <!-- Professional (Featured) -->
+          <div class="pricing-card featured reveal reveal-delay-1">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-tier">Professional</div>
+            <div class="pricing-price"><span>$</span>2,000</div>
+            <p class="pricing-desc">A complete lead-to-appointment pipeline. Leads come in, AI qualifies them, appointments land on your calendar.</p>
+            <ul class="pricing-features">
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Everything in Starter
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Full appointment booking automation
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                AI-powered follow-up sequences
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                CRM integration + lead tracking
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Cold outreach system setup
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                2 rounds of revisions
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-pricing">Get Started</a>
+          </div>
+
+          <!-- Premium -->
+          <div class="pricing-card reveal reveal-delay-2">
+            <div class="pricing-tier">Premium</div>
+            <div class="pricing-price" style="font-size:1.9rem;">$2,000 <span style="font-size:0.9rem;font-weight:600;letter-spacing:0;vertical-align:middle;color:var(--gray-text);">+ $500/mo</span></div>
+            <p class="pricing-desc">Full automation infrastructure plus monthly optimization so your pipeline keeps improving over time.</p>
+            <ul class="pricing-features">
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Everything in Professional
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Monthly automation maintenance
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Performance reporting
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                System improvements each month
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Priority support
+              </li>
+              <li>
+                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                Ongoing pipeline optimization
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+          </div>
+
         </div>
+      </div>
 
-        <!-- Premium -->
-        <div class="pricing-card reveal reveal-delay-2">
-          <div class="pricing-tier">Premium</div>
-          <div class="pricing-price" style="font-size:1.9rem;">$1,200 <span style="font-size:0.9rem;font-weight:600;letter-spacing:0;vertical-align:middle;color:var(--gray-text);">+ $200/mo</span></div>
-          <p class="pricing-desc">For businesses that want consistent growth. Get the full Professional build included when you commit to our monthly growth plan.</p>
-          <ul class="pricing-features">
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Everything in Professional
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              2 blog posts or content updates per month
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Monthly Google Business Profile updates
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Monthly SEO rank tracking report
-            </li>
-            <li>
-              <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Priority 24hr response support
-            </li>
-          </ul>
-          <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+      <div class="pricing-divider" aria-hidden="true">
+        <div class="pricing-divider-line"></div>
+        <span class="pricing-divider-text">Also Available</span>
+        <div class="pricing-divider-line"></div>
+      </div>
+
+      <div class="pricing-block pricing-block--webdesign reveal">
+        <div class="pricing-block-header">
+          <div class="pricing-block-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="pricing-block-label">Web Design</div>
+            <div class="pricing-block-sub">High-converting websites for service businesses across the US. Can be paired with any automation package.</div>
+          </div>
         </div>
+        <div class="pricing-grid">
 
+          <div class="pricing-card">
+            <div class="pricing-tier">Starter</div>
+            <div class="pricing-price"><span>$</span>300</div>
+            <p class="pricing-desc">A clean, professional 1-page website for businesses that need an online presence fast.</p>
+            <ul class="pricing-features">
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1-page custom website</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mobile-first design</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Contact form integration</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Vercel hosting setup</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 round of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-tier">Professional</div>
+            <div class="pricing-price"><span>$</span>800</div>
+            <p class="pricing-desc">Multi-page site with SEO foundations and booking integration — built to convert visitors into booked appointments.</p>
+            <ul class="pricing-features">
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Multi-page custom website</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SEO foundations</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Booking integration</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Google Business Profile setup</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mobile-first design</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 rounds of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-pricing">Get Started</a>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-tier">Premium</div>
+            <div class="pricing-price"><span>$</span>800 <span style="font-size:1rem;font-weight:500;letter-spacing:0;">+ $150/mo</span></div>
+            <p class="pricing-desc">Full website plus ongoing monthly support, content updates, and performance maintenance.</p>
+            <ul class="pricing-features">
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in Professional</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Monthly maintenance</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Content updates included</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority support</li>
+              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Performance reporting</li>
+            </ul>
+            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -3230,22 +3525,21 @@
     <div class="container">
       <div class="resources-header">
         <span class="section-label reveal">Insights</span>
-        <h2 class="section-title reveal reveal-delay-1" id="resources-title">Tips to Grow Your Business Online</h2>
-        <p class="section-sub reveal reveal-delay-2">Practical advice from our team — no fluff, just actionable insights to help your business get found and grow.</p>
+        <h2 class="section-title reveal reveal-delay-1" id="resources-title">Built for Med Spas. Powered by Automation.</h2>
       </div>
       <div class="resources-grid">
 
         <article class="resource-card reveal">
           <div class="resource-img">
-            <img src="www.sunstatellc.com_ (1).png" alt="Why Your Small Business Needs a Professional Website" loading="lazy" />
-            <div class="resource-img-overlay"></div>
-            <div class="resource-img-color"></div>
-            <span class="resource-cat">Web Design</span>
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0A1628 0%,#0077B6 100%);display:flex;align-items:center;justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            </div>
+            <span class="resource-cat">Automation</span>
           </div>
           <div class="resource-body">
-            <h3>Why Your Small Business Needs a Professional Website</h3>
-            <p>Your customers are making decisions before they even walk through your door. Here's what your website needs to do to turn browsers into paying clients.</p>
-            <a href="insights/professional-website.html" class="resource-read-more">
+            <h3>Why Your Med Spa Is Losing Leads After Hours (And How to Fix It)</h3>
+            <p>Most med spas miss 60% of their inbound leads simply because no one responds after 6pm. Here's the exact automation that runs follow-up while you sleep...</p>
+            <a href="insights/losing-leads.html" class="resource-read-more">
               Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -3254,15 +3548,15 @@
 
         <article class="resource-card reveal reveal-delay-1">
           <div class="resource-img">
-            <img src="google-maps-anchor-digital.png" alt="5 Reasons Your Business Isn't Showing Up on Google" loading="lazy" />
-            <div class="resource-img-overlay"></div>
-            <div class="resource-img-color"></div>
-            <span class="resource-cat">SEO</span>
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#023E8A 0%,#00B4D8 100%);display:flex;align-items:center;justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="resource-cat">Automation</span>
           </div>
           <div class="resource-body">
-            <h3>5 Reasons Your Business Isn't Showing Up on Google</h3>
-            <p>If you can't find your business when you search, your potential customers can't either. We break down the most common reasons and how to fix them.</p>
-            <a href="insights/google-rankings.html" class="resource-read-more">
+            <h3>How IV Lounges Are Booking 30% More Appointments With One Automation</h3>
+            <p>A single Make.com workflow connected to their booking form changed everything for this IV lounge. No extra staff, no missed DMs, just more booked chairs...</p>
+            <a href="insights/iv-lounge-booking.html" class="resource-read-more">
               Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -3271,14 +3565,14 @@
 
         <article class="resource-card reveal reveal-delay-2">
           <div class="resource-img">
-            <img src="2a966676-7cc1-49e9-a5e5-5f1a1099ed74.png" alt="What to Look for When Hiring a Web Designer" loading="lazy" />
-            <div class="resource-img-overlay"></div>
-            <div class="resource-img-color"></div>
-            <span class="resource-cat">Business Tips</span>
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0A1628 0%,#023E8A 100%);display:flex;align-items:center;justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="resource-cat">Web Design</span>
           </div>
           <div class="resource-body">
-            <h3>What to Look for When Hiring a Web Designer</h3>
-            <p>Not all web designers are the same. Before you sign anything, here are the questions to ask and the red flags to watch out for.</p>
+            <h3>What to Look for When Hiring a Web Designer for Your Med Spa</h3>
+            <p>Not all web designers understand how med spas convert clients. Before you sign anything, here are the questions to ask and the red flags to watch out for...</p>
             <a href="insights/hire-web-designer.html" class="resource-read-more">
               Read More
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -3287,13 +3581,14 @@
         </article>
 
       </div>
+      <a href="/insights" style="display:block;text-align:center;margin-top:48px;color:#00B4D8;font-weight:600;font-size:0.95rem;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.18s ease,text-decoration 0.18s ease;" onmouseover="this.style.color='#0090B0';this.style.textDecoration='underline';" onmouseout="this.style.color='#00B4D8';this.style.textDecoration='none';">View All Insights →</a>
     </div>
   </section>
 
-  <!-- Wave divider resources → lead magnet -->
+  <!-- Wave divider resources → faq -->
   <div class="wave-divider" style="background:#F0F4F8;" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none">
-      <path d="M0,30 C480,70 960,0 1440,50 L1440,70 L0,70 Z" fill="#ffffff"/>
+      <path d="M0,30 C480,70 960,0 1440,50 L1440,70 L0,70 Z" fill="#0A1628"/>
     </svg>
   </div>
 
@@ -3303,87 +3598,93 @@
       <div class="faq-header">
         <span class="section-label reveal">FAQ</span>
         <h2 class="section-title reveal reveal-delay-1" id="faq-title">Questions? We've Got Answers.</h2>
-        <p class="section-sub reveal reveal-delay-2">Everything you need to know before getting started. Can't find your answer? Just reach out.</p>
       </div>
       <div class="faq-list reveal reveal-delay-1">
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            How long does it take to build a website?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            What exactly does AI automation do for my business?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">Most websites are delivered within 7–14 days of our initial discovery call, depending on the scope and how quickly you're able to provide content and feedback. We'll give you a clear timeline before we start so there are no surprises.</div>
+            <div class="faq-answer-inner">It handles the repetitive stuff — capturing leads from your website or ads, sending personalized follow-ups within 60 seconds, and booking appointments directly to your calendar. You stop losing clients to slow response times without hiring extra staff.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            How much does a website cost?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            How fast does the system respond to a new lead?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">Our packages start from $500 for a single-page website and go up depending on your needs. Every project is different, so we always provide a free, no-obligation quote after learning about your business. Check out our Pricing section above for an overview.</div>
+            <div class="faq-answer-inner">Under 60 seconds, 24/7. Most med spas and IV lounges lose leads simply because no one responds after hours — this fixes that automatically.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Do I need to provide the content and images?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            Do I need to be technical to use this?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">We prefer to use real content where possible as it makes your website more authentic and better for SEO. If you have photos and a general idea of your copy, we can work with that. If you need help with content or imagery, we can advise on that too — just let us know.</div>
+            <div class="faq-answer-inner">No. We build and configure everything. You get a system that runs in the background — you just see the booked appointments show up.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Will my website show up on Google?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            How long does setup take?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">All of our websites are built with SEO best practices from the ground up — clean code, fast loading, proper heading structure, and meta data. We also submit your site to Google Search Console after launch. For stronger ongoing ranking, we recommend our Professional or Premium packages which include advanced SEO.</div>
+            <div class="faq-answer-inner">Most automations are live within 7–14 days depending on complexity. We handle the full buildout and test everything before handing it over.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            What if I already have a website?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            What does it cost?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">No problem. We can review your existing site and let you know whether it's worth rebuilding, redesigning, or just making improvements. We offer free website audits — just use the "Get a Free Audit" button above and we'll take a look.</div>
+            <div class="faq-answer-inner">Setup starts at $1,000 depending on what's being automated. Most clients also stay on a monthly retainer ($500–$1,000) for ongoing maintenance and improvements.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Do you offer ongoing support after launch?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            Will this work with the software I already use?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">Yes — all packages include a post-launch handover and at least 30 days of support for minor changes. Our Premium package includes ongoing monthly maintenance, SEO, and content updates. We're here for the long haul, not just the launch.</div>
+            <div class="faq-answer-inner">Most likely yes — we integrate with common tools like GlossGenius, Jane App, Mindbody, and most CRMs. We confirm compatibility before starting.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            What platform do you build on?
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            Do you also build websites?
+            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-plus"></span><span class="faq-icon-minus"></span></span>
           </button>
           <div class="faq-answer" role="region">
-            <div class="faq-answer-inner">We primarily build with clean HTML, CSS, and JavaScript — which means fast-loading, secure websites with no bloated plugins. For clients who need a CMS to manage their own content, we can also work with platforms like WordPress. We'll recommend the best fit for your needs.</div>
+            <div class="faq-answer-inner">Yes, as an add-on. If your site needs to be rebuilt to support the automation properly, we handle that too — but the automation is always the core deliverable.</div>
           </div>
         </div>
-
 
       </div>
+
+      <!-- CTA strip -->
+      <div class="faq-cta-strip">
+        <p class="faq-cta-heading">Still have questions?</p>
+        <p class="faq-cta-sub">Book a free 15-minute call — no pitch, just answers.</p>
+        <a href="#contact" class="faq-cta-btn">Schedule a Call</a>
+      </div>
+
     </div>
   </section>
 
   <!-- Wave divider FAQ → contact -->
-  <div class="wave-divider" style="background:#fff;" aria-hidden="true">
+  <div class="wave-divider" style="background:#0A1628;" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none">
       <path d="M0,20 C360,60 1080,0 1440,45 L1440,70 L0,70 Z" fill="#ffffff"/>
     </svg>
@@ -3395,9 +3696,9 @@
       <div class="contact-grid">
         <!-- Info -->
         <div class="contact-info">
-          <span class="section-label reveal">Get in Touch</span>
-          <h2 class="section-title reveal reveal-delay-1" id="contact-title">Let's Build Something Great Together</h2>
-          <p class="section-sub reveal reveal-delay-2">Ready to grow your business online? Fill in the form and we'll get back to you within 24 hours with a free, no-obligation quote.</p>
+          <span class="section-label reveal">Let's Talk</span>
+          <h2 class="section-title reveal reveal-delay-1" id="contact-title">Ready to Automate Your Business?</h2>
+          <p class="section-sub reveal reveal-delay-2">Fill in the form and we'll get back to you within 24 hours with a free, no-obligation audit of where you're losing leads.</p>
 
           <div class="contact-detail reveal reveal-delay-2">
             <div class="contact-icon">
@@ -3407,7 +3708,7 @@
             </div>
             <div>
               <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-value">jitscaling@gmail.com</div>
+              <div class="contact-detail-value"><a href="mailto:hello@anchordigitalfl.com" style="color:inherit;text-decoration:none;">hello@anchordigitalfl.com</a></div>
             </div>
           </div>
 
@@ -3450,7 +3751,7 @@
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+61 400 000 000" autocomplete="tel" />
+              <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" autocomplete="tel" />
             </div>
 
             <!-- Service Checkbox Picker -->
@@ -3462,26 +3763,18 @@
                 <div class="services-grid" id="packagesGrid" style="margin-bottom:0;">
 
                   <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-starter" name="services" value="Starter Package" data-price="500" data-recurring="0" data-package="true" />
+                    <input type="checkbox" id="pkg-starter" name="services" value="Starter Automation" data-price="1000" data-recurring="0" data-package="true" />
                     <label for="pkg-starter">
                       <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Starter Package</span><span class="cb-price">$500 — 1-page site</span></span>
+                      <span class="cb-text"><span class="cb-name">Starter Automation</span><span class="cb-price">$1,000 setup</span></span>
                     </label>
                   </div>
 
                   <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-professional" name="services" value="Professional Package" data-price="1200" data-recurring="0" data-package="true" />
+                    <input type="checkbox" id="pkg-professional" name="services" value="Full Automation Suite" data-price="2500" data-recurring="0" data-package="true" />
                     <label for="pkg-professional">
                       <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Professional Package</span><span class="cb-price">$1,200 — multi-page + SEO</span></span>
-                    </label>
-                  </div>
-
-                  <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-premium" name="services" value="Premium Package" data-price="1200" data-recurring="200" data-package="true" />
-                    <label for="pkg-premium">
-                      <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Premium Package</span><span class="cb-price">$1,200 + $200/mo</span></span>
+                      <span class="cb-text"><span class="cb-name">Full Automation Suite</span><span class="cb-price">$2,500 setup</span></span>
                     </label>
                   </div>
 
@@ -3494,55 +3787,50 @@
                 <div class="services-grid" id="servicesGrid">
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-website" name="services" value="Custom Website Design (1 page)" data-price="500" data-recurring="0" />
-                  <label for="svc-website">
+                  <input type="checkbox" id="svc-lead-capture" name="services" value="Lead Capture Automation" data-price="1000" data-recurring="0" />
+                  <label for="svc-lead-capture">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Custom Website Design</span><span class="cb-price">$500 / page</span></span>
+                    <span class="cb-text"><span class="cb-name">Lead Capture Automation</span><span class="cb-price">$1,000</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-seo" name="services" value="SEO Setup & Optimization" data-price="400" data-recurring="0" />
-                  <label for="svc-seo">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">SEO Setup & Optimization</span><span class="cb-price">$400</span></span>
-                  </label>
-                </div>
-
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-gbp" name="services" value="Google Business Profile Setup" data-price="200" data-recurring="0" />
-                  <label for="svc-gbp">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Google Business Profile</span><span class="cb-price">$200</span></span>
-                  </label>
-                </div>
-
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-booking" name="services" value="Booking/Appointment Integration" data-price="250" data-recurring="0" />
+                  <input type="checkbox" id="svc-booking" name="services" value="Appointment Booking System" data-price="1000" data-recurring="0" />
                   <label for="svc-booking">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Booking Integration</span><span class="cb-price">$250</span></span>
+                    <span class="cb-text"><span class="cb-name">Appointment Booking System</span><span class="cb-price">$1,000</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-maintenance" name="services" value="Monthly Maintenance & Support" data-price="0" data-recurring="200" />
-                  <label for="svc-maintenance">
+                  <input type="checkbox" id="svc-followup" name="services" value="AI Follow-Up Sequences" data-price="800" data-recurring="0" />
+                  <label for="svc-followup">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Monthly Maintenance</span><span class="cb-price">$200/mo</span></span>
+                    <span class="cb-text"><span class="cb-name">AI Follow-Up Sequences</span><span class="cb-price">$800</span></span>
                   </label>
                 </div>
 
                 <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-logo" name="services" value="Logo Design" data-price="200" data-recurring="0" />
-                  <label for="svc-logo">
+                  <input type="checkbox" id="svc-crm" name="services" value="CRM Integration" data-price="800" data-recurring="0" />
+                  <label for="svc-crm">
                     <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Logo Design</span><span class="cb-price">$200</span></span>
+                    <span class="cb-text"><span class="cb-name">CRM Integration</span><span class="cb-price">$800</span></span>
                   </label>
                 </div>
 
               </div><!-- end services-grid -->
               </div><!-- end individual services -->
+
+              <!-- Standalone add-on -->
+              <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(27,42,74,0.08);">
+                <div class="service-checkbox-item">
+                  <input type="checkbox" id="svc-website-design" name="services" value="Website Design" data-price="0" data-recurring="0" />
+                  <label for="svc-website-design">
+                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="cb-text"><span class="cb-name">Website Design</span><span class="cb-price" style="color:#64748b;font-size:0.8rem;">Can be paired with any automation package</span></span>
+                  </label>
+                </div>
+              </div>
             </div>
 
             <!-- Live Estimate Panel -->
@@ -3595,10 +3883,10 @@
             <img src="brand-assets/Logo.png" alt="Anchor Digital logo" loading="lazy" />
             <div>
               <div class="footer-logo-name">Anchor Digital</div>
-              <div class="footer-logo-sub">Web Services & Innovation</div>
+              <div class="footer-logo-sub">AI Automation & Web Design</div>
             </div>
           </a>
-          <p class="footer-tagline">We build professional websites that anchor your business online — helping you get found, build trust, and grow.</p>
+          <p class="footer-tagline">AI automation and web design for service businesses across the US.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/anchordigitalfl/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -3637,8 +3925,8 @@
         <div>
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
-            <li><a href="#contact">Get a Free Quote</a></li>
-            <li><a href="mailto:jitscaling@gmail.com">jitscaling@gmail.com</a></li>
+            <li><a href="#contact">Get a Free Audit</a></li>
+            <li><a href="mailto:hello@anchordigitalfl.com">hello@anchordigitalfl.com</a></li>
             <li><a href="https://www.instagram.com/anchordigitalfl/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61587474906272" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.tiktok.com/@anchordigita1?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a></li>
@@ -3647,7 +3935,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy">&copy; 2026 Anchor Digital. All rights reserved.</div>
+        <div class="footer-copy">&copy; 2026 Anchor Digital FL. All rights reserved.</div>
         <a href="#hero" class="back-to-top" aria-label="Back to top">
           Back to top
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>

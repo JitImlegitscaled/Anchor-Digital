@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What to Look for When Hiring a Web Designer for Your Med Spa | Anchor Digital</title>
-  <meta name="description" content="Not all web designers understand how med spas convert clients. Before you sign anything, here are the questions to ask and the red flags to watch out for." />
-  <meta property="og:title" content="What to Look for When Hiring a Web Designer for Your Med Spa | Anchor Digital" />
-  <meta property="og:description" content="Not all web designers understand how med spas convert clients. Before you sign anything, here are the questions to ask and the red flags to watch out for." />
+  <title>How IV Lounges Are Booking 30% More Appointments With One Automation | Anchor Digital</title>
+  <meta name="description" content="A single Make.com workflow connected to their booking form changed everything for this IV lounge. No extra staff, no missed DMs, just more booked chairs." />
+  <meta property="og:title" content="How IV Lounges Are Booking 30% More Appointments With One Automation | Anchor Digital" />
+  <meta property="og:description" content="A single Make.com workflow connected to their booking form changed everything for this IV lounge. No extra staff, no missed DMs, just more booked chairs." />
   <meta property="og:type" content="article" />
   <link rel="icon" type="image/png" href="../brand-assets/favicon.png" />
   <link rel="apple-touch-icon" href="../brand-assets/favicon.png" />
@@ -114,8 +114,17 @@
       align-items: center;
       justify-content: space-between;
     }
-    .nav-logo { display: flex; align-items: center; gap: 0; }
-    .nav-logo img { width: 100px; height: 100px; object-fit: contain; border-radius: 10px; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .nav-logo img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
     .nav-logo-text { display: flex; flex-direction: column; }
     .nav-logo-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -276,7 +285,11 @@
       text-transform: uppercase;
       color: var(--teal);
     }
-    .article-cat-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+    .article-cat-dot {
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
     .article-read-time {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.82rem;
@@ -360,46 +373,14 @@
     }
     .article-callout p span { color: var(--teal); }
 
-    /* Red flag list — styled differently from standard bullets */
-    .redflag-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin: 0 0 26px 0;
-      padding: 0;
-      list-style: none;
-    }
-    .redflag-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      font-size: 1.0625rem;
-      color: #374151;
-      line-height: 1.75;
-    }
-    .redflag-list li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: rgba(220,38,38,0.1);
-      border: 1.5px solid rgba(220,38,38,0.25);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
-      background-size: 10px 10px;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin-top: 3px;
-    }
-
-    /* Numbered question cards */
-    .question-cards {
+    /* Step cards */
+    .automation-steps {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin: 32px 0 36px;
     }
-    .question-card {
+    .automation-step {
       display: flex;
       gap: 20px;
       align-items: flex-start;
@@ -408,7 +389,7 @@
       padding: 22px 24px;
       border: 1px solid rgba(27,42,74,0.07);
     }
-    .question-num {
+    .automation-step-num {
       flex-shrink: 0;
       width: 40px;
       height: 40px;
@@ -423,20 +404,51 @@
       justify-content: center;
       box-shadow: 0 3px 10px rgba(0,180,216,0.3);
     }
-    .question-text h3 {
+    .automation-step-text h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.9375rem;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       letter-spacing: -0.01em;
-      font-style: italic;
     }
-    .question-text p {
+    .automation-step-text p {
       font-size: 0.9rem;
       color: var(--gray-text);
       line-height: 1.65;
       margin: 0;
+    }
+
+    /* Result stat strip */
+    .result-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 36px 0;
+    }
+    .result-stat {
+      background: var(--gray-bg);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid rgba(27,42,74,0.07);
+    }
+    .result-stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .result-stat-label {
+      font-size: 0.8125rem;
+      color: var(--gray-text);
+      font-weight: 500;
+      line-height: 1.45;
     }
 
     /* Divider */
@@ -526,7 +538,12 @@
       padding-bottom: 48px;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .footer-logo { display: flex; align-items: center; gap: 4px; margin-bottom: 18px; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 18px;
+    }
     .footer-logo img { width: 100px; height: 100px; object-fit: contain; border-radius: 10px; }
     .footer-logo-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -542,8 +559,17 @@
       text-transform: uppercase;
       color: var(--teal);
     }
-    .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
-    .footer-social { display: flex; gap: 10px; margin-top: 24px; }
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
     .footer-social-link {
       width: 38px; height: 38px;
       border-radius: 10px;
@@ -573,7 +599,11 @@
       margin-bottom: 18px;
     }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.55); transition: color 0.15s ease; }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.15s ease;
+    }
     .footer-links a:hover { color: var(--teal); }
     .footer-bottom {
       padding-top: 32px;
@@ -603,6 +633,7 @@
       .hamburger { display: flex; }
       .footer-top { grid-template-columns: 1fr; gap: 36px; }
       .article-cta { padding: 40px 28px; }
+      .result-strip { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .article-hero { padding: 120px 0 56px; }
@@ -686,11 +717,11 @@
       <div class="article-meta reveal reveal-delay-1">
         <span class="article-cat">
           <span class="article-cat-dot"></span>
-          Web Design
+          Automation
         </span>
-        <span class="article-read-time">4 min read</span>
+        <span class="article-read-time">5 min read</span>
       </div>
-      <h1 class="article-title reveal reveal-delay-2">What to Look for When Hiring a Web Designer for Your Med Spa</h1>
+      <h1 class="article-title reveal reveal-delay-2">How IV Lounges Are Booking 30% More Appointments With One Automation</h1>
     </div>
   </header>
 
@@ -698,107 +729,125 @@
   <main class="article-wrap">
     <div class="article-body">
 
-      <p>Med spa owners hire web designers the same way they hire most vendors — they look at the portfolio, check the price, and sign when it feels right. A few months later, they have a website that looks fine in a screenshot but doesn't actually book clients. The designer moved on. The site collects dust. The owner wonders what went wrong.</p>
+      <p>Walk into most IV lounges and you'll find a spotless space, a well-trained staff, and a booking system that runs on sticky notes, DM screenshots, and a front desk coordinator who's already stretched thin. The service is premium. The operations are not.</p>
 
-      <p>What went wrong is almost always the same thing: the designer understood how to make something look good, but had no idea how a med spa actually converts a visitor into a paying client. Those are two completely different skills, and most generalist web designers only have one of them.</p>
+      <p>The gap shows up clearly in the numbers: lounges that respond to inquiries within the first few minutes book dramatically more appointments than those that get back to people hours — or days — later. The problem isn't the quality of the service. It's what happens between the moment a potential client discovers the lounge and the moment they actually show up in the chair.</p>
 
       <div class="article-callout">
-        <p>A med spa website isn't a brochure. It's a <span>sales system</span>. If the person building it doesn't think that way, you'll end up with something beautiful that quietly loses you clients every single day.</p>
+        <p>The average IV lounge loses <span>30–40% of inquiries</span> simply because no one responded fast enough. The lead didn't go to a competitor — they just gave up and didn't book at all.</p>
       </div>
 
-      <h2>Red Flags to Watch For</h2>
+      <h2>The Bottleneck Nobody Talks About</h2>
 
-      <p>Most bad hires are avoidable if you know what to look for upfront. These are the signals that a designer isn't the right fit for a med spa — regardless of how polished their deck looks.</p>
-
-      <ul class="redflag-list">
-        <li>Their portfolio is full of restaurants, law firms, and e-commerce stores — but no service-based health and wellness businesses. Niche matters. Someone who's never built for a practice that sells high-trust, high-ticket services won't know instinctively what the site needs to do.</li>
-        <li>They lead with templates. If the first thing they show you is a theme or a template library, you're not getting a custom conversion strategy — you're getting a reskin. Templates aren't inherently bad, but a designer who defaults to them without understanding your client journey isn't thinking about your business.</li>
-        <li>They can't explain how their sites convert. Ask them: "How does this website move a visitor toward booking?" If they talk about aesthetics and branding but can't speak to layout hierarchy, CTA placement, or mobile load speed, they're designing for looks, not outcomes.</li>
-        <li>No mention of mobile performance. More than 70% of med spa site traffic comes from mobile. If a designer doesn't bring up mobile speed, Core Web Vitals, or image optimization without being prompted, that's a problem.</li>
-        <li>They hand you the site and disappear. A one-time delivery with no plan for iteration, testing, or integration support means you're on your own the moment something needs to connect to your booking software or automation tools.</li>
-      </ul>
-
-      <h2>What Actually Matters for a Med Spa Site</h2>
-
-      <p>Once you've filtered out the generalists, here's what a good med spa web designer should be building toward — not just visually, but structurally.</p>
+      <p>Here's what the booking process looks like at most IV lounges before automation:</p>
 
       <ul>
-        <li><strong>Mobile speed above everything else.</strong> Your clients are browsing on their phones between appointments, during lunch, late at night. A site that takes more than 3 seconds to load on mobile loses roughly half its visitors before they see a single word. Speed is not a nice-to-have.</li>
-        <li><strong>A booking flow with no friction.</strong> The path from "interested" to "appointment confirmed" should take as few clicks as possible. That means a visible booking button above the fold, a form that doesn't ask for unnecessary information, and a confirmation that gives the client immediate confidence their booking went through.</li>
-        <li><strong>Before/after galleries that build trust without legal risk.</strong> This is one of the most high-impact sections of any med spa site, and one of the easiest to get wrong. The gallery needs to be organized by treatment, mobile-optimized, and presented in a way that builds credibility rather than looking clinical or careless.</li>
-        <li><strong>Trust signals placed where they change decisions.</strong> Reviews, credentials, association memberships, and press mentions should appear near booking calls-to-action — not buried in a footer. The moment a visitor considers booking is the moment they need reassurance, and a good designer knows where that moment happens in the layout.</li>
-        <li><strong>Service pages built around how clients search, not how you organize internally.</strong> Clients search "lip filler Tampa" or "IV drip near me" — not "injectable services" or "hydration therapy." The structure of your service pages determines whether Google sends you traffic or sends it to a competitor.</li>
+        <li>A potential client sends an Instagram DM asking about the Immunity Drip — it sits unread until someone checks the account, sometimes hours later</li>
+        <li>A form submission from the website lands in a shared email inbox that three people have access to and nobody owns</li>
+        <li>A phone call goes to voicemail during a busy treatment block — no callback system triggers automatically</li>
+        <li>A staff member finally replies, the lead has cooled off, and the conversation stalls before a booking happens</li>
       </ul>
 
-      <h2>5 Questions to Ask Before You Hire Anyone</h2>
+      <p>Every one of these friction points is a place where a motivated, interested client slips through. And the staff isn't to blame — they're busy doing what they were hired to do. The issue is that the practice is trying to run a modern, high-volume booking operation with manual workflows that were designed for a different era.</p>
 
-      <p>Bring these into any intro call. The answers will tell you quickly whether you're talking to someone who understands your business or someone who's going to deliver a generic result at a premium price.</p>
+      <p>The fix isn't more staff. It's a smarter system.</p>
 
-      <div class="question-cards">
-        <div class="question-card">
-          <div class="question-num">1</div>
-          <div class="question-text">
-            <h3>"Can you show me a site you've built for a med spa, IV lounge, or similar practice — and walk me through how it converts?"</h3>
-            <p>You're not just asking to see work. You're asking them to explain the thinking behind it. A designer who can't narrate the conversion logic of their own portfolio piece hasn't thought about it deeply enough to apply it to yours.</p>
+      <h2>The Automation: One Workflow, Every Inquiry Source</h2>
+
+      <p>The automation we build for IV lounges on Make.com watches every inbound channel simultaneously — your website form, your Instagram DMs via a connected inbox, and any lead ad campaigns you're running. The moment an inquiry comes in, the workflow fires.</p>
+
+      <p>Here's how it runs from trigger to booked appointment:</p>
+
+      <div class="automation-steps">
+        <div class="automation-step">
+          <div class="automation-step-num">1</div>
+          <div class="automation-step-text">
+            <h3>Inquiry detected across all channels</h3>
+            <p>Make.com watches your website form, connected DM inbox, and lead ad sources in real time. A new submission from any of these triggers the workflow instantly — no polling delay, no manual check needed.</p>
           </div>
         </div>
-        <div class="question-card">
-          <div class="question-num">2</div>
-          <div class="question-text">
-            <h3>"What's your process for optimizing mobile speed, and what scores do your sites typically hit on PageSpeed Insights?"</h3>
-            <p>This separates designers who understand performance from those who don't track it. You want someone who can cite real numbers and explain the techniques behind them — lazy loading, next-gen image formats, minimal render-blocking scripts.</p>
+        <div class="automation-step">
+          <div class="automation-step-num">2</div>
+          <div class="automation-step-text">
+            <h3>AI drafts a personalized reply in seconds</h3>
+            <p>Using the lead's name, the service they asked about, and your lounge's tone, an AI module generates a warm, specific response. It's not a generic autoresponder — it reads like a real message from your team, because the content is tailored to what they actually asked.</p>
           </div>
         </div>
-        <div class="question-card">
-          <div class="question-num">3</div>
-          <div class="question-text">
-            <h3>"How does your site integrate with booking software, and have you worked with [GlossGenius / Jane App / Mindbody]?"</h3>
-            <p>The name of your specific software matters. A designer who's integrated with it before will know where the friction points are and how to make the embed feel native rather than bolted on. One who hasn't may underestimate what it takes.</p>
+        <div class="automation-step">
+          <div class="automation-step-num">3</div>
+          <div class="automation-step-text">
+            <h3>Booking link or calendar invite sent automatically</h3>
+            <p>The reply includes a direct link to book — connected to your live calendar so the client can self-schedule without any back-and-forth. If a slot is already taken, the system shows the next available time in real time.</p>
           </div>
         </div>
-        <div class="question-card">
-          <div class="question-num">4</div>
-          <div class="question-text">
-            <h3>"If I want to add a lead capture form that feeds into an automation system down the road, is that something your build would support?"</h3>
-            <p>This question reveals whether they think of websites as standalone deliverables or as infrastructure. The right designer will ask follow-up questions about what automation you have in mind. A red flag is a blank stare or a vague "yes, we can add a form."</p>
+        <div class="automation-step">
+          <div class="automation-step-num">4</div>
+          <div class="automation-step-text">
+            <h3>Owner or front desk notified immediately</h3>
+            <p>A Slack message or SMS alert goes out with the lead's name, inquiry source, service interest, and what the automation sent — so your team has full visibility without having to babysit the inbox.</p>
           </div>
         </div>
-        <div class="question-card">
-          <div class="question-num">5</div>
-          <div class="question-text">
-            <h3>"What happens after the site launches — what does your ongoing support look like?"</h3>
-            <p>A med spa website isn't finished on launch day. Services change, promotions rotate, new before/afters need to be added, and things break. Know upfront whether you're getting a partner or a one-time vendor who hands off and moves on.</p>
+        <div class="automation-step">
+          <div class="automation-step-num">5</div>
+          <div class="automation-step-text">
+            <h3>Contact logged and tagged in your system</h3>
+            <p>The lead is added to your CRM or booking software with source, timestamp, and service tag automatically. No duplicate entries, no missed data, no manual input required from your team.</p>
           </div>
         </div>
       </div>
 
-      <h2>Why Automation-Ready Design Is Non-Negotiable</h2>
+      <p>The whole workflow runs without any human input. From the moment the inquiry lands to the moment the client has a confirmed appointment, the system handles it — including at 11pm on a Saturday when your front desk is closed and your staff is off the clock.</p>
 
-      <p>There's a dimension of med spa web design that most designers never think about because most of their clients never ask for it: whether the site is built to support lead capture and follow-up automation.</p>
+      <h2>The Result: More Booked Chairs, Less Admin Work</h2>
 
-      <p>Here's why it matters. A beautifully designed site that loads fast and has a great booking flow is still leaving money on the table if it has no mechanism for capturing visitors who aren't ready to book on the first visit. The average med spa prospect visits a site two or three times before converting. If you have no way to re-engage them — no lead magnet, no contact form tied to a follow-up sequence, no abandoned booking trigger — you're dependent entirely on them coming back on their own.</p>
+      <p>When IV lounges implement this workflow, the numbers move quickly. Within the first 30 days, three things consistently happen:</p>
+
+      <div class="result-strip reveal">
+        <div class="result-stat">
+          <div class="result-stat-num">30%+</div>
+          <div class="result-stat-label">increase in booked appointments from existing inquiry volume</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat-num">&lt;60s</div>
+          <div class="result-stat-label">average response time to every new inquiry, day or night</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat-num">0</div>
+          <div class="result-stat-label">additional staff hours needed to manage the increased bookings</div>
+        </div>
+      </div>
+
+      <p>The 30% lift isn't coming from more leads — it's coming from the same leads converting at a higher rate because someone (or something) responded before they moved on. The lounge didn't spend more on ads or hire a new coordinator. They just stopped leaking inquiries through a broken follow-up process.</p>
+
+      <p>The admin savings compound over time too. Front desk staff who were spending 2–3 hours a day manually replying to DMs and emails, logging contacts, and chasing down confirmations are now spending that time on the clients actually in the room. That's a real quality-of-work improvement that your team will notice.</p>
+
+      <h2>What This Looks Like From the Owner's Side</h2>
+
+      <p>Once the automation is live, you don't manage it. That's the point. Your day-to-day experience as the owner changes in one specific way: you start seeing booked appointments show up in your calendar from inquiries you didn't personally handle.</p>
+
+      <p>You'll get the notification when a lead comes in. You'll see the reply that went out. You'll see the booking confirmation land. But you won't have needed to do any of it yourself — and your front desk won't have either.</p>
 
       <div class="article-callout">
-        <p>An automation-ready site doesn't just look good. It's <span>wired to capture intent</span> at every stage of the decision — and hand it off to a system that follows up automatically, whether the visitor books now or comes back in two weeks.</p>
+        <p>One IV lounge owner described it this way: <span>"I checked my calendar Monday morning and had four new bookings from the weekend. I hadn't touched my phone since Friday afternoon."</span></p>
       </div>
 
-      <p>In practice, this means your site should be built with clearly defined form fields that map to your CRM, a contact form that can trigger an immediate automated response, and a structure that makes it easy to add lead capture touchpoints as your automation strategy grows. None of that requires the site to be complicated — it just requires the designer to have thought about it.</p>
+      <p>That's the shift this automation creates — from a practice that only books when someone is available to respond, to one that books continuously, regardless of hours. Your chairs fill faster because the system is always working, even when you aren't.</p>
 
-      <p>The worst outcome is paying for a premium website and then finding out six months later that it can't integrate with the automation system you want to build. Retrofitting a site for automation is expensive and often messier than starting over. Build it right the first time by hiring someone who designs with the whole system in mind, not just the front end.</p>
+      <p>The workflow is fully customizable to your booking software (we integrate with Jane App, Mindbody, Acuity, Calendly, and others), your DM channels, and your brand's voice. Setup typically takes one to two weeks and includes testing across every trigger source before we hand it over.</p>
 
       <div class="article-divider"></div>
 
-      <p>The right web designer for your med spa isn't just a visual craftsperson — they're someone who understands your client's decision-making process, knows how to remove every obstacle between interest and booking, and builds something that can grow with your business rather than becoming a liability.</p>
+      <p>If your IV lounge is already generating inquiries — through Instagram, ads, word of mouth, or organic search — you have everything you need to see a meaningful lift in bookings. The only thing standing between your current conversion rate and a 30% improvement is the speed and consistency of your follow-up.</p>
 
-      <p>That's the standard we hold ourselves to. If you want to see what that looks like in practice — what we actually build for med spas and why — take a look at how we approach web design for practices like yours.</p>
+      <p>We build this system for IV lounges and med spas, done for you and calibrated to how your business actually runs. If you want to see what it would look like for your lounge specifically, the next step is a free audit call.</p>
 
       <!-- CTA Block -->
       <div class="article-cta reveal">
         <div class="article-cta-inner">
-          <h2>Built for Med Spas, Not Just Any Business</h2>
-          <p>Our web design process is built around one goal: turning visitors into booked clients. See how we approach every project — from structure and speed to lead capture and automation readiness.</p>
-          <a href="../index.html#services" class="btn btn-cta">
-            See How We Build for Med Spas
+          <h2>Ready to Fill More Chairs?</h2>
+          <p>We'll audit your current inquiry flow, identify where leads are slipping through, and show you exactly what the automation would look like for your lounge — at no cost.</p>
+          <a href="../index.html#contact" class="btn btn-cta">
+            Book a Free Audit
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -879,11 +928,13 @@
   </footer>
 
   <script>
+    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 30);
     }, { passive: true });
 
+    // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', () => {
@@ -903,6 +954,7 @@
       });
     });
 
+    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -913,6 +965,7 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+    // Trigger hero reveals immediately
     document.querySelectorAll('.article-hero .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), 200 + i * 100);
     });
