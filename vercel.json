@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/free-guide", "destination": "/free-guide.html" }
+  ]
+}
