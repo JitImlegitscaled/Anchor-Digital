@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Guide — 5 Ways Service Businesses Lose Leads | Anchor Digital FL</title>
+  <meta name="description" content="Download the free guide: 5 Ways Service Businesses Lose Leads (And How to Fix Every One). Built by Anchor Digital FL." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:      #1B2A4A;
+      --navy-deep: #111d34;
+      --teal:      #00B4D8;
+      --blue:      #0077B6;
+      --teal-lt:   #48CAE4;
+      --ocean:     #90E0EF;
+      --white:     #FFFFFF;
+      --gray-bg:   #F0F4F8;
+      --gray-text: #5a6a80;
+      --radius:    12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: var(--navy-deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(17,29,52,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,180,216,0.12);
+    }
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800; font-size: 1.15rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-back {
+      font-size: 0.85rem; color: var(--ocean);
+      text-decoration: none; display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,119,182,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(0,180,216,0.10) 0%, transparent 60%),
+        var(--navy-deep);
+    }
+
+    /* Animated mesh dots */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(0,180,216,0.12) 1px, transparent 1px);
+      background-size: 32px 32px;
+      animation: meshMove 20s linear infinite;
+      opacity: 0.5;
+    }
+    @keyframes meshMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 32px 32px; }
+    }
+
+    .hero-inner {
+      max-width: 1100px; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px; gap: 64px;
+      align-items: center; position: relative; z-index: 1;
+    }
+
+    /* Left side */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.25);
+      padding: 6px 14px; border-radius: 100px;
+      font-size: 0.75rem; font-weight: 600; color: var(--teal);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-title .accent { color: var(--teal); }
+
+    .hero-sub {
+      font-size: 1.05rem; color: var(--ocean);
+      line-height: 1.7; margin-bottom: 32px; max-width: 520px;
+    }
+
+    /* What you'll learn */
+    .learn-list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
+    }
+    .learn-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.5;
+    }
+    .learn-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(0,180,216,0.15); border: 1px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .learn-icon svg { width: 12px; height: 12px; }
+
+    .hero-meta {
+      display: flex; align-items: center; gap: 20px;
+      font-size: 0.82rem; color: var(--gray-text);
+    }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; }
+    .hero-meta-item svg { width: 14px; height: 14px; color: var(--teal); }
+
+    /* Right side — Card */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,180,216,0.15);
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+
+    .card-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+    }
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem; font-weight: 800; color: var(--navy);
+      line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+    .card-sub {
+      font-size: 0.88rem; color: var(--gray-text);
+      line-height: 1.6; margin-bottom: 24px;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-label {
+      display: block; font-size: 0.82rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .form-input {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid #D1DBE8; border-radius: var(--radius);
+      font-family: 'Inter', sans-serif; font-size: 0.92rem;
+      color: var(--navy); background: #FAFBFD;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0,180,216,0.12);
+      background: var(--white);
+    }
+    .form-input::placeholder { color: #9BAABB; }
+
+    .btn-download {
+      width: 100%; padding: 15px 24px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      border: none; border-radius: var(--radius);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--white);
+      cursor: pointer; margin-top: 6px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      box-shadow: 0 4px 20px rgba(0,119,182,0.35);
+    }
+    .btn-download:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(0,119,182,0.45);
+    }
+    .btn-download:active:not(:disabled) { transform: translateY(0); }
+    .btn-download:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-download svg { width: 18px; height: 18px; }
+
+    .form-privacy {
+      font-size: 0.75rem; color: #9BAABB; text-align: center;
+      margin-top: 12px; line-height: 1.5;
+    }
+    .form-privacy a { color: var(--teal); text-decoration: none; }
+
+    /* Success state */
+    .success-state {
+      display: none; text-align: center; padding: 20px 0;
+    }
+    .success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .success-icon svg { width: 28px; height: 28px; color: white; }
+    .success-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem; font-weight: 800; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .success-sub { font-size: 0.9rem; color: var(--gray-text); line-height: 1.6; margin-bottom: 20px; }
+    .btn-dl-now {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      border-radius: var(--radius); color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,119,182,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-dl-now:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,119,182,0.45); }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 24px;
+    }
+    .proof-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .proof-item { text-align: center; }
+    .proof-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem; font-weight: 800; color: var(--teal);
+      line-height: 1;
+    }
+    .proof-label { font-size: 0.8rem; color: var(--ocean); margin-top: 4px; }
+
+    /* ── PREVIEW SECTION ── */
+    .preview {
+      padding: 80px 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .preview-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+      text-align: center;
+    }
+    .preview-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+      color: var(--white); text-align: center; margin-bottom: 48px;
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .preview-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .preview-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 24px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .preview-card:hover {
+      border-color: rgba(0,180,216,0.3);
+      background: rgba(0,180,216,0.05);
+    }
+    .preview-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem; font-weight: 800; color: var(--teal);
+      opacity: 0.4; line-height: 1; margin-bottom: 10px;
+    }
+    .preview-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .preview-card-body { font-size: 0.875rem; color: var(--ocean); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer p { font-size: 0.82rem; color: var(--gray-text); }
+    footer a { color: var(--teal); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .card { max-width: 480px; margin: 0 auto; }
+      nav { padding: 16px 20px; }
+      .proof-inner { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Anchor <span>Digital</span> FL</div>
+    <a href="https://anchordigital.com" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to site
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <!-- Left -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Free Resource — No Catch
+        </div>
+        <h1 class="hero-title">
+          5 Ways Service Businesses<br/>
+          <span class="accent">Lose Leads</span><br/>
+          Without Knowing It
+        </h1>
+        <p class="hero-sub">
+          Most service businesses aren't losing leads because they're bad at what they do.
+          They're losing them because no one built them a system. This free guide breaks down
+          the 5 most common failure points — and exactly how to fix each one.
+        </p>
+
+        <ul class="learn-list">
+          <li class="learn-item">
+            <span class="learn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Why responding slowly is costing you 9 out of 10 leads
+          </li>
+          <li class="learn-item">
+            <span class="learn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            The exact 5-step follow-up sequence that converts cold leads to clients
+          </li>
+          <li class="learn-item">
+            <span class="learn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Why your website is probably a liability, not an asset
+          </li>
+          <li class="learn-item">
+            <span class="learn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            How to build one predictable inbound lead channel from scratch
+          </li>
+          <li class="learn-item">
+            <span class="learn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            The data you need to track to double your close rate
+          </li>
+        </ul>
+
+        <div class="hero-meta">
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            PDF Guide
+          </span>
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min read
+          </span>
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Instant download
+          </span>
+        </div>
+      </div>
+
+      <!-- Right — Form Card -->
+      <div class="hero-right">
+        <div class="card">
+          <!-- Form state -->
+          <div id="formState">
+            <div class="card-eyebrow">Free Download</div>
+            <div class="card-title">Get the Free Guide</div>
+            <p class="card-sub">Enter your info below and we'll send it straight to your inbox — plus deliver the download instantly.</p>
+
+            <form id="leadForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="firstName">First Name</label>
+                <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Alex" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Business Email</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@yourbusiness.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="business">Business Type</label>
+                <input class="form-input" type="text" id="business" name="business" placeholder="e.g. Home Inspector, HVAC, Med Spa..." />
+              </div>
+              <button type="submit" class="btn-download" id="submitBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Free Guide
+              </button>
+              <p class="form-privacy">No spam. Unsubscribe anytime. By downloading you agree to our <a href="#">Privacy Policy</a>.</p>
+            </form>
+          </div>
+
+          <!-- Success state -->
+          <div class="success-state" id="successState">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="success-title">You're all set!</div>
+            <p class="success-sub">Your guide is ready. Click below to download it now. We also sent a copy to your inbox.</p>
+            <a href="5_ways_service_businesses_lose_leads.pdf" download class="btn-dl-now">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Now
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="proof-strip">
+    <div class="proof-inner">
+      <div class="proof-item">
+        <div class="proof-num">3+</div>
+        <div class="proof-label">Live client websites</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">100%</div>
+        <div class="proof-label">B2B focused</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">24/7</div>
+        <div class="proof-label">Automated lead capture</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">$0</div>
+        <div class="proof-label">Cost for this guide</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <section class="preview">
+    <div class="preview-label">What's Inside</div>
+    <h2 class="preview-title">5 Chapters. 5 Fixes. Fully Actionable.</h2>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <div class="preview-num">01</div>
+        <div class="preview-card-title">They Respond Too Slowly</div>
+        <p class="preview-card-body">Leads are 9x more likely to convert if you respond within 5 minutes. Most businesses take 47 hours.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-num">02</div>
+        <div class="preview-card-title">No Follow-Up Sequence</div>
+        <p class="preview-card-body">80% of sales require 5+ follow-ups. 44% of businesses give up after one. Here's the exact sequence that works.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-num">03</div>
+        <div class="preview-card-title">Website Doesn't Convert</div>
+        <p class="preview-card-body">The average service business website converts under 1% of visitors. Here's what changes that.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-num">04</div>
+        <div class="preview-card-title">Not Tracking Anything</div>
+        <p class="preview-card-body">Without data you can't improve. Here's how to set up simple tracking in under an hour for free.</p>
+      </div>
+      <div class="preview-card">
+        <div class="preview-num">05</div>
+        <div class="preview-card-title">100% Reliant on Referrals</div>
+        <p class="preview-card-body">Referrals are great until they stop. Here's how to build one predictable inbound lead channel from scratch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Anchor Digital FL · <a href="https://anchordigital.com">anchordigital.com</a> · Built for service businesses across the US</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const formState = document.getElementById('formState');
+    const successState = document.getElementById('successState');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!firstName || !email) {
+        if (!firstName) document.getElementById('firstName').style.borderColor = '#e55353';
+        if (!email) document.getElementById('email').style.borderColor = '#e55353';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 0.8s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending...`;
+
+      // Submit to Formspree
+      try {
+        await fetch('https://formspree.io/f/mykvnjkq', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            firstName,
+            email,
+            business: document.getElementById('business').value.trim(),
+            source: 'Lead Magnet — 5 Ways Guide',
+            _subject: `New Guide Download: ${firstName} (${email})`
+          })
+        });
+      } catch (err) {
+        // Still show success even if network issue — PDF still downloads
+      }
+
+      // Show success
+      formState.style.display = 'none';
+      successState.style.display = 'block';
+    });
+
+    // Reset border on input
+    document.querySelectorAll('.form-input').forEach(input => {
+      input.addEventListener('input', () => { input.style.borderColor = ''; });
+    });
+  </script>
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</body>
+</html>
