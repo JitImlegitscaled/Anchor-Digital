@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -2714,7 +2714,7 @@
           <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
         </svg>
       </a>
-      <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/alexandrolabori/" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
         </svg>
@@ -3803,7 +3803,7 @@
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/alexandrolabori/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
               </svg>
@@ -3978,7 +3978,7 @@
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/alexandrolabori/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
               </svg>
@@ -4005,7 +4005,7 @@
             <li><a href="https://www.instagram.com/anchordigitalfl/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61587474906272" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.tiktok.com/@anchordigita1?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-            <li><a href="https://www.linkedin.com/in/anchor-digital-a8ba91401/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/alexandrolabori/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
       </div>
@@ -4302,42 +4302,57 @@
       btn.innerHTML = 'Sending…';
       btn.style.opacity = '0.75';
 
-      const templateParams = {
-        from_name:       form.querySelector('#name').value.trim(),
-        from_email:      form.querySelector('#email').value.trim(),
+      const payload = {
+        name:            form.querySelector('#name').value.trim(),
+        email:           form.querySelector('#email').value.trim(),
         phone:           form.querySelector('#phone').value.trim(),
-        service:         selectedServices,
+        services:        selectedServices,
         estimated_total: estimateSummary,
         message:         form.querySelector('#message').value.trim(),
-        reply_to:        form.querySelector('#email').value.trim(),
       };
 
-      loadEmailJS(function() {
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-          .then(() => {
-            btn.innerHTML = '✓ Message Sent!';
-            btn.style.opacity = '1';
-            btn.style.background = 'linear-gradient(135deg, #1a9e4a, #147a38)';
-            form.reset();
-            updateEstimate();
-            setTimeout(() => {
-              btn.innerHTML = 'Send Message ' + SEND_ICON;
-              btn.style.background = '';
-              btn.disabled = false;
-            }, 4000);
-          })
-          .catch((err) => {
-            console.error('EmailJS error:', err);
-            btn.innerHTML = '✗ Failed — try again';
-            btn.style.opacity = '1';
-            btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
+      const WEBHOOK_URL = 'https://hook.us2.make.com/1wqermsfmw0xuo63x68ucx0g8ou3ygfy';
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          btn.innerHTML = '✓ Message Sent!';
+          btn.style.opacity = '1';
+          btn.style.background = 'linear-gradient(135deg, #1a9e4a, #147a38)';
+          // Show inline success message
+          let successEl = form.querySelector('.form-success-msg');
+          if (!successEl) {
+            successEl = document.createElement('p');
+            successEl.className = 'form-success-msg';
+            successEl.style.cssText = 'margin-top:16px;padding:14px 18px;border-radius:8px;background:rgba(26,158,74,0.12);color:#1a9e4a;font-size:0.95rem;font-weight:600;text-align:center;';
+            form.appendChild(successEl);
+          }
+          successEl.textContent = "Thanks! We'll be in touch within 1 business day.";
+          successEl.style.display = 'block';
+          form.reset();
+          updateEstimate();
+          setTimeout(() => {
+            btn.innerHTML = 'Send Message ' + SEND_ICON;
+            btn.style.background = '';
             btn.disabled = false;
-            setTimeout(() => {
-              btn.innerHTML = 'Send Message ' + SEND_ICON;
-              btn.style.background = '';
-            }, 4000);
-          });
-      });
+            if (successEl) successEl.style.display = 'none';
+          }, 6000);
+        })
+        .catch(err => {
+          console.error('Webhook error:', err);
+          btn.innerHTML = '✗ Failed — try again';
+          btn.style.opacity = '1';
+          btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
+          btn.disabled = false;
+          setTimeout(() => {
+            btn.innerHTML = 'Send Message ' + SEND_ICON;
+            btn.style.background = '';
+          }, 4000);
+        });
     });
   </script>
 
