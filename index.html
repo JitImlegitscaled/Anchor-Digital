@@ -56,6 +56,7 @@
       background: var(--white);
       overflow-x: hidden;
       line-height: 1.7;
+      padding-top: 72px;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -123,12 +124,12 @@
       border: 2px solid var(--navy);
     }
     .btn-outline:hover { background: var(--navy); color: var(--white); }
-    #hero .btn-outline {
+    #home .btn-outline {
       color: rgba(255,255,255,0.85);
       border-color: rgba(255,255,255,0.3);
       backdrop-filter: blur(8px);
     }
-    #hero .btn-outline:hover {
+    #home .btn-outline:hover {
       background: rgba(255,255,255,0.12);
       border-color: rgba(255,255,255,0.55);
       color: var(--white);
@@ -150,7 +151,7 @@
     .reveal-delay-6 { transition-delay: 0.6s; }
 
     /* ─── Hero blur-spring animation (hero-section-2 style) ─── */
-    #hero .reveal {
+    #home .reveal {
       opacity: 0;
       filter: blur(12px);
       transform: translateY(12px);
@@ -160,21 +161,24 @@
         transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
       will-change: transform, opacity, filter;
     }
-    #hero .reveal.visible {
+    #home .reveal.visible {
       opacity: 1;
       filter: blur(0px);
       transform: translateY(0);
       will-change: auto;
     }
-    #hero .reveal-delay-1 { transition-delay: 0.08s; }
-    #hero .reveal-delay-2 { transition-delay: 0.16s; }
-    #hero .reveal-delay-3 { transition-delay: 0.24s; }
+    #home .reveal-delay-1 { transition-delay: 0.08s; }
+    #home .reveal-delay-2 { transition-delay: 0.16s; }
+    #home .reveal-delay-3 { transition-delay: 0.24s; }
 
     /* ─── NAVBAR ────────────────────────────────────────────────── */
     #navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: transparent;
       padding: 10px 0;
       transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
     }
@@ -391,13 +395,15 @@
       50%  { transform: translate(5%, 8%) scale(0.95); }
       100% { transform: translate(0%, 0%) scale(1.1); }
     }
-    #hero {
+    #home {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
       padding: 120px 0 80px;
+      padding-top: 72px;
+      margin-top: -72px;
       background: #080e1a;
     }
     /* ── Hero full-bleed video background ── */
@@ -1129,6 +1135,97 @@
       line-height: 1.65;
     }
 
+    /* ─── AUTOMATION PROCESS ───────────────────────────────────── */
+    #automation-process {
+      padding: 100px 0;
+      background: var(--gray-bg);
+    }
+    .ap-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .ap-header .section-sub { margin: 0 auto; }
+    .ap-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .ap-connector {
+      position: absolute;
+      top: 32px;
+      left: 12.5%;
+      width: 75%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0,180,216,0.35), rgba(0,180,216,0.1));
+      z-index: 0;
+    }
+    .ap-step {
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .ap-num {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 8px rgba(0,180,216,0.1), 0 8px 24px rgba(0,180,216,0.25);
+    }
+    .ap-step-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .ap-step-desc {
+      font-size: 0.875rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+    }
+    @media (max-width: 900px) {
+      .ap-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .ap-connector { display: none; }
+    }
+    @media (max-width: 560px) {
+      .ap-steps { grid-template-columns: 1fr; gap: 36px; }
+    }
+    /* ─── WEBSITE PROCESS ──────────────────────────────────────── */
+    #website-process {
+      padding: 100px 0;
+      background: var(--white);
+    }
+    .wp-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .wp-connector {
+      position: absolute;
+      top: 32px;
+      left: 16.67%;
+      width: 66.66%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0,180,216,0.35), rgba(0,180,216,0.1));
+      z-index: 0;
+    }
+    @media (max-width: 768px) {
+      .wp-steps { grid-template-columns: 1fr; gap: 36px; }
+      .wp-connector { display: none; }
+    }
+
     /* ─── GOOGLE REVIEWS SECTION ──────────────────────────────── */
     #testimonial {
       padding: 100px 0;
@@ -1442,83 +1539,6 @@
     .cb-price { font-size: 0.78rem; color: var(--teal); font-weight: 600; }
 
     /* ── Estimate Panel ──────────────────────────────────────────── */
-    .estimate-panel {
-      background: linear-gradient(135deg, rgba(0,180,216,0.06) 0%, rgba(0,119,182,0.04) 100%);
-      border: 1.5px solid rgba(0,180,216,0.2);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .estimate-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-    .estimate-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.875rem;
-      color: var(--gray-text);
-      padding: 4px 0;
-      border-bottom: 1px solid rgba(27,42,74,0.06);
-    }
-    .estimate-line:last-of-type { border-bottom: none; }
-    .estimate-items { margin-bottom: 12px; min-height: 0; }
-    .estimate-empty {
-      font-size: 0.875rem;
-      color: var(--gray-text);
-      font-style: italic;
-      padding: 4px 0;
-    }
-    .estimate-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 12px;
-      border-top: 2px solid rgba(0,180,216,0.2);
-      margin-top: 4px;
-    }
-    .estimate-total-label {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .estimate-total-value {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--teal);
-      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), opacity 0.2s ease;
-    }
-    .estimate-total-value.bump {
-      transform: scale(1.15);
-      opacity: 0.85;
-    }
-    .estimate-recurring {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(0,180,216,0.25);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.875rem;
-    }
-    .estimate-recurring-label { color: var(--gray-text); }
-    .estimate-recurring-value { font-weight: 700; color: var(--blue); font-family: 'Plus Jakarta Sans', sans-serif; }
-    .estimate-note {
-      font-size: 0.78rem;
-      color: var(--gray-text);
-      line-height: 1.55;
-      margin-top: 10px;
-      font-style: italic;
-    }
 
     /* ── Pages quantity selector ─────────────────────────────────── */
     .pages-qty-wrap {
@@ -1933,126 +1953,6 @@
       letter-spacing: -0.01em;
     }
 
-    /* ─── PRICING ────────────────────────────────────────────── */
-    #pricing {
-      padding: 100px 0;
-      background: var(--gray-bg);
-    }
-    .pricing-header { text-align: center; margin-bottom: 60px; }
-    .pricing-header .section-sub { margin: 0 auto; }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-    .pricing-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      border: 2px solid transparent;
-      position: relative;
-      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
-      box-shadow: 0 2px 16px rgba(27,42,74,0.06);
-      display: flex;
-      flex-direction: column;
-    }
-    .pricing-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(27,42,74,0.1);
-    }
-    .pricing-card.featured {
-      border-color: var(--teal);
-      box-shadow: 0 4px 32px rgba(0,180,216,0.2), 0 2px 8px rgba(27,42,74,0.08);
-    }
-    .pricing-card.featured:hover {
-      box-shadow: 0 16px 48px rgba(0,180,216,0.25), 0 4px 12px rgba(27,42,74,0.1);
-    }
-    .pricing-badge {
-      position: absolute;
-      top: -14px; left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      color: var(--white);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 18px;
-      border-radius: 50px;
-      white-space: nowrap;
-    }
-    .pricing-tier {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-    .pricing-price {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .pricing-price span {
-      font-size: 1.1rem;
-      font-weight: 600;
-      vertical-align: super;
-      letter-spacing: 0;
-    }
-    .pricing-desc {
-      font-size: 0.875rem;
-      color: var(--gray-text);
-      line-height: 1.65;
-      margin-bottom: 28px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid rgba(27,42,74,0.08);
-    }
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
-      flex: 1;
-    }
-    .pricing-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.875rem;
-      color: var(--navy);
-      line-height: 1.5;
-    }
-    .pricing-check {
-      flex-shrink: 0;
-      width: 18px; height: 18px;
-      background: linear-gradient(135deg, rgba(0,180,216,0.15), rgba(0,119,182,0.1));
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 1px;
-    }
-    .pricing-check svg { width: 11px; height: 11px; }
-    .btn-pricing {
-      width: 100%;
-      justify-content: center;
-      padding: 14px;
-    }
-    .btn-pricing-outline {
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid rgba(27,42,74,0.2);
-    }
-    .btn-pricing-outline:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
-    .btn-pricing-outline:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-
     /* ─── FAQ ────────────────────────────────────────────────── */
     #faq {
       padding: 100px 0;
@@ -2295,8 +2195,7 @@
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: 1 / -1; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .resources-grid { grid-template-columns: 1fr; }
+.resources-grid { grid-template-columns: 1fr; }
       .audit-banner { grid-template-columns: 1fr; text-align: center; padding: 48px 32px; }
       .audit-sub { margin: 0 auto; }
     }
@@ -2317,7 +2216,7 @@
       .nav-logo-sub { font-size: 0.6rem; }
 
       /* ── Hero — kill min-height so it doesn't force a huge blank area ── */
-      #hero { padding: 88px 0 52px; min-height: 0 !important; }
+      #home { padding: 88px 0 52px; min-height: 0 !important; }
       .hero-h1 { font-size: clamp(1.875rem, 8vw, 2.25rem); line-height: 1.12; margin-bottom: 14px; }
       .hero-sub { font-size: 0.9375rem; line-height: 1.7; margin-bottom: 26px; max-width: 100%; }
       .hero-badge { font-size: 0.75rem; padding: 5px 13px; margin-bottom: 16px; }
@@ -2393,13 +2292,6 @@
 
       /* ── Demos ── */
       #demos { padding: 52px 0; }
-
-      /* ── Pricing ── */
-      #pricing { padding: 52px 0 44px; }
-      .pricing-header { margin-bottom: 36px; }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; gap: 16px; }
-      .pricing-card { padding: 28px 20px; }
-      .pricing-card.featured { transform: none; }
 
       /* ── Testimonial ── */
       #testimonial { padding: 40px 0 52px; }
@@ -2538,6 +2430,58 @@
   .ps-col { padding: 28px 22px; }
 }
 
+/* ─── AUTOMATION EXPLAINER ─────────────────────────────── */
+#automation {
+  padding: 100px 0;
+  background: var(--gray-bg);
+}
+.ae-header {
+  margin-bottom: 52px;
+}
+.ae-header .section-title {
+  max-width: 760px;
+}
+.ae-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.ae-body {
+  font-size: 0.9375rem;
+  color: var(--gray-text);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.ae-body:last-child { margin-bottom: 0; }
+.ae-list-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.ae-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ae-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9375rem;
+  color: var(--navy);
+  line-height: 1.55;
+}
+.ae-list li svg { flex-shrink: 0; margin-top: 2px; }
+@media (max-width: 768px) {
+  .ae-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
 /* ─── WEB DESIGN SECTION ───────────────────────────────── */
 #web-design {
   padding: 100px 0;
@@ -2585,80 +2529,58 @@
   .wd-grid { grid-template-columns: 1fr; }
 }
 
-.pricing-row-label {
-  text-align: center;
-  margin-bottom: 24px;
+.nav-dropdown {
+  position: relative;
 }
 
-/* ─── PRICING BLOCKS ───────────────────────────────────── */
-.pricing-block {
-  border-radius: var(--radius-lg);
-  padding: 48px 40px;
-  margin-bottom: 0;
-}
-.pricing-block--automation {
-  background: #f0fbff;
-  border: 1.5px solid rgba(0,180,216,0.2);
-}
-.pricing-block--webdesign {
-  background: var(--gray-bg);
-  border: 1.5px solid rgba(27,42,74,0.08);
-}
-.pricing-block-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 36px;
-}
-.pricing-block-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--white);
+.nav-dropdown-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(27,42,74,0.08);
+  gap: 4px;
+  cursor: pointer;
 }
-.pricing-block-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.125rem;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.02em;
-  margin-bottom: 4px;
+
+.dropdown-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
 }
-.pricing-block-sub {
-  font-size: 0.875rem;
-  color: var(--gray-text);
-  line-height: 1.6;
-  max-width: 520px;
+
+.nav-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
 }
-.pricing-divider {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 48px 0;
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  z-index: 999;
+  list-style: none;
 }
-.pricing-divider-line {
-  flex: 1;
-  height: 1px;
-  background: rgba(27,42,74,0.1);
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
 }
-.pricing-divider-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-text);
-  white-space: nowrap;
+
+.nav-dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
 }
-@media (max-width: 768px) {
-  .pricing-block { padding: 28px 18px; }
-  .pricing-block-header { flex-direction: column; gap: 12px; }
+
+.nav-dropdown-menu li a:hover {
+  background: #f5f5f5;
 }
+
 
   </style>
 </head>
@@ -2667,7 +2589,7 @@
   <!-- ══════════ NAVBAR ══════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Anchor Digital — Home">
+      <a href="#home" class="nav-logo" aria-label="Anchor Digital — Home">
         <!-- REPLACE: LOGO — swap src with your final logo file if path changes -->
         <img src="brand-assets/Logo.png" alt="Anchor Digital logo" fetchpriority="high" />
         <div class="nav-logo-text">
@@ -2676,15 +2598,16 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
         <li class="nav-dropdown">
-          <a href="#pricing">Pricing</a>
-          <div class="dropdown-menu">
-            <a href="#pricing-automation">AI Automation</a>
-            <a href="#pricing-web">Web Design</a>
-          </div>
+          <a href="#" class="nav-dropdown-toggle">Services <span class="dropdown-arrow">▾</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="automation.html">AI Automation</a></li>
+            <li><a href="web-design.html">Web Design</a></li>
+            <li><a href="#automation-process">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </li>
+        <li><a href="#why">About Us</a></li>
         <li><a href="#resources">Insights</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -2700,7 +2623,6 @@
     <ul>
       <li><a href="#services" class="mobile-nav-link">Services</a></li>
       <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
-      <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
       <li><a href="#resources" class="mobile-nav-link">Insights</a></li>
       <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
       <li><a href="#audit" class="mobile-nav-link">Free Audit</a></li>
@@ -2721,7 +2643,7 @@
   </div>
 
   <!-- ══════════ HERO ══════════ -->
-  <section id="hero" aria-label="Hero">
+  <section id="home" aria-label="Hero">
     <!-- Full-bleed background: image fades to video on play -->
     <img
       id="hero-bg-img"
@@ -2951,7 +2873,38 @@
         </div>
       </div>
       <div class="wd-cta reveal">
-        <a href="#pricing" class="btn btn-primary">See Web Design Pricing</a>
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WEBSITE PROCESS ══════════ -->
+  <section id="website-process" aria-labelledby="wp-title">
+    <div class="container">
+      <div class="ap-header">
+        <span class="section-label reveal">How It Works</span>
+        <h2 class="section-title reveal reveal-delay-1" id="wp-title">How Our Website Service Works</h2>
+        <p class="section-sub reveal reveal-delay-2">From first call to live site — here's exactly what the process looks like.</p>
+      </div>
+      <div style="position:relative;">
+        <div class="wp-connector" aria-hidden="true"></div>
+        <div class="wp-steps">
+          <div class="ap-step reveal">
+            <div class="ap-num">1</div>
+            <div class="ap-step-title">Discovery Call</div>
+            <div class="ap-step-desc">We learn your business, goals, and what you need. No fluff — 20 minutes and we have everything we need to build.</div>
+          </div>
+          <div class="ap-step reveal reveal-delay-1">
+            <div class="ap-num">2</div>
+            <div class="ap-step-title">We Build It</div>
+            <div class="ap-step-desc">You get a first draft within 5–7 business days. Fast-loading, mobile-first, and built to convert visitors into leads.</div>
+          </div>
+          <div class="ap-step reveal reveal-delay-2">
+            <div class="ap-num">3</div>
+            <div class="ap-step-title">Launch & Hand Off</div>
+            <div class="ap-step-desc">We handle the deployment. You get a site you own completely — plus basic training so you're never dependent on us.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3301,6 +3254,50 @@
   </div>
 </section>
 
+  <!-- ══════════ AUTOMATION EXPLAINER ══════════ -->
+  <section id="automation" aria-labelledby="ae-title">
+    <div class="container">
+      <div class="ae-header">
+        <h2 class="section-title reveal" id="ae-title">What Is AI Automation — And Why Does It Matter?</h2>
+      </div>
+      <div class="ae-grid">
+        <div class="ae-col-left reveal reveal-delay-1">
+          <p class="ae-body">AI automation connects your tools and handles repetitive tasks without anyone on your team touching them. When a lead fills out a form, an AI follows up instantly. When a client books, your CRM updates automatically. When a job is completed, a review request goes out on its own.</p>
+          <p class="ae-body">Most small businesses are still doing all of this manually — or not at all. We build the infrastructure so it happens every time, without fail, at scale.</p>
+        </div>
+        <div class="ae-col-right reveal reveal-delay-2">
+          <p class="ae-list-label">Common systems we build:</p>
+          <ul class="ae-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Instant lead follow-up via SMS or email
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Appointment booking with auto-confirmation
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              CRM auto-population from web forms
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Review request sequences post-job
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No-show re-engagement flows
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              AI cold email outreach campaigns
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ PROCESS ══════════ -->
   <section id="process" aria-labelledby="process-title">
     <div class="process-bg"></div>
@@ -3350,201 +3347,6 @@
     </div>
   </section>
 
-  <!-- ══════════ PRICING ══════════ -->
-  <section id="pricing" aria-labelledby="pricing-title">
-    <div class="container">
-      <div class="pricing-header">
-        <span class="section-label reveal">Pricing</span>
-        <h2 class="section-title reveal reveal-delay-1" id="pricing-title">Two Ways to Work With Us</h2>
-        <p class="section-sub reveal reveal-delay-2">AI automation systems and websites — priced separately so you only pay for what you need.</p>
-      </div>
-      <div id="pricing-automation" class="pricing-block pricing-block--automation reveal">
-        <div class="pricing-block-header">
-          <div class="pricing-block-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div>
-            <div class="pricing-block-label">AI Automation</div>
-            <div class="pricing-block-sub">Done-for-you systems that capture leads, follow up, and book appointments automatically.</div>
-          </div>
-        </div>
-        <div class="pricing-grid">
-
-          <!-- Starter -->
-          <div class="pricing-card reveal">
-            <div class="pricing-tier">Starter</div>
-            <div class="pricing-price"><span>$</span>1,000</div>
-            <p class="pricing-desc">For service businesses ready to stop missing leads. A simple automation system that responds to every inquiry instantly.</p>
-            <ul class="pricing-features">
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                AI lead response automation (Make.com)
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Instant follow-up within 60 seconds
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Contact form + CRM connection
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Email notification system
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                1 round of revisions
-              </li>
-            </ul>
-            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
-          </div>
-
-          <!-- Professional (Featured) -->
-          <div class="pricing-card featured reveal reveal-delay-1">
-            <div class="pricing-badge">Most Popular</div>
-            <div class="pricing-tier">Professional</div>
-            <div class="pricing-price"><span>$</span>2,000</div>
-            <p class="pricing-desc">A complete lead-to-appointment pipeline. Leads come in, AI qualifies them, appointments land on your calendar.</p>
-            <ul class="pricing-features">
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Everything in Starter
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Full appointment booking automation
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                AI-powered follow-up sequences
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                CRM integration + lead tracking
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Cold outreach system setup
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                2 rounds of revisions
-              </li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-pricing">Get Started</a>
-          </div>
-
-          <!-- Premium -->
-          <div class="pricing-card reveal reveal-delay-2">
-            <div class="pricing-tier">Premium</div>
-            <div class="pricing-price" style="font-size:1.9rem;">$2,000 <span style="font-size:0.9rem;font-weight:600;letter-spacing:0;vertical-align:middle;color:var(--gray-text);">+ $500/mo</span></div>
-            <p class="pricing-desc">Full automation infrastructure plus monthly optimization so your pipeline keeps improving over time.</p>
-            <ul class="pricing-features">
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Everything in Professional
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Monthly automation maintenance
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Performance reporting
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                System improvements each month
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Priority support
-              </li>
-              <li>
-                <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="#00B4D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                Ongoing pipeline optimization
-              </li>
-            </ul>
-            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="pricing-divider" aria-hidden="true">
-        <div class="pricing-divider-line"></div>
-        <span class="pricing-divider-text">Also Available</span>
-        <div class="pricing-divider-line"></div>
-      </div>
-
-      <div id="pricing-web" class="pricing-block pricing-block--webdesign reveal">
-        <div class="pricing-block-header">
-          <div class="pricing-block-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0077B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="pricing-block-label">Web Design</div>
-            <div class="pricing-block-sub">High-converting websites for service businesses across the US. Can be paired with any automation package.</div>
-          </div>
-        </div>
-        <div class="pricing-grid">
-
-          <div class="pricing-card">
-            <div class="pricing-tier">Starter</div>
-            <div class="pricing-price"><span>$</span>300</div>
-            <p class="pricing-desc">A clean, professional 1-page website for businesses that need an online presence fast.</p>
-            <ul class="pricing-features">
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1-page custom website</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mobile-first design</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Contact form integration</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Vercel hosting setup</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>1 round of revisions</li>
-            </ul>
-            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pricing-badge">Most Popular</div>
-            <div class="pricing-tier">Professional</div>
-            <div class="pricing-price"><span>$</span>800</div>
-            <p class="pricing-desc">Multi-page site with SEO foundations and booking integration — built to convert visitors into booked appointments.</p>
-            <ul class="pricing-features">
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Multi-page custom website</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SEO foundations</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Booking integration</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Google Business Profile setup</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mobile-first design</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>2 rounds of revisions</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-pricing">Get Started</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-tier">Premium</div>
-            <div class="pricing-price"><span>$</span>800 <span style="font-size:1rem;font-weight:500;letter-spacing:0;">+ $150/mo</span></div>
-            <p class="pricing-desc">Full website plus ongoing monthly support, content updates, and performance maintenance.</p>
-            <ul class="pricing-features">
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in Professional</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Monthly maintenance</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Content updates included</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority support</li>
-              <li><span class="pricing-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Performance reporting</li>
-            </ul>
-            <a href="#contact" class="btn btn-pricing btn-pricing-outline">Get Started</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave divider pricing → testimonials -->
-  <div class="wave-divider" style="background:#F0F4F8;" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 70" preserveAspectRatio="none">
-      <path d="M0,20 C480,70 960,0 1440,40 L1440,70 L0,70 Z" fill="#F0F4F8"/>
-    </svg>
-  </div>
 
   <!-- ══════════ CLIENT TESTIMONIAL ══════════ -->
   <section id="testimonial" aria-labelledby="testimonial-title">
@@ -3762,6 +3564,42 @@
     </svg>
   </div>
 
+  <!-- ══════════ AUTOMATION PROCESS ══════════ -->
+  <section id="automation-process" aria-labelledby="ap-title">
+    <div class="container">
+      <div class="ap-header">
+        <span class="section-label reveal">How It Works</span>
+        <h2 class="section-title reveal reveal-delay-1" id="ap-title">How Our AI Automation Service Works</h2>
+        <p class="section-sub reveal reveal-delay-2">We build the system, integrate it into your business, and hand you a workflow that runs without you.</p>
+      </div>
+      <div style="position:relative;">
+        <div class="ap-connector" aria-hidden="true"></div>
+        <div class="ap-steps">
+          <div class="ap-step reveal">
+            <div class="ap-num">1</div>
+            <div class="ap-step-title">Audit Your Current Process</div>
+            <div class="ap-step-desc">We map out where leads come in, how follow-ups work, and where time is being wasted. Most businesses have 3–5 automatable gaps.</div>
+          </div>
+          <div class="ap-step reveal reveal-delay-1">
+            <div class="ap-num">2</div>
+            <div class="ap-step-title">Build Your System</div>
+            <div class="ap-step-desc">We build your custom automation using Make.com and AI — lead capture, CRM updates, follow-up sequences, appointment booking. All connected.</div>
+          </div>
+          <div class="ap-step reveal reveal-delay-2">
+            <div class="ap-num">3</div>
+            <div class="ap-step-title">Test & Integrate</div>
+            <div class="ap-step-desc">Every workflow is tested before going live. We integrate into tools you already use: your CRM, calendar, email, and phone system.</div>
+          </div>
+          <div class="ap-step reveal reveal-delay-3">
+            <div class="ap-num">4</div>
+            <div class="ap-step-title">Ongoing Optimization (Retainer)</div>
+            <div class="ap-step-desc">For retainer clients, we monitor performance, fix issues, and add new automations as your business grows. Your system gets smarter over time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ CONTACT ══════════ -->
   <section id="contact" aria-labelledby="contact-title">
     <div class="container">
@@ -3780,7 +3618,7 @@
             </div>
             <div>
               <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-value"><a href="mailto:hello@anchordigitalfl.com" style="color:inherit;text-decoration:none;">hello@anchordigitalfl.com</a></div>
+              <div class="contact-detail-value"><a href="mailto:jitscaling@gmail.com" style="color:inherit;text-decoration:none;">jitscaling@gmail.com</a></div>
             </div>
           </div>
 
@@ -3798,130 +3636,74 @@
           </div>
         </div>
 
-        <!-- Form -->
-        <div class="reveal reveal-delay-2">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" autocomplete="tel" />
-            </div>
-
-            <!-- Service Checkbox Picker -->
-            <div class="form-group">
-              <span class="services-label">Services You're Interested In</span>
-              <!-- Packages -->
-              <div style="margin-bottom:10px;">
-                <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Packages</div>
-                <div class="services-grid" id="packagesGrid" style="margin-bottom:0;">
-
-                  <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-starter" name="services" value="Starter Automation" data-price="1000" data-recurring="0" data-package="true" />
-                    <label for="pkg-starter">
-                      <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Starter Automation</span><span class="cb-price">$1,000 setup</span></span>
-                    </label>
-                  </div>
-
-                  <div class="service-checkbox-item">
-                    <input type="checkbox" id="pkg-professional" name="services" value="Full Automation Suite" data-price="2500" data-recurring="0" data-package="true" />
-                    <label for="pkg-professional">
-                      <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <span class="cb-text"><span class="cb-name">Full Automation Suite</span><span class="cb-price">$2,500 setup</span></span>
-                    </label>
-                  </div>
-
+        <!-- Right column: form -->
+        <div class="contact-form-col">
+          <div class="reveal reveal-delay-2">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
                 </div>
               </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" autocomplete="tel" />
+              </div>
 
-              <!-- Individual Services -->
-              <div>
-                <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Individual Services</div>
+              <!-- Service Checkbox Picker -->
+              <div class="form-group">
+                <span class="services-label">Services You're Interested In</span>
                 <div class="services-grid" id="servicesGrid">
 
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-lead-capture" name="services" value="Lead Capture Automation" data-price="1000" data-recurring="0" />
-                  <label for="svc-lead-capture">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Lead Capture Automation</span><span class="cb-price">$1,000</span></span>
-                  </label>
-                </div>
+                  <div class="service-checkbox-item">
+                    <input type="checkbox" id="svc-website-design" name="services" value="Website Design" />
+                    <label for="svc-website-design">
+                      <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <span class="cb-text"><span class="cb-name">Web Design</span></span>
+                    </label>
+                  </div>
 
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-booking" name="services" value="Appointment Booking System" data-price="1000" data-recurring="0" />
-                  <label for="svc-booking">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Appointment Booking System</span><span class="cb-price">$1,000</span></span>
-                  </label>
-                </div>
+                  <div class="service-checkbox-item">
+                    <input type="checkbox" id="svc-ai-automation" name="services" value="AI Automation" />
+                    <label for="svc-ai-automation">
+                      <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <span class="cb-text"><span class="cb-name">AI Automation</span></span>
+                    </label>
+                  </div>
 
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-followup" name="services" value="AI Follow-Up Sequences" data-price="800" data-recurring="0" />
-                  <label for="svc-followup">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">AI Follow-Up Sequences</span><span class="cb-price">$800</span></span>
-                  </label>
-                </div>
-
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-crm" name="services" value="CRM Integration" data-price="800" data-recurring="0" />
-                  <label for="svc-crm">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">CRM Integration</span><span class="cb-price">$800</span></span>
-                  </label>
-                </div>
-
-              </div><!-- end services-grid -->
-              </div><!-- end individual services -->
-
-              <!-- Standalone add-on -->
-              <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(27,42,74,0.08);">
-                <div class="service-checkbox-item">
-                  <input type="checkbox" id="svc-website-design" name="services" value="Website Design" data-price="0" data-recurring="0" />
-                  <label for="svc-website-design">
-                    <span class="cb-box"><svg class="cb-check" viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                    <span class="cb-text"><span class="cb-name">Website Design</span><span class="cb-price" style="color:#64748b;font-size:0.8rem;">Can be paired with any automation package</span></span>
-                  </label>
                 </div>
               </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="preferred-date">Preferred Date</label>
+                  <input type="date" id="preferred-date" name="preferred_date" />
+                </div>
+                <div class="form-group">
+                  <label for="preferred-time">Preferred Time</label>
+                  <input type="time" id="preferred-time" name="preferred_time" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Us About Your Business</label>
+                <textarea id="message" name="message" placeholder="A little about your business and what you're looking for…" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">
+                Send Message
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </form>
+            <div id="form-success" style="display:none; text-align:center; padding: 2rem;">
+              <h3 style="color:#0ea5e9; margin-bottom:0.5rem;">Message Sent!</h3>
+              <p style="color:#4b5563;">We'll get back to you within 24 hours.</p>
             </div>
-
-            <!-- Live Estimate Panel -->
-            <div class="estimate-panel" id="estimatePanel">
-              <div class="estimate-title">Your Estimated Investment</div>
-              <div class="estimate-items" id="estimateItems">
-                <div class="estimate-empty" id="estimateEmpty">Select services above to see your estimate.</div>
-              </div>
-              <div class="estimate-total-row">
-                <span class="estimate-total-label">One-time Total</span>
-                <span class="estimate-total-value" id="estimateTotal">$0</span>
-              </div>
-              <div class="estimate-recurring" id="estimateRecurring" style="display:none;">
-                <span class="estimate-recurring-label">+ Monthly Recurring</span>
-                <span class="estimate-recurring-value" id="estimateRecurringValue">$200/mo</span>
-              </div>
-              <p class="estimate-note">This is an estimate. Final pricing may vary based on project scope. We'll confirm everything before starting.</p>
-              <p class="estimate-package-hint" id="estimatePackageHint" style="display:none;margin-top:0.5rem;font-size:0.8rem;font-weight:400;color:var(--gray-text);">Buying 3 or more services? <a href="#pricing" style="color:var(--gray-text);text-decoration:underline;text-underline-offset:2px;">A package deal</a> will save you money.</p>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Tell Us About Your Business</label>
-              <textarea id="message" name="message" placeholder="A little about your business and what you're looking for…" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Send Message
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -3941,7 +3723,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <!-- REPLACE: LOGO — footer logo -->
-          <a href="#hero" class="footer-logo" aria-label="Anchor Digital — Back to top">
+          <a href="#home" class="footer-logo" aria-label="Anchor Digital — Back to top">
             <img src="brand-assets/Logo.png" alt="Anchor Digital logo" loading="lazy" />
             <div>
               <div class="footer-logo-name">Anchor Digital</div>
@@ -3966,7 +3748,6 @@
           <div class="footer-col-title">Navigation</div>
           <ul class="footer-links">
             <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#why">Why Anchor Digital</a></li>
             <li><a href="#portfolio">Our Work</a></li>
             <li><a href="#process">How It Works</a></li>
@@ -3978,7 +3759,7 @@
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
             <li><a href="#contact">Get a Free Audit</a></li>
-            <li><a href="mailto:hello@anchordigitalfl.com">hello@anchordigitalfl.com</a></li>
+            <li><a href="mailto:jitscaling@gmail.com">jitscaling@gmail.com</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61587474906272" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.linkedin.com/in/alexandrolabori/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
@@ -3986,7 +3767,7 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">&copy; 2026 Anchor Digital FL. All rights reserved.</div>
-        <a href="#hero" class="back-to-top" aria-label="Back to top">
+        <a href="#home" class="back-to-top" aria-label="Back to top">
           Back to top
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
         </a>
@@ -4018,6 +3799,21 @@
 
   <!-- ══════════ JAVASCRIPT ══════════ -->
   <script>
+    // ── Services dropdown ─────────────────────────────────────────
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const dropdown = document.querySelector('.nav-dropdown');
+
+    dropdownToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+
     // ── Navbar scroll effect ──────────────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -4058,7 +3854,7 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // Trigger hero reveals immediately with staggered blur-spring entry
-    document.querySelectorAll('#hero .reveal').forEach((el, i) => {
+    document.querySelectorAll('#home .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), 750 + i * 80);
     });
 
@@ -4125,6 +3921,24 @@
     });
 
 
+    // ── Contact form submission ───────────────────────────────────
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const response = await fetch('https://formspree.io/f/xvznalog', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    });
+
     // ── FAQ Accordion ─────────────────────────────────────────────
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', function() {
@@ -4153,186 +3967,60 @@
       });
     });
 
-    // ── Contact form ──────────────────────────────────────────────
-    const SEND_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>`;
-
-
-    // ── Service Checkbox Estimator ────────────────────────────────
-    function updateEstimate() {
-      const checked = document.querySelectorAll('#servicesGrid input[type="checkbox"]:checked, #packagesGrid input[type="checkbox"]:checked');
-      const itemsEl    = document.getElementById('estimateItems');
-      const emptyEl    = document.getElementById('estimateEmpty');
-      const totalEl    = document.getElementById('estimateTotal');
-      const recurringRow = document.getElementById('estimateRecurring');
-      const recurringVal = document.getElementById('estimateRecurringValue');
-
-      let oneTime  = 0;
-      let monthly  = 0;
-      const lines  = [];
-
-      checked.forEach(cb => {
-        const price   = parseInt(cb.dataset.price, 10);
-        const recurr  = parseInt(cb.dataset.recurring, 10);
-        if (price  > 0) { oneTime += price;  lines.push({ name: cb.value, amount: '$' + price.toLocaleString() }); }
-        if (recurr > 0) { monthly += recurr; }
-      });
-
-      // Rebuild line items
-      itemsEl.innerHTML = '';
-      if (lines.length === 0) {
-        itemsEl.appendChild(emptyEl || (() => { const d = document.createElement('div'); d.className = 'estimate-empty'; d.id = 'estimateEmpty'; d.textContent = 'Select services above to see your estimate.'; return d; })());
-      } else {
-        lines.forEach(l => {
-          const row = document.createElement('div');
-          row.className = 'estimate-line';
-          row.innerHTML = '<span>' + l.name + '</span><span style="font-weight:600;color:var(--navy);">' + l.amount + '</span>';
-          itemsEl.appendChild(row);
-        });
-      }
-
-      // Animate total
-      totalEl.classList.remove('bump');
-      void totalEl.offsetWidth; // reflow
-      totalEl.textContent = '$' + oneTime.toLocaleString();
-      totalEl.classList.add('bump');
-      setTimeout(() => totalEl.classList.remove('bump'), 350);
-
-      // Recurring row
-      if (monthly > 0) {
-        recurringRow.style.display = 'flex';
-        recurringVal.textContent = '$' + monthly.toLocaleString() + '/mo';
-      } else {
-        recurringRow.style.display = 'none';
-      }
-
-      // Package savings hint — show when 3+ individual services selected and no package chosen
-      const svcCount = document.querySelectorAll('#servicesGrid input[type="checkbox"]:checked').length;
-      const pkgSelected = document.querySelector('#packagesGrid input[type="checkbox"]:checked');
-      const hintEl = document.getElementById('estimatePackageHint');
-      if (hintEl) hintEl.style.display = (svcCount >= 3 && !pkgSelected) ? 'block' : 'none';
-    }
-
-    // Services included in each package (maps pkg checkbox id → service checkbox ids to lock)
-    const PACKAGE_INCLUDES = {
-      'pkg-starter':      ['svc-website', 'svc-seo'],
-      'pkg-professional': ['svc-website', 'svc-seo', 'svc-gbp', 'svc-booking'],
-      'pkg-premium':      ['svc-website', 'svc-seo', 'svc-gbp', 'svc-booking', 'svc-maintenance'],
-    };
-
-    function applyPackageLocks() {
-      const activePkg = document.querySelector('#packagesGrid input[type="checkbox"]:checked');
-      const locked = activePkg ? (PACKAGE_INCLUDES[activePkg.id] || []) : [];
-
-      document.querySelectorAll('#servicesGrid input[type="checkbox"]').forEach(cb => {
-        const wrap = cb.closest('.service-checkbox-item');
-        if (locked.includes(cb.id)) {
-          cb.checked = false;
-          cb.disabled = true;
-          wrap.style.opacity = '0.4';
-          wrap.style.pointerEvents = 'none';
-          wrap.title = 'Included in your selected package';
-        } else {
-          cb.disabled = false;
-          wrap.style.opacity = '';
-          wrap.style.pointerEvents = '';
-          wrap.title = '';
-        }
-      });
-    }
-
-    document.querySelectorAll('#servicesGrid input[type="checkbox"], #packagesGrid input[type="checkbox"]').forEach(cb => {
-      cb.addEventListener('change', function() {
-        // Packages are mutually exclusive — uncheck others when one is selected
-        if (this.dataset.package && this.checked) {
-          document.querySelectorAll('#packagesGrid input[type="checkbox"]').forEach(other => {
-            if (other !== this) other.checked = false;
-          });
-        }
-        applyPackageLocks();
-        updateEstimate();
-      });
-    });
-
-    // ── Contact Form Submit ───────────────────────────────────────
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn  = form.querySelector('.form-submit');
-
-      if (btn.disabled) return;
-
-      // Collect selected services (packages + individual)
-      const checked = Array.from(form.querySelectorAll('#servicesGrid input[type="checkbox"]:checked, #packagesGrid input[type="checkbox"]:checked'));
-      const selectedServices = checked.map(cb => cb.value).join(', ') || 'None selected';
-
-      // Build estimate summary
-      let oneTime = 0, monthly = 0;
-      checked.forEach(cb => {
-        oneTime += parseInt(cb.dataset.price, 10);
-        monthly += parseInt(cb.dataset.recurring, 10);
-      });
-      const estimateSummary = '$' + oneTime.toLocaleString() + ' one-time' + (monthly > 0 ? ' + $' + monthly.toLocaleString() + '/mo' : '');
-
-      btn.disabled = true;
-      btn.innerHTML = 'Sending…';
-      btn.style.opacity = '0.75';
-
-      const payload = {
-        name:            form.querySelector('#name').value.trim(),
-        email:           form.querySelector('#email').value.trim(),
-        phone:           form.querySelector('#phone').value.trim(),
-        services:        selectedServices,
-        estimated_total: estimateSummary,
-        message:         form.querySelector('#message').value.trim(),
-      };
-
-      const WEBHOOK_URL = 'https://hook.us2.make.com/1wqermsfmw0xuo63x68ucx0g8ou3ygfy';
-
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-        .then(res => {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          btn.innerHTML = '✓ Message Sent!';
-          btn.style.opacity = '1';
-          btn.style.background = 'linear-gradient(135deg, #1a9e4a, #147a38)';
-          // Show inline success message
-          let successEl = form.querySelector('.form-success-msg');
-          if (!successEl) {
-            successEl = document.createElement('p');
-            successEl.className = 'form-success-msg';
-            successEl.style.cssText = 'margin-top:16px;padding:14px 18px;border-radius:8px;background:rgba(26,158,74,0.12);color:#1a9e4a;font-size:0.95rem;font-weight:600;text-align:center;';
-            form.appendChild(successEl);
-          }
-          successEl.textContent = "Thanks! We'll be in touch within 1 business day.";
-          successEl.style.display = 'block';
-          form.reset();
-          updateEstimate();
-          setTimeout(() => {
-            btn.innerHTML = 'Send Message ' + SEND_ICON;
-            btn.style.background = '';
-            btn.disabled = false;
-            if (successEl) successEl.style.display = 'none';
-          }, 6000);
-        })
-        .catch(err => {
-          console.error('Webhook error:', err);
-          btn.innerHTML = '✗ Failed — try again';
-          btn.style.opacity = '1';
-          btn.style.background = 'linear-gradient(135deg, #c0392b, #922b21)';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.innerHTML = 'Send Message ' + SEND_ICON;
-            btn.style.background = '';
-          }, 4000);
-        });
-    });
   </script>
 
 
 
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Back to Top button -->
+  <style>
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+      color: #ffffff;
+      font-size: 1.25rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,180,216,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.2s ease;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    #back-to-top:hover {
+      box-shadow: 0 8px 24px rgba(0,180,216,0.55);
+      transform: translateY(-2px);
+    }
+    #back-to-top:active { transform: translateY(0); }
+    #back-to-top:focus-visible { outline: 2px solid #00B4D8; outline-offset: 3px; }
+  </style>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script>
+    (function () {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 300);
+      }, { passive: true });
+      btn.addEventListener('click', function () {
+        document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+      });
+    })();
+  </script>
 </body>
 </html>
